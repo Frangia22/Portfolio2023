@@ -1,3 +1,21 @@
+/*--------------------------------------- Variables ---------------------------------------------*/
+:root{
+  
+}
+/*--------------------------------------- Generales ---------------------------------------------*/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img{
+  max-width: 100%;
+}
+body{
+  background: linear-gradient(180deg, var(--light-200-green) 12%, var(--light-500-green) 62%);
+  font-family: 'Mate SC', 'Shadows Into Light', Impact, sans-serif, cursive;
+  min-height: 100vh;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
