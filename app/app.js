@@ -1,12 +1,15 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const dotenv = require('dotenv');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+dotenv.config();
+//console.log(process.env);
 var app = express();
 
 // view engine setup
