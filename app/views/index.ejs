@@ -55,15 +55,18 @@
         <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Habilidades</h1>
       </div>
       <div class="grid grid-cols-2 gap-5 row-gap-6 py-4 bg-white lg:bg-white sm:grid-cols-3 lg:grid-cols-6 md:w-3/5 xl:w-4/5 mx-auto">
+        <% techs.forEach(tech => { %>
         <div class="text-center">
           <div class="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-50">
             <!--<svg class="w-10 h-10 text-deep-purple-accent-400 sm:w-16 sm:h-16" stroke="currentColor" viewBox="0 0 52 52">
               <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
             </svg>--->
-            <img class="w-10 h-10 rounded-full hover:scale-150" src="/Dev.png" alt="">
+            <img class="w-10 h-10 rounded-full hover:scale-150" src="<%= tech.icon %>" alt="">
           </div>
-          <h6 class="mb-2 font-semibold leading-5">CSS</h6>
+          <h6 class="mb-2 font-semibold leading-5"><%= tech.technology %></h6>
         </div>
+        <% }) %>
+        <!--  
         <div class="text-center">
           <div class="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-50">
             <img src="/images/git.svg" alt="" class="w-10 h-10 rounded-full hover:scale-150">
@@ -94,17 +97,52 @@
           </div>
           <h6 class="mb-2 font-semibold leading-5">Fitness</h6>
         </div>
+-->
         <div class="text-center">
           <div class="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-50">
-            <img src="/images/add.svg" alt="" class="w-10 h-10 rounded-full hover:animate-ping">
+            <img src="/images/add.svg" alt="" class="w-10 h-10 rounded-full hover:animate-ping" id="modalAddTech">
           </div>
           <h6 class="mb-2 font-semibold leading-5">Más</h6>
         </div>
+        <!-- Modal add technologies -->
+        <div class="w-full lg:w-1/3 hidden absolute lg:left-1/3  bg-gray-100 rounded-xl" id="addTech">
+          <div class="py-2 border-b-2 border-blue-500">
+            <h1 class="text-center font-semibold text-xl">Agregar Tecnologia</h1>
+          </div>
+            <form action="/addTech" method="post" class="mx-6 mt-4">
+              <div>
+                <label class="block text-gray-700">Tecnologia</label>
+                <input type="text" name="technology" id="technology" placeholder="Ingresar tecnologia" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+      
+              <div class="mt-4">
+                <label class="block text-gray-700">URL o Ruta de la imagen</label>
+                <input type="text" name="icon" id="icon" placeholder="Ingresar ruta" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                      focus:bg-white focus:outline-none">
+              </div>
+              <div class="flex justify-around mb-4 my-6">
+                <a id="addCloseTech" class="block bg-red-500 hover:bg-red-400 focus:bg-red-400 text-white font-semibold rounded-lg
+                    px-6 py-3 mt-3">Cancelar</a>
+                <button type="submit" class="block bg-green-500 hover:bg-green-400 focus:bg-green-400 text-white font-semibold rounded-lg
+                    px-6 py-3 mt-3">Agregar</button>
+              </div>
+      
+            </form>
+        </div>
       </div>
-    </section>
-    
-    
-
+    </section>  
     <%- include('./partials/footer.ejs') %>
+    <script>
+      const modalTech = document.querySelector('#modalAddTech');
+      const addTech = document.querySelector('#addTech');
+      const addClose = document.querySelector('#addCloseTech');
+      modalTech.addEventListener('click', () => {
+        addTech.classList.remove('hidden');
+      });
+      addClose.addEventListener('click', () => {
+        addTech.classList.add('hidden');
+      });
+
+    </script>
   </body>
 </html>
