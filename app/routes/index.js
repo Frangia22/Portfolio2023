@@ -14,6 +14,17 @@ router.post('/addTech', async (req, res) => {
   const techs = await api.getTech();
   res.render('index', { title: 'Fran Giachero || Desarrollador Web', techs })
 });
+/* Delete technology */
+router.get('/:id', async(req, res) => {
+  const techs = await api.getTech();
+  const affectedRows = await api.deleteTech(req.params.id);
+  console.log(req.params.id);
+  if(affectedRows > 0) {
+    res.redirect('/');
+  }else{
+    res.send('Opss, lo siento algo ha salido mal!!');
+  }
+});
 
 /* GET projects. */
 router.get('/projects', function(req, res, next) {

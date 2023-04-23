@@ -64,6 +64,10 @@
             <img class="w-10 h-10 rounded-full hover:scale-150" src="<%= tech.icon %>" alt="">
           </div>
           <h6 class="mb-2 font-semibold leading-5"><%= tech.technology %></h6>
+          <div class="flex items-center justify-evenly">
+            <a href="/<%= tech.id %>"><img src="./images/delete.svg" alt="" class="w-6 h-6"></a>
+            <img src="./images/edit.svg" alt="" class="w-6 h-6">
+          </div>
         </div>
         <% }) %>
         <!--  

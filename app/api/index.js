@@ -19,7 +19,17 @@ const getTech = async () => {
         });
     return techs;
 };
+//Eliminar tecnologia
+const deleteTech = async (idTech) => {
+    const tech = await db.technologies.destroy({
+        where: {
+            id:idTech
+        }
+    });
+    return tech;
+};
 module.exports = {
     addTech,
-    getTech
+    getTech,
+    deleteTech
 };
