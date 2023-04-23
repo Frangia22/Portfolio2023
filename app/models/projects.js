@@ -1,16 +1,8 @@
-'use strict';
+
+/*'use strict';
 const {	Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 	class Projects extends Model {
-		static associate(models) {
-			// define association here
-			Projects.belongsTo(models.technologies,
-				{
-					as: 'technologies',
-					foreignKey: 'idTechnologies'
-				}
-			);
-		}
 	};
 	Projects.init({
 		id: {
@@ -23,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING(60)
       },
-      idTechnologies: {
+      technologies: {
         allowNull: false,
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING(120)
       },
       description: {
           allowNull: false,
@@ -43,8 +35,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 	return Projects;
 };
+*/
 
-/*
 module.exports = (sequelize, DataTypes) => {
     const Projects = sequelize.define( 'projects', {
         id: {
@@ -75,4 +67,4 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false
     });
     return Projects;
-  };*/
+  };
