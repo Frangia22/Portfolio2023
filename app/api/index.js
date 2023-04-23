@@ -28,8 +28,27 @@ const deleteTech = async (idTech) => {
     });
     return tech;
 };
+//Localizar tecnologia por ID
+const getTechById = async (id) => {
+    const tech = await db.technologies.findByPk(id)
+    .then(result => {
+        return result;
+    });
+    return tech;
+};
+//Editar tecnologia
+const updateTech = async(id, technology, icon) => {
+    const tech = await db.technologies.update({technology, icon}, {
+        where: {
+            id
+        }
+    });
+    return tech;
+};
 module.exports = {
     addTech,
     getTech,
-    deleteTech
+    deleteTech,
+    getTechById,
+    updateTech
 };
