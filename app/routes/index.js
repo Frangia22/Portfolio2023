@@ -16,7 +16,7 @@ router.post('/addTech', async (req, res) => {
   res.render('index', { title: 'Fran Giachero || Desarrollador Web', techs })
 });
 /* Delete technology */
-router.get('/:id', async(req, res) => {
+router.get('/deleteTech/:id', async(req, res) => {
   const techs = await api.getTech();
   const affectedRows = await api.deleteTech(req.params.id);
   console.log(req.params.id);
