@@ -49,12 +49,31 @@ router.get('/aboutme', async(req, res, next) => {
 });
 /* Add education - Post */
 router.post('/addEducation', async(req, res) => {
-  const { institute, title, icon, dateStart, dateEnd } = req.body;
+  const { institute, title, icon, dateStart, dateEnd, statusEducation } = req.body;
   const educations = await apiEducation.getEducation();
-  await apiEducation.addEducation(institute, title, icon, dateStart, dateEnd);
+  await apiEducation.addEducation(institute, title, icon, dateStart, dateEnd, statusEducation);
   res.render('pages/aboutme', { title: 'Sobre mí', educations});
 });
-
+/* Delete education */
+router.get('/aboutme/deleteEducation/:id', async(req, res) => {
+const affectedRowsEducation = await apiEducation.deleteEducation(req.params.id);
+if(affectedRowsEducation > 0) {
+  res.redirect('/aboutme');
+}else{
+  res.send('Opss, lo siento algo ha salido mal!!');
+};
+});
+/* Edit education */
+router.get('/aboutme/editEducation/:id', async(req, res) => {
+  const education = await apiEducation.getEducationById(req.params.id);
+  res.render('pages/editEducation', { title: 'Editar Educación', education });
+});
+router.post('/aboutme/editEducation/:id', async(req, res) => {
+  const id = req.params.id;
+  const { institute, title, icon, dateStart, dateEnd, statusEducation } = req.body
+  await apiEducation.updateEducation(id, institute, title, icon, dateStart, dateEnd, statusEducation);
+  res.redirect('/aboutme');
+});
 
 /* GET projects. */
 router.get('/projects', function(req, res, next) {
