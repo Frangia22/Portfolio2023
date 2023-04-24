@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const api = require('../api');
+const apiEducation = require('../api/education');
 
 /* GET home page. */
 router.get('/', async(req, res, next) => {
@@ -40,10 +41,18 @@ router.post('/editTech/:id', async(req, res) => {
 });
 
 
-// CRUD TECHNOLOGIES
+// CRUD Sobre mi
 /* GET about me. */
-router.get('/aboutme', function(req, res, next) {
-  res.render('pages/aboutme', { title: 'Sobre mi' });
+router.get('/aboutme', async(req, res, next) => {
+  const educations = await apiEducation.getEducation();
+  res.render('pages/aboutme', { title: 'Sobre mi', educations });
+});
+/* Add education - Post */
+router.post('/addEducation', async(req, res) => {
+  const { institute, title, icon, dateStart, dateEnd } = req.body;
+  const educations = await apiEducation.getEducation();
+  await apiEducation.addEducation(institute, title, icon, dateStart, dateEnd);
+  res.render('pages/aboutme', { title: 'Sobre mí', educations});
 });
 
 

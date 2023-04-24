@@ -57,16 +57,19 @@
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Educación</h1>
           </div>
           <div class="flex flex-wrap -m-4">
+            <% educations.forEach(education => { %>
             <div class="xl:w-1/3 md:w-1/2 p-4">
-              <div class="border border-gray-200 p-6 rounded-lg bg-gray-200">
+              <div class="border border-gray-200 p-6 rounded-lg bg-gray-100">
                 <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
                   <img src="/images/git.svg" alt="" class="w-6 h-6">
                 </div>
-                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
-                <p class="leading-relaxed text-base">2014 - 2020</p>
-                <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-2"><%= education.title %></h2>
+                <p class="leading-relaxed text-base"><%= education.dateStart.slice(0,4) %> - <%= education.dateEnd.slice(0,4) %></p>
+                <p class="leading-relaxed text-base"><%= education.institute %></p>
               </div>
             </div>
+            <% }) %>
+            <!--  
             <div class="xl:w-1/3 md:w-1/2 p-4">
               <div class="border border-gray-200 p-6 rounded-lg">
                 <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
@@ -113,21 +116,76 @@
                 <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Bunker</h2>
                 <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
               </div>
-            </div>
+            </div>-->
             <div class="xl:w-1/3 md:w-1/2 p-4">
               <div class="border border-gray-200 p-6 rounded-lg">
-                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  </svg>
+                <div class="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-50">
+                  <img src="/images/add.svg" alt="" class="w-10 h-10 rounded-full hover:animate-ping" id="modalAddTech">
                 </div>
-                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Ramona Falls</h2>
-                <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
+                <h6 class="mb-2 font-semibold leading-5 text-center">Más</h6>
               </div>
             </div>
           </div>
+          <!-- Modal add technologies -->
+        <div class="w-full lg:w-1/3 hidden top-full absolute lg:left-1/3  bg-gray-100 rounded-xl" id="addTech">
+          <div class="py-2 border-b-2 border-blue-500">
+            <h1 class="text-center font-semibold text-xl">Agregar Educación</h1>
+          </div>
+            <form action="/addEducation" method="post" class="mx-6 mt-4">
+              <div>
+                <label class="block text-gray-700">Instituto</label>
+                <input type="text" name="institute" id="institute" placeholder="Ingresar instituto" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+      
+              <div class="mt-4">
+                <label class="block text-gray-700">Titulo</label>
+                <input type="text" name="title" id="title" placeholder="Ingresar nombre titulo" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                      focus:bg-white focus:outline-none">
+              </div>
+              <div class="mt-4">
+                <label class="block text-gray-700">URL o Ruta de la imagen</label>
+                <input type="text" name="icon" id="icon" placeholder="Ingresar ruta" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+              <div class="mt-4">
+                <label class="block text-gray-700">Fecha inicio</label>
+                <input type="date" name="dateStart" id="dateStart" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+              <div class="mt-4">
+                <label class="block text-gray-700">Fecha fin</label>
+                <input type="date" name="dateEnd" id="dateEnd" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+              <div class="flex justify-around mb-4 my-6">
+                <a id="addCloseTech" class="block bg-red-500 hover:bg-red-400 focus:bg-red-400 text-white font-semibold rounded-lg
+                    px-6 py-3 mt-3">Cancelar</a>
+                <button type="submit" class="block bg-green-500 hover:bg-green-400 focus:bg-green-400 text-white font-semibold rounded-lg
+                    px-6 py-3 mt-3">Agregar</button>
+              </div>
+      
+            </form>
+        </div>
         </div>
       </section>
       <%- include('../partials/footer.ejs') %>
+      <script>
+        const modalTech = document.querySelector('#modalAddTech');
+        const addTech = document.querySelector('#addTech');
+        const addClose = document.querySelector('#addCloseTech');
+        //const modalEditTech = document.querySelector('#modalEditTech');
+        //const editTech = document.querySelector('#editTech');
+        //const editClose = document.querySelector('#editCloseTech');
+        modalTech.addEventListener('click', () => {
+          addTech.classList.remove('hidden');
+        });
+        addClose.addEventListener('click', () => {
+          addTech.classList.add('hidden');
+        });
+        /*
+        modalEditTech.addEventListener('click', () => {
+          editTech.classList.remove('hidden');
+        });
+        editClose.addEventListener('click', () => {  
+          editTech.classList.add('hidden');
+        });*/
+      </script>
 </body>
 </html>
