@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             type: DataTypes.DATEONLY
         },
+        statusEducation: {
+          allowNull: false,
+          type: DataTypes.STRING(60)
+        }
     },
     {
       freezeTableName: true,
