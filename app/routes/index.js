@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const api = require('../api');
 const apiEducation = require('../api/education');
+const apiExperience = require('../api/experience');
 
 /* GET home page. */
 router.get('/', async(req, res, next) => {
@@ -45,14 +46,16 @@ router.post('/editTech/:id', async(req, res) => {
 /* GET about me. */
 router.get('/aboutme', async(req, res, next) => {
   const educations = await apiEducation.getEducation();
-  res.render('pages/aboutme', { title: 'Sobre mi', educations });
+  const experiences = await apiExperience.getExperience();
+  res.render('pages/aboutme', { title: 'Sobre mi', educations, experiences });
 });
 /* Add education - Post */
 router.post('/addEducation', async(req, res) => {
   const { institute, title, icon, dateStart, dateEnd, statusEducation } = req.body;
   const educations = await apiEducation.getEducation();
+  const experiences = await apiExperience.getExperience();
   await apiEducation.addEducation(institute, title, icon, dateStart, dateEnd, statusEducation);
-  res.render('pages/aboutme', { title: 'Sobre mí', educations});
+  res.render('pages/aboutme', { title: 'Sobre mí', educations, experiences});
 });
 /* Delete education */
 router.get('/aboutme/deleteEducation/:id', async(req, res) => {
@@ -73,6 +76,14 @@ router.post('/aboutme/editEducation/:id', async(req, res) => {
   const { institute, title, icon, dateStart, dateEnd, statusEducation } = req.body
   await apiEducation.updateEducation(id, institute, title, icon, dateStart, dateEnd, statusEducation);
   res.redirect('/aboutme');
+});
+/* Add Experience - Post */
+router.post('/aboutme/addExperience', async(req, res) => {
+  const { company, position, tasks, dateStart, dateEnd } = req.body;
+  const experiences = await apiExperience.getExperience();
+  const educations = await apiEducation.getEducation();
+  await apiExperience.addExperience(company, position, tasks, dateStart, dateEnd);
+  res.render('pages/aboutme', { title: 'Sobre mí', experiences, educations });
 });
 
 /* GET projects. */
