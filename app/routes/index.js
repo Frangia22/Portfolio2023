@@ -3,6 +3,7 @@ var router = express.Router();
 const api = require('../api');
 const apiEducation = require('../api/education');
 const apiExperience = require('../api/experience');
+const db = require('../models');
 
 /* GET home page. */
 router.get('/', async(req, res, next) => {
@@ -77,6 +78,7 @@ router.post('/aboutme/editEducation/:id', async(req, res) => {
   await apiEducation.updateEducation(id, institute, title, icon, dateStart, dateEnd, statusEducation);
   res.redirect('/aboutme');
 });
+/* EXPERIENCIA */
 /* Add Experience - Post */
 router.post('/aboutme/addExperience', async(req, res) => {
   const { company, position, tasks, dateStart, dateEnd } = req.body;
@@ -84,6 +86,26 @@ router.post('/aboutme/addExperience', async(req, res) => {
   const educations = await apiEducation.getEducation();
   await apiExperience.addExperience(company, position, tasks, dateStart, dateEnd);
   res.render('pages/aboutme', { title: 'Sobre mí', experiences, educations });
+});
+/* Delete Experience */
+router.get('/aboutme/deleteExperience/:id', async(req, res) => {
+  const affectedRowsExperience = await apiExperience.deleteExperience(req.params.id);
+  if(affectedRowsExperience > 0){
+    res.redirect('/aboutme');
+  }else{
+    res.send('Opss, lo siento algo ha salido mal!!');
+  };
+});
+/* Edit Experience */
+router.get('/aboutme/editExperience/:id', async(req, res) => {
+  const experience = await apiExperience.getExperienceById(req.params.id);
+  res.render('pages/editExperience', { title: 'Editar Experiencia', experience });
+});
+router.post('/aboutme/editExperience/:id', async(req, res) => {
+  const id = req.params.id;
+  const { company, position, tasks, dateStart, dateEnd } = req.body 
+  await apiExperience.updateExperience(id, company, position, tasks, dateStart, dateEnd);
+  res.redirect('/aboutme');
 });
 
 /* GET projects. */

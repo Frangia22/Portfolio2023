@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs') %>
+<!-- Modal add technologies -->
+<section class="mx-auto my-10">
+    <div class="w-full lg:w-1/3  bg-gray-100 rounded-xl mx-auto" id="addTech">
+        <div class="py-2 border-b-2 border-blue-500">
+          <h1 class="text-center font-semibold text-xl">Editar Experience</h1>
+        </div>
+          <form action="/aboutme/editExperience/<%= experience.id %>" method="post" class="mx-6 mt-4">
+            <div>
+              <label class="block text-gray-700">Empresa</label>
+              <input type="text" value="<%= experience.company %>" name="company" id="company" placeholder="Ingresar empresa" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+            </div>    
+            <div class="mt-4">
+                <label class="block text-gray-700">Puesto</label>
+                <input type="text" value="<%= experience.position %>" name="position" id="position" placeholder="Ingresar nombre del puesto" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                      focus:bg-white focus:outline-none">
+              </div>
+              <div class="mt-4">
+                <label class="block text-gray-700">Tareas realizadas</label>
+                <input type="text" value="<%= experience.tasks %>" name="tasks" id="tasks" placeholder="Ingresar tareas realizadas, separadas por coma" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+              <div class="mt-4">
+                <label class="block text-gray-700">Fecha inicio</label>
+                <input type="date" value="<%= experience.dateStart %>" name="dateStart" id="dateStart" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+              <div class="mt-4">
+                <label class="block text-gray-700">Fecha fin</label>
+                <input type="date" value="<%= experience.dateEnd %>" name="dateEnd" id="dateEnd" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+            <div class="flex justify-around mb-4 my-6">
+              <a href="/aboutme" id="addCloseTech" class="block bg-red-500 hover:bg-red-400 focus:bg-red-400 text-white font-semibold rounded-lg
+                  px-6 py-3 my-3">Cancelar</a>
+              <button type="submit" class="block bg-green-500 hover:bg-green-400 focus:bg-green-400 text-white font-semibold rounded-lg
+                  px-6 py-3 my-3">Guardar</button>
+            </div>
+    
+          </form>
+      </div>
+
+</section>
+<%- include('../partials/footer.ejs') %>
+<script>
+    footerFixed = document.querySelector('footer');
+    footerFixed.classList.add('sticky', 'top-[100vh]');
+    //sticky top-[100vh]
+</script>
+</body>
+</html>

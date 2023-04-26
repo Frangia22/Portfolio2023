@@ -14,6 +14,7 @@ const addExperience = async(company, position, tasks, dateStart, dateEnd) => {
     });
     return experience;
 };
+//Traer Experiencias
 const getExperience = async() => {
     const experiences = await db.experience.findAll()
         .then(result => {
@@ -21,9 +22,38 @@ const getExperience = async() => {
         });
     return experiences;
 };
+//Eliminar experiencia
+const deleteExperience = async(idExperience) => {
+    const experience = await db.experience.destroy({
+        where: {
+            id:idExperience
+        }
+    });
+    return experience;
+};
+//Localizar experiencia por ID
+const getExperienceById = async(id) => {
+    const experience = await db.experience.findByPk(id)
+    .then(result => {
+        return result;
+    });
+    return experience;
+}
+//Editar Experiencia
+const updateExperience = async(id, company, position, tasks, dateStart, dateEnd) => {
+    const experience = await db.experience.update({ company, position, tasks, dateStart, dateEnd}, {
+        where: {
+            id
+        }
+    });
+    return experience;
+}
 
 module.exports = {
     addExperience,
-    getExperience
+    getExperience,
+    deleteExperience,
+    getExperienceById,
+    updateExperience
 
 };
