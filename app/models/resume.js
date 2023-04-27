@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         resume: {
           allowNull: false,
-          type: DataTypes.STRING(160)
+          type: DataTypes.TEXT('long')
         },
     },
     {

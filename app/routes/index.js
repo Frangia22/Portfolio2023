@@ -3,6 +3,7 @@ var router = express.Router();
 const api = require('../api');
 const apiEducation = require('../api/education');
 const apiExperience = require('../api/experience');
+const apiResume = require('../api/resume');
 const db = require('../models');
 
 /* GET home page. */
@@ -48,7 +49,8 @@ router.post('/editTech/:id', async(req, res) => {
 router.get('/aboutme', async(req, res, next) => {
   const educations = await apiEducation.getEducation();
   const experiences = await apiExperience.getExperience();
-  res.render('pages/aboutme', { title: 'Sobre mi', educations, experiences });
+  const resumes = await apiResume.getResume();
+  res.render('pages/aboutme', { title: 'Sobre mi', educations, experiences, resumes });
 });
 /* Add education - Post */
 router.post('/addEducation', async(req, res) => {
@@ -105,6 +107,37 @@ router.post('/aboutme/editExperience/:id', async(req, res) => {
   const id = req.params.id;
   const { company, position, tasks, dateStart, dateEnd } = req.body 
   await apiExperience.updateExperience(id, company, position, tasks, dateStart, dateEnd);
+  res.redirect('/aboutme');
+});
+
+/* RESUME */
+/* Add Resume - Post */
+router.post('/aboutme/addResume', async(req, res) => {
+  const { resume } = req.body;
+  const educations = await apiEducation.getEducation();
+  const experiences = await apiExperience.getExperience();
+  const resumes = await apiResume.getResume();
+  await apiResume.addResume(resume);
+  res.render('pages/aboutme', { title: 'Sobre mí', educations, experiences, resumes});
+});
+/* Delete Resume */
+router.get('/aboutme/deleteResume/:id', async(req, res) => {
+const affectedRowsResume = await apiResume.deleteResume(req.params.id);
+if(affectedRowsResume > 0) {
+  res.redirect('/aboutme');
+}else{
+  res.send('Opss, lo siento algo ha salido mal!!');
+};
+});
+/* Edit Resume */
+router.get('/aboutme/editResume/:id', async(req, res) => {
+  const resume = await apiResume.getResumeById(req.params.id);
+  res.render('pages/editResume', { title: 'Editar Resumen', resume });
+});
+router.post('/aboutme/editResume/:id', async(req, res) => {
+  const id = req.params.id;
+  const { resume } = req.body
+  await apiResume.updateResume(id, resume);
   res.redirect('/aboutme');
 });
 
