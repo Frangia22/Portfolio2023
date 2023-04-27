@@ -10,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
           allowNull: false,
           type: DataTypes.TEXT('long')
         },
+        motivationalPhrase: {
+          allowNull: false,
+          type: DataTypes.STRING(100)
+        }
     },
     {
       freezeTableName: true,

@@ -113,11 +113,11 @@ router.post('/aboutme/editExperience/:id', async(req, res) => {
 /* RESUME */
 /* Add Resume - Post */
 router.post('/aboutme/addResume', async(req, res) => {
-  const { resume } = req.body;
+  const { resume, motivationalPhrase } = req.body;
   const educations = await apiEducation.getEducation();
   const experiences = await apiExperience.getExperience();
   const resumes = await apiResume.getResume();
-  await apiResume.addResume(resume);
+  await apiResume.addResume(resume, motivationalPhrase);
   res.render('pages/aboutme', { title: 'Sobre mí', educations, experiences, resumes});
 });
 /* Delete Resume */
@@ -136,8 +136,8 @@ router.get('/aboutme/editResume/:id', async(req, res) => {
 });
 router.post('/aboutme/editResume/:id', async(req, res) => {
   const id = req.params.id;
-  const { resume } = req.body
-  await apiResume.updateResume(id, resume);
+  const { resume, motivationalPhrase } = req.body
+  await apiResume.updateResume(id, resume, motivationalPhrase);
   res.redirect('/aboutme');
 });
 

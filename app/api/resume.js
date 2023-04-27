@@ -4,9 +4,10 @@ const { sequelize, Op } = require('sequelize');
 const db = require('../models');
 
 //Agregar Experiencia
-const addResume = async(resume) => {
+const addResume = async(resume, motivationalPhrase) => {
     const resumen = await db.resume.create({
-        resume
+        resume,
+        motivationalPhrase
     });
     return resumen;
 };
@@ -36,8 +37,8 @@ const getResumeById = async(id) => {
     return resumen;
 }
 //Editar Experiencia
-const updateResume = async(id, resume) => {
-    const resumen = await db.resume.update({ resume }, {
+const updateResume = async(id, resume, motivationalPhrase) => {
+    const resumen = await db.resume.update({ resume, motivationalPhrase }, {
         where: {
             id
         }
