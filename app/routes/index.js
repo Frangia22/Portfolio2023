@@ -4,6 +4,7 @@ const api = require('../api');
 const apiEducation = require('../api/education');
 const apiExperience = require('../api/experience');
 const apiResume = require('../api/resume');
+const apiProject = require('../api/projects');
 const db = require('../models');
 
 /* GET home page. */
@@ -142,9 +143,42 @@ router.post('/aboutme/editResume/:id', async(req, res) => {
 });
 
 /* GET projects. */
-router.get('/projects', function(req, res, next) {
-  res.render('pages/projects', { title: 'Proyectos' });
+// CRUD PROJECTS
+router.get('/projects', async(req, res) => {
+  const projects = await apiProject.getProject();
+  const techs = await api.getTech();
+  res.render('pages/projects', { title: 'Proyectos', projects, techs });
 });
+/* Add project */
+router.post('/projects/addProject', async(req, res) => {
+  const { name, technologies, description, image } = req.body;
+  await apiProject.addProject(name, technologies, description, image);
+  const techs = await api.getTech();
+  const projects = await apiProject.getProject();
+  res.render('pages/projects', { title: 'Proyectos', projects, techs});
+});
+/* Delete project */
+router.get('/projects/deleteProject/:id', async(req, res) => {
+  const affectedRowsProject = await apiProject.deleteProject(req.params.id);
+  if(affectedRowsProject > 0) {
+    res.redirect('/projects');
+  }else{
+    res.send('Opss, lo siento algo ha salido mal!!');
+  }
+});
+/* Edit Project */
+router.get('/projects/editProject/:id', async(req, res) => {
+  const project = await apiProject.getProjectById(req.params.id);
+  const techs = await api.getTech();
+  res.render('pages/editProjects', { title: 'Editar proyecto', project, techs});
+});
+router.post('/projects/editProject/:id', async(req, res) => {
+  const id = req.params.id;
+  const { name, technologies, description, image } = req.body
+  await apiProject.updateProject(id, name, technologies, description, image);
+  res.redirect('/projects')
+});
+
 /* GET contact. */
 router.get('/contact', function(req, res, next) {
   res.render('pages/contact', { title: 'Contacto' });

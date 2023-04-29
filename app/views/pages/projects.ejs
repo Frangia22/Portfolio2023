@@ -6,77 +6,128 @@
     <section class="py-6">
         <div class="px-4 py-8 bg-white mx-auto xl:w-4/5 md:px-24 lg:px-8">
             <div class="grid gap-5 row-gap-10 lg:grid-cols-2">
-              <div class="flex flex-col justify-center">
+              <% projects.forEach(project => { %>
+              <div class="flex flex-col justify-center lg:border-b-2 lg:border-blue-400">
                 <div class="max-w-xl mb-6">
                   <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                    Nombre<br class="hidden md:block" />
-                    Proyecto
+                    <%= project.name %>
                   </h2>
                   <p class="text-base text-gray-700 md:text-lg">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
+                    <%= project.description %>
                   </p>
                 </div>
                 <p class="mb-4 text-sm font-bold tracking-widest uppercase">Tecnologias</p>
                 <div class="grid space-y-3 sm:gap-2 sm:grid-cols-2 sm:space-y-0">
-                  <ul class="space-y-3">
+                  <ul class="space-y-3 columns-3">                      
+                    <% project.technologies.split(",").forEach(tech => {  %>
+                      <% if (tech != "") { %>  
                     <li class="flex">
                       <span class="mr-1">
                         <img src="/images/programming.svg" alt="" class="w-5 h-5 mt-px text-deep-purple-accent-400 hover:animate-pulse">
-                        <!-- <svg class="w-5 h-5 mt-px text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
-                          <polygon stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-                        </svg> -->
                       </span>
-                      A slice of heaven
+                      <%= tech %>
                     </li>
-                    <li class="flex">
-                      <span class="mr-1">
-                        <img src="/images/programming.svg" alt="" class="w-5 h-5 mt-px text-deep-purple-accent-400 hover:scale-150">
-                      </span>
-                      Disrupt inspire
-                    </li>
-                    <li class="flex">
-                      <span class="mr-1">
-                        <svg class="w-5 h-5 mt-px text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
-                          <polygon stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-                        </svg>
-                      </span>
-                      Preliminary thinking
-                    </li>
+                    <% } else {%>
+                      <li class="flex">
+                        <span class="mr-1">
+                          <img src="/images/programming.svg" alt="" class="w-5 h-5 mt-px text-deep-purple-accent-400 hover:animate-pulse">
+                        </span>
+                        No fueron especificadas
+                      </li>
+                    <% } %>
+                    <% }) %>
                   </ul>
-                  <ul class="space-y-3">
-                    <li class="flex">
-                      <span class="mr-1">
-                        <svg class="w-5 h-5 mt-px text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
-                          <polygon stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-                        </svg>
-                      </span>
-                      Flipboard curmudgeon
-                    </li>
-                    <li class="flex">
-                      <span class="mr-1">
-                        <svg class="w-5 h-5 mt-px text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
-                          <polygon stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-                        </svg>
-                      </span>
-                      Storage shed
-                    </li>
-                    <li class="flex">
-                      <span class="mr-1">
-                        <svg class="w-5 h-5 mt-px text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
-                          <polygon stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-                        </svg>
-                      </span>
-                      Satoshi Nakamoto
-                    </li>
-                  </ul>
+                </div>
+                <div class="flex justify-evenly">
+                  <a href="/projects/editProject/<%= project.id %>"><img src="./images/edit.svg" alt="" class="w-6 h-6 mt-2"></a>
+                  <a href="/projects/deleteProject/<%= project.id %>"><img src="./images/delete.svg" alt="" class="w-6 h-6 mt-2"></a>
                 </div>
               </div>
               <div>
                 <img class="object-cover w-full h-56 rounded shadow-lg sm:h-96" src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260" alt="" />
               </div>
+            <% }) %>
+            </div>
+            <!-- Si estoy logueado, muestro esto -->
+            <div class="py-8 flex flex-wrap md:flex-nowrap">
+              <div class="w-full">
+                <div class="border border-gray-200 p-6 rounded-lg">
+                  <div class="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-50">
+                    <img src="/images/add.svg" alt="" class="w-10 h-10 rounded-full hover:animate-ping" id="modalAddProject">
+                  </div>
+                  <h6 class="mb-2 font-semibold leading-5 text-center">Más</h6>
+                </div>
+              </div>
+            </div>
+            <!-- Modal add Project -->
+            <div class="w-full lg:w-1/3 hidden top-1/4 absolute lg:left-1/3  bg-gray-100 rounded-xl" id="addProject">
+              <div class="py-2 border-b-2 border-blue-500">
+                <h1 class="text-center font-semibold text-xl">Agregar Proyecto</h1>
+              </div>
+                <form action="/projects/addProject" method="post" class="mx-6 mt-4">
+                  <div>
+                    <label class="block text-gray-700">Nombre del Proyecto</label>
+                    <input type="text" name="name" id="name" placeholder="Ingresar el Nombre del Proyecto" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+                  </div>
+          
+                  <div class="mt-4">
+                    <label class="block text-gray-700">Tecnologias usadas</label>
+                    <!-- <input type="text" name="technologies" id="technologies" placeholder="Ingresar tecnologias usadas" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 
+                          focus:bg-white focus:outline-none">-->
+                              <% techs.forEach(tech => { %>
+                                <label class="mx-3"><input type="checkbox" class="tech mx-1" value="<%= tech.technology %>"><%= tech.technology %></label>
+                              <!-- <option value=" tech.technology %>"> tech.technology %></option> -->
+                              <% }) %>
+                              <input type="button" class="block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
+                              px-6 py-1 mt-3"  value="Guardar" onclick="Technologies()">
+                  </div>
+                  <div class="mt-4">
+                    <label class="block text-gray-700">Techs</label>
+                    <input type="text" id="technologies" name="technologies" placeholder="Ingresar ruta" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+                  </div>
+                  <div class="mt-4">
+                    <label class="block text-gray-700">Descripción del proyecto</label>
+                    <textarea name="description" id="description" placeholder="Ingresar descripción del proyecto" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus rows="3"></textarea>
+                  </div>
+                  <div class="mt-4">
+                    <label class="block text-gray-700">URL o Ruta de la imagen</label>
+                    <input type="text" name="image" id="image" placeholder="Ingresar ruta" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+                  </div>
+                  <div class="flex justify-around mb-4 my-6">
+                    <a id="addCloseProject" class="block bg-red-500 hover:bg-red-400 focus:bg-red-400 text-white font-semibold rounded-lg
+                        px-6 py-3 mt-3">Cancelar</a>
+                    <button type="submit" class="block bg-green-500 hover:bg-green-400 focus:bg-green-400 text-white font-semibold rounded-lg
+                        px-6 py-3 mt-3">Agregar</button>
+                  </div>
+          
+                </form>
             </div>
         </div>
     </section>
     <%- include('../partials/footer.ejs') %>
+    <script>
+      const modalProject = document.querySelector('#modalAddProject');
+      const addProject = document.querySelector('#addProject');
+      const addClose = document.querySelector('#addCloseProject');
+      modalProject.addEventListener('click', () => {
+        addProject.classList.remove('hidden');
+      });
+      addClose.addEventListener('click', () => {
+          addProject.classList.add('hidden');
+      });
+      const techs = document.querySelector('#technologies');
+      var Technologies = function(){
+        let lstNumero = document.getElementsByClassName("tech"),
+            technologies = [];         
+        for (var i = 0; i < lstNumero.length; i++) {  
+          if(lstNumero[i].checked)  {
+            technologies[i] = lstNumero[i].value;
+            //console.log (lstNumero[i].value);     
+          }
+            }      
+            console.log(technologies.flat().toString()); 
+            techs.value = technologies.flat().toString();
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs') %>
+<!-- Modal add technologies -->
+<section class="mx-auto my-10">
+    <div class="w-full lg:w-1/3  bg-gray-100 rounded-xl mx-auto" id="addTech">
+        <div class="py-2 border-b-2 border-blue-500">
+          <h1 class="text-center font-semibold text-xl">Editar Proyecto</h1>
+        </div>
+          <form action="/projects/editProject/<%= project.id %>" method="post" class="mx-6 mt-4">
+            <div>
+              <label class="block text-gray-700">Nombre del proyecto</label>
+              <input type="text" value="<%= project.name %>" name="name" id="name" placeholder="Ingresar nombre del proyecto" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+            </div>
+            <div class="mt-4">
+                <label class="block text-gray-700">Tecnologias usadas</label>
+                          <% techs.forEach(tech => { %>
+                            <label class="mx-3"><input type="checkbox" class="tech mx-1" value="<%= tech.technology %>"><%= tech.technology %></label>
+                          <% }) %>
+                          <input type="button" class="block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
+                          px-6 py-1 mt-3"  value="Guardar" onclick="Technologies()">
+            </div> 
+            <div class="mt-4">
+                <input type="text" value="<%= project.technologies %>" id="technologies" name="technologies" placeholder="Ingresar ruta" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+            <div class="mt-4">
+                <label class="block text-gray-700">Descripción del proyecto</label>
+                <textarea name="description" value="<%= project.description %>" id="description" placeholder="Ingresar descripción del proyecto" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus rows="3"></textarea>
+              </div>   
+              <div class="mt-4">
+                <label class="block text-gray-700">URL o Ruta de la imagen</label>
+                <input type="text" name="image" id="image" placeholder="Ingresar ruta" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete>
+              </div>
+            <div class="flex justify-around mb-4 my-6">
+              <a href="/projects" id="addCloseTech" class="block bg-red-500 hover:bg-red-400 focus:bg-red-400 text-white font-semibold rounded-lg
+                  px-6 py-3 my-3">Cancelar</a>
+              <button type="submit" class="block bg-green-500 hover:bg-green-400 focus:bg-green-400 text-white font-semibold rounded-lg
+                  px-6 py-3 my-3">Guardar</button>
+            </div>
+    
+          </form>
+      </div>
+
+</section>
+<%- include('../partials/footer.ejs') %>
+<script>
+    footerFixed = document.querySelector('footer');
+    footerFixed.classList.add('sticky', 'top-[100vh]');
+    //sticky top-[100vh]
+    const techs = document.querySelector('#technologies');
+      var Technologies = function(){
+        let lstNumero = document.getElementsByClassName("tech"),
+            technologies = [];         
+        for (var i = 0; i < lstNumero.length; i++) {  
+          if(lstNumero[i].checked)  {
+            technologies[i] = lstNumero[i].value;
+            //console.log (lstNumero[i].value);     
+          }
+            }      
+            console.log(technologies.flat().toString()); 
+            techs.value = technologies.flat().toString();
+        }
+</script>
+</body>
+</html>
