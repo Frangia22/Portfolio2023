@@ -152,8 +152,8 @@ router.get('/projects', async(req, res) => {
 });
 /* Add project */
 router.post('/projects/addProject', async(req, res) => {
-  const { name, technologies, description, image } = req.body;
-  await apiProject.addProject(name, technologies, description, image);
+  const { name, technologies, description, image, domain, repoGit } = req.body;
+  await apiProject.addProject(name, technologies, description, image, domain, repoGit);
   const techs = await api.getTech();
   const projects = await apiProject.getProject();
   res.render('pages/projects', { title: 'Proyectos', projects, techs});
@@ -175,8 +175,8 @@ router.get('/projects/editProject/:id', async(req, res) => {
 });
 router.post('/projects/editProject/:id', async(req, res) => {
   const id = req.params.id;
-  const { name, technologies, description, image } = req.body
-  await apiProject.updateProject(id, name, technologies, description, image);
+  const { name, technologies, description, image, domain, repoGit } = req.body
+  await apiProject.updateProject(id, name, technologies, description, image, domain, repoGit);
   res.redirect('/projects')
 });
 

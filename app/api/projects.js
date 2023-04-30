@@ -20,18 +20,20 @@ const getProjectById = async(id) => {
     return project;
 }
 //Agregar proyecto
-const addProject = async(name, technologies, description, image) => {
+const addProject = async(name, technologies, description, image, domain, repoGit) => {
     const project = await db.projects.create({
         name,
         technologies,
         description,
-        image
+        image,
+        domain,
+        repoGit
     });
     return project;
 }
 //Editar proyecto
-const updateProject = async(id, name, technologies, description, image) => {
-    const project = await db.projects.update({name, technologies, description, image}, {
+const updateProject = async(id, name, technologies, description, image, domain, repoGit) => {
+    const project = await db.projects.update({name, technologies, description, image, domain, repoGit}, {
         where: {
             id
         }

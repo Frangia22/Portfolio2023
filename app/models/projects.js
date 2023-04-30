@@ -60,6 +60,14 @@ module.exports = (sequelize, DataTypes) => {
         image: {
             allowNull: false,
             type: DataTypes.STRING(160)
+        },
+        domain: {
+            allowNull: false,
+            type: DataTypes.STRING(160)
+        },
+        repoGit: {
+            allowNull: false,
+            type: DataTypes.STRING(200)
         }
     },
     {
