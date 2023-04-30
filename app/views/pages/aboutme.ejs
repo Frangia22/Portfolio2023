@@ -55,7 +55,7 @@
             <div class="py-8 flex flex-wrap md:flex-nowrap">
               <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                 <span class="font-semibold title-font text-gray-700"><%= experience.company %></span>
-                <span class="mt-1 text-gray-500 text-sm"><%= experience.dateStart.slice(0,7) %> - <%= experience.dateEnd.slice(0,7) %></span>
+                <span class="mt-1 text-gray-500 text-sm"><%= experience.dateStart.slice(0,7) %> - <% if(experience.dateEnd.slice(0,7) == '2023-04') { %>Actualidad <% }else{ %> <%= experience.dateEnd.slice(0,7) %><% } %></span>
               </div>
               <div class="md:flex-grow">
                 <h2 class="text-2xl font-medium text-gray-900 title-font mb-2"><%= experience.position %></h2>                
@@ -63,7 +63,12 @@
                   <% experience.tasks.split(",").forEach(task => {  %>
                     <% if (task != "") { %>
                     <li class="flex items-center space-x-3">
-                        <span>&#127863;</span><%= task %>
+                        <!-- <span>&#127863;</span> -->
+                        <% if (experience.company == "Latin Cloud") { %>
+                        <img src="./images/server.svg" class="w-5 h-5" alt=""><%= task %>
+                        <% }else{ %>
+                          <img src="./images/wifi.svg" class="w-6 h-6" alt=""><%= task %>
+                        <% } %>
                     </li>
                     <% } else {%>
                     <li class="flex items-center space-x-3">
