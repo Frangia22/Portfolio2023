@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         icon: {
             allowNull: false,
-            type: DataTypes.STRING(60)
+            type: DataTypes.STRING(120)
         },
         dateStart: {
             allowNull: false,

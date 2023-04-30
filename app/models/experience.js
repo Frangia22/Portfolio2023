@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         tasks: {
             allowNull: false,
-            type: DataTypes.STRING(120)
+            type: DataTypes.STRING(200)
         },
         dateStart: {
             allowNull: false,

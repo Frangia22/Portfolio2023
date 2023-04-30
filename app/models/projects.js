@@ -47,19 +47,19 @@ module.exports = (sequelize, DataTypes) => {
         },
         name: {
           allowNull: false,
-          type: DataTypes.STRING(60)
+          type: DataTypes.STRING(100)
         },
         technologies: {
           allowNull: false,
-          type: DataTypes.STRING(100)
+          type: DataTypes.STRING(200)
         },
         description: {
             allowNull: false,
-            type: DataTypes.STRING(120)
+            type: DataTypes.STRING(200)
         },
         image: {
             allowNull: false,
-            type: DataTypes.STRING(60)
+            type: DataTypes.STRING(160)
         }
     },
     {

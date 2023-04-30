@@ -58,8 +58,9 @@ router.post('/addEducation', async(req, res) => {
   const { institute, title, icon, dateStart, dateEnd, statusEducation } = req.body;
   const educations = await apiEducation.getEducation();
   const experiences = await apiExperience.getExperience();
+  const resumes = await apiResume.getResume();
   await apiEducation.addEducation(institute, title, icon, dateStart, dateEnd, statusEducation);
-  res.render('pages/aboutme', { title: 'Sobre mí', educations, experiences});
+  res.render('pages/aboutme', { title: 'Sobre mí', educations, experiences, resumes});
 });
 /* Delete education */
 router.get('/aboutme/deleteEducation/:id', async(req, res) => {
