@@ -45,10 +45,24 @@ const updateTech = async(id, technology, icon) => {
     });
     return tech;
 };
+//Traer usuario y contraseña
+const getUser = async(username, password) => {
+    const user = await db.users.findAll({
+        where: {
+            username: username,
+            password: password
+        }
+    })
+    .then(result => {
+        return result;
+    })
+    return user;
+};
 module.exports = {
     addTech,
     getTech,
     deleteTech,
     getTechById,
-    updateTech
+    updateTech,
+    getUser
 };

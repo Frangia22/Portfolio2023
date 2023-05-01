@@ -4,12 +4,14 @@ var path = require('path');
 const dotenv = require('dotenv');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 dotenv.config();
 //console.log(process.env);
+console.log(process.env.SESSION_SECRET);
 var app = express();
 
 // view engine setup
@@ -21,6 +23,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 60000,
+  }
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
