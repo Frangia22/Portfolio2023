@@ -10,15 +10,19 @@
             <% resumes.forEach(resume => { %>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-justify"><%= resume.resume %></p>
             <h3 class="lg:w-2/3 mx-auto py-2 leading-relaxed font-semibold text-xl text-center">"<%= resume.motivationalPhrase %>"</h3>
+            <% if(logueado) { %>
             <div class="flex justify-evenly">
               <a href="/aboutme/editResume/<%= resume.id %>"><img src="./images/edit.svg" alt="" class="w-6 h-6 mt-2"></a>
               <a href="/aboutme/deleteResume/<%= resume.id %>"><img src="./images/delete.svg" alt="" class="w-6 h-6 mt-2"></a>
             </div>
+            <% } %>
             <% }) %>
           </div>
+          <% if(logueado) { %>
           <div class="flex justify-evenly">
             <a id="modalAddResume"><img src="./images/add.svg" alt="" class="w-6 h-6 mt-2"></a>            
           </div>
+          <% } %>
           <!-- Modal add resume -->
           <div class="w-full lg:w-1/3 hidden top-2/4 absolute lg:left-1/3  bg-gray-100 rounded-xl" id="addResume">
             <div class="py-2 border-b-2 border-blue-500">
@@ -78,13 +82,16 @@
                   <% }) %>
                 </ul>            
               </div>
+              <% if(logueado) { %>
               <div class="flex-row self-end">
                 <a href="/aboutme/deleteExperience/<%= experience.id %>"><img src="./images/delete.svg" alt="" class="w-6 h-6 mb-2"></a>
                 <a href="/aboutme/editExperience/<%= experience.id %>"><img src="./images/edit.svg" alt="" class="w-6 h-6 mt-2"></a>
               </div>
+              <% } %>
             </div>
             <% }) %>
             <!-- Si estoy logueado, muestro esto -->
+            <% if(logueado) { %>
             <div class="py-8 flex flex-wrap md:flex-nowrap">
               <div class="w-full">
                 <div class="border border-gray-200 p-6 rounded-lg">
@@ -96,6 +103,7 @@
               </div>
             </div>
           </div>
+          <% } %>
           <!-- Modal add Experience -->
           <div class="w-full lg:w-1/3 hidden top-2/4 absolute lg:left-1/3  bg-gray-100 rounded-xl" id="addExperience">
             <div class="py-2 border-b-2 border-blue-500">
@@ -150,14 +158,17 @@
                 <h2 class="text-lg text-gray-900 font-medium title-font mb-2"><%= education.title %></h2>
                 <p class="leading-relaxed text-base"><%= education.dateStart.slice(0,4) %> - <%= education.dateEnd.slice(0,4) %> <em>(<%= education.statusEducation %>)</em></p>
                 <p class="leading-relaxed text-base"><%= education.institute %></p>
+                <% if(logueado) { %>
                 <div class="flex items-center justify-evenly mt-2">
                   <a href="/aboutme/deleteEducation/<%= education.id %>"><img src="./images/delete.svg" alt="" class="w-6 h-6"></a>
                   <a href="/aboutme/editEducation/<%= education.id %>"><img src="./images/edit.svg" alt="" class="w-6 h-6"></a>
                 </div>
+                <% } %>
               </div>
             </div>
             <% }) %>
             <!-- Si estoy logueado, muestro esto -->
+            <% if(logueado) { %>
             <div class="xl:w-1/3 md:w-1/2 p-4 mx-auto">
               <div class="border border-gray-200 p-6 rounded-lg">
                 <div class="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-50">
@@ -167,6 +178,7 @@
               </div>
             </div>
           </div>
+          <% } %>
           <!-- Modal add Educations -->
         <div class="w-full lg:w-1/3 hidden top-full absolute lg:left-1/3  bg-gray-100 rounded-xl" id="addTech">
           <div class="py-2 border-b-2 border-blue-500">

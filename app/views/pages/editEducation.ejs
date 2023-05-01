@@ -6,6 +6,7 @@
 <!-- Modal add technologies -->
 <section class="mx-auto my-10">
     <div class="w-full lg:w-1/3  bg-gray-100 rounded-xl mx-auto" id="addTech">
+      <% if(logueado) { %>
         <div class="py-2 border-b-2 border-blue-500">
           <h1 class="text-center font-semibold text-xl">Editar Educación</h1>
         </div>
@@ -47,6 +48,11 @@
             </div>
     
           </form>
+          <% }else{ %>
+            <div class="py-2 border-b-2 border-blue-500">
+              <h1 class="text-center font-semibold text-xl">No tienes permisos para estar acá</h1>
+            </div>
+          <% } %>
       </div>
 
 </section>

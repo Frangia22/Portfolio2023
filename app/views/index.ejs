@@ -64,19 +64,23 @@
             <img class="w-10 h-10 rounded-full hover:scale-150" src="<%= tech.icon %>" alt="">
           </div>
           <h6 class="mb-2 font-semibold leading-5"><%= tech.technology %></h6>
+          <% if(logueado) { %>
           <div class="flex items-center justify-evenly">
             <a href="/deleteTech/<%= tech.id %>"><img src="./images/delete.svg" alt="" class="w-6 h-6"></a>
             <a href="/editTech/<%= tech.id %>"><img src="./images/edit.svg" alt="" class="w-6 h-6"></a>
           </div>
+          <% } %>
         </div>
         <% }) %>
         <!-- Si estoy logueado muestro esta opción -->
+        <% if(logueado) { %>
         <div class="text-center">
           <div class="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-indigo-50">
             <img src="/images/add.svg" alt="" class="w-10 h-10 rounded-full hover:animate-ping" id="modalAddTech">
           </div>
           <h6 class="mb-2 font-semibold leading-5">Más</h6>
         </div>
+        <% } %>
         <!-- Modal add technologies -->
         <div class="w-full lg:w-1/3 hidden absolute lg:left-1/3  bg-gray-100 rounded-xl" id="addTech">
           <div class="py-2 border-b-2 border-blue-500">
