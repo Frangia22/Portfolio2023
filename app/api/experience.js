@@ -16,7 +16,11 @@ const addExperience = async(company, position, tasks, dateStart, dateEnd) => {
 };
 //Traer Experiencias
 const getExperience = async() => {
-    const experiences = await db.experience.findAll()
+    const experiences = await db.experience.findAll({
+        order: [
+            [ 'dateEnd', 'DESC'],
+        ]
+    })
         .then(result => {
             return result;
         });

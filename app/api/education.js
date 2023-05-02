@@ -17,7 +17,11 @@ const addEducation = async (institute, title, icon, dateStart, dateEnd, statusEd
 };
 //Traer todas las educaciones
 const getEducation = async() => {
-    const educations = await db.education.findAll()
+    const educations = await db.education.findAll({
+        order: [
+            [ 'dateEnd', 'DESC'],
+        ]
+    })
         .then(result => {
             return result;
         });
