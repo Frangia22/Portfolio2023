@@ -3,7 +3,7 @@
     "username": "root",
     "password": "secret",
     "database": "portfolio",
-    "host": "192.168.0.159",
+    "host": "192.168.0.239",
     "port": "3307",
     "dialect": "mysql"
   },
@@ -19,7 +19,7 @@
     "username": "root",
     "password": "secret",
     "database": "portfolio",
-    "host": "192.168.0.159",
+    "host": "192.168.0.239",
     "port": "3307",
     "dialect": "mysql"
   }

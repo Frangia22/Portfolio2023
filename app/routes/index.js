@@ -5,6 +5,7 @@ const apiEducation = require('../api/education');
 const apiExperience = require('../api/experience');
 const apiResume = require('../api/resume');
 const apiProject = require('../api/projects');
+const bcrypt = require('bcrypt');
 const db = require('../models');
 
 /* GET home page. */
@@ -218,15 +219,16 @@ router.post('/loginAdmin', async(req, res) => {
   const usuario = await api.getUser(req.body.username, req.body.password);
   let logueado;
   const { username, password } = req.body;
+  const passMatch = await bcrypt.compare(username, password);
   if(username && password) {
-    if(usuario.length > 0) {
+    if(!passMatch) {
       req.session.loggedin = true;
       res.redirect('/');
     }else{
       res.render('pages/loginAdmin', { title: 'Administrador', message: 'El usuario o contraseña son incorrectos', logueado});
     }
   }else {
-    res.render('pages/loginAdmin', { title: 'Administrador', message: 'Por favor ingres un usuario y contraseña', logueado });
+    res.render('pages/loginAdmin', { title: 'Administrador', message: 'Por favor ingrese un usuario y contraseña', logueado });
   }
 });
 router.get('/logout', async(req, res) => {
