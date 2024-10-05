@@ -9,9 +9,11 @@ export default {
       'onest': ['Onest', 'sans-serif'],
     },
     colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
       primary: '#010038',
       secondaryBlue: '#293A80',
-      ternartyBlue: '"537EC5',
+      ternartyBlue: '#537EC5',
       white: '#efe9f4',
       foreground: '#171d1c',
       yellowGray: '#F39422'
