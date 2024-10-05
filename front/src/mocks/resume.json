@@ -1,0 +1,10 @@
+[
+    {
+            "gretting": "Hola, soy Francisco Giachero",
+            "workstation": "Desarrollador Frontend",
+            "specialty": "Especializado en el desarrollo de aplicaciones web",
+            "email": "contacto@devfg.com.ar",
+            "linkedin": "https://ar.linkedin.com/in/frangiachero-developerweb",
+            "image": "./avatar.png"   
+    }
+]
