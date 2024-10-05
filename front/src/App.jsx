@@ -1,15 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
+import { Navbar } from './components/Navbar/Navbar'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h1 className='text-primary font-mono text-2xl'>Hello World!!</h1>
-    </>
+    <main className='bg-primary/95 min-h-screen'>
+      <BrowserRouter>
+        <Navbar />
+        <h1 className='text-primary font-mono text-2xl'>Hello World!!</h1>
+      </BrowserRouter>
+    </main>
   )
 }
 
