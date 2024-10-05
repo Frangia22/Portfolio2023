@@ -5,12 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'onest': ['Onest', 'sans-serif'],
+    },
     colors: {
-      primary: '#5863f8',
-      mayaBlue: '#5fbff9',
+      primary: '#010038',
+      secondaryBlue: '#293A80',
+      ternartyBlue: '"537EC5',
       white: '#efe9f4',
       foreground: '#171d1c',
-      greenGray: '#16bac5'
+      yellowGray: '#F39422'
     },
     extend: {},
   },
