@@ -1,13 +1,18 @@
 import { BrowserRouter } from 'react-router-dom'
 import './App.css'
 import { Navbar } from './components/Navbar/Navbar'
+import { Route } from 'react-router-dom'
+import { Resume } from './views/Resume'
+import { Routes } from 'react-router-dom'
 
 function App() {
   return (
     <main className='bg-primary/95 min-h-screen'>
       <BrowserRouter>
         <Navbar />
-        <h1 className='text-primary font-mono text-2xl'>Hello World!!</h1>
+        <Routes>
+          <Route path='/' Component={Resume} /> 
+        </Routes>       
       </BrowserRouter>
     </main>
   )
