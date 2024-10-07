@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import resume from '../mocks/resume.json'
-export function Resume () {
+export default function Resume () {
     return (
-        <header className='w-full md:w-3/4 lg:w-3/5 mx-auto flex justify-around items-center'>
+        <header className='w-full md:w-3/4 lg:w-3/5 mx-auto flex justify-around items-center py-8'>
             {resume.map((section) => (
             <>
-                <img className='size-52 opacity-90 drop-shadow-2xl' src={section.image} alt="" />
+                <img className='size-52 drop-shadow-2xl' src={section.image} alt="" />
                 <article>
                     <h2 className='text-white text-4xl text-balance'>{section.gretting}</h2>
                     <p className='text-yellowGray text-2xl'>{section.workstation}</p>
