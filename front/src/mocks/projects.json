@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Herreria SG",
+        "description": "Web corporativa estática, exposición de trabajos realizados y información de contacto",
+        "image": "https://devfg.com.ar/images/hsg.png",
+        "technologies": ["React", "Node", "Express"],
+        "url": "https://www.google.com",
+        "github": "https://github.com"
+    },
+    {
+        "id": 2,
+        "title": "Laimpresioneta3d",
+        "description": "Web para exponer proyectos realizados con impresión 3d y grabado laser como también los servicios prestados",
+        "image": "https://devfg.com.ar/images/laimpresioneta.avif",
+        "technologies": ["React", "Node", "Express"],
+        "url": "https://www.google.com",
+        "github": "https://github.com"
+    }
+]
