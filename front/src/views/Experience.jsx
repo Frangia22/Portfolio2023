@@ -1,7 +1,7 @@
 import experiences from '../mocks/experience.json'
-export function Experience() {
+export function Experience({ id }) {
   return (
-    <section className='w-full md:w-3/4 lg:w-3/5 mx-auto py-4'>
+    <section id={id} className='w-full md:w-3/4 lg:w-3/5 mx-auto py-4'>
       <h2 className="text-white text-xl my-4">Experiencia</h2>
       {experiences.map((experience) => (
         <article key={experience.id} className='border-l-2 border-solid border-l-white px-4 pt-2 pb-8 mx-4 relative'>
