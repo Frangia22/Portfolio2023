@@ -1,4 +1,8 @@
 {
   "title": "About Us",
-  "content": "We are a team of developers who love to create and innovate. We are passionate about technology and we are always looking for new challenges. We are constantly learning and improving our skills to offer the best solutions to our clients."
+  "content": [
+      "Soy Francisco con un gran interés en el mundo  tecnológico. Me adentré en el campo del desarrollo a principios de 2020. Desde entonces,  he estado involucrado en diversos proyectos propios y colaborativos,  con el objetivo de ampliar mi experiencia y enriquecer mi  currículum.",
+      "Además de mi experiencia en desarrollo web, también tengo  experiencia trabajando en infraestructura. Esto me ha  brindado una visión integral del campo de la tecnología y me ha  permitido desarrollar habilidades adicionales en el ámbito de la  infraestructura.",
+      "Mi objetivo a mediano o corto plazo, es poder estar aportando mis conocimientos en distintos sitios web."
+  ]
 }

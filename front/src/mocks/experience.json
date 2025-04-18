@@ -1,18 +1,26 @@
 [
   {
     "id": 1,
-    "company": "Company 1",
-    "position": "Position 1",
-    "startDate": "2020-01-01",
-    "endDate": "2020-12-31",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nisl ultricies tincidunt. Nullam nec purus nec nisl ultricies tincidunt. Nullam nec purus nec nisl ultricies tincidunt. Nullam nec purus nec nisl"
+    "company": "Sitsa Telecomunicaciones",
+    "position": "Técnico en redes", 
+    "startDate": "2020-01-03",
+    "endDate": "2021-06-03",
+    "description": "Instalación de antenas y equipos, configuración de redes, soporte técnico a clientes, mantenimiento de equipos, resolución de problemas."
   },
   {
     "id": 2,
-    "company": "Company 2",
-    "position": "Position 2",
-    "startDate": "2021-01-01",
-    "endDate": "2021-12-31",
-    "description": "Description 2"
+    "company": "Latin Cloud",
+    "position": "Operaciones N1", 
+    "startDate": "2021-10-20",
+    "endDate": "2024-10-20",
+    "description": "Resolución de tickets, monitoreo y supervisación de servidores, instalación de sistema operativo linux y windows, mantenimiento de equipos, resolución de problemas."
+  },
+  {
+    "id": 3,
+    "company": "Dewedd",
+    "position": "Developer Frontend",
+    "startDate": "2024-06-03",
+    "endDate": "Actualidad",
+    "description": "Desarrollo de aplicaciones web, maquetación de interfaces, resolución de problemas, mantenimiento de aplicaciones, despliegue de aplicaciones, trabajo con metodologías ágiles."
   }
 ]
