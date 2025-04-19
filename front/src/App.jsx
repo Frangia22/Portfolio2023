@@ -6,7 +6,7 @@ import { About } from './views/About'
 
 function App() {
   return (
-    <main className='bg-primary/95 min-h-screen'>
+    <main className='dark:bg-[#131C24] bg-[#F5F7FA] min-h-screen'>
       <Router>
         <Navbar />
         <Routes>
