@@ -1,10 +1,12 @@
 import aboutText from '../mocks/about.json'
 export function About({ id }) {
   return (
-    <section id={id} className="w-full md:w-3/4 lg:w-3/5 mx-auto py-4">
-      <h2 className="text-white text-xl my-4">Sobre mi</h2>
+    <section id={id} className="w-full md:w-3/4 lg:w-3/5 mx-auto py-[40px]">
+      <h2 className="text-white font-onest font-bold text-[24px] my-[24px]">Sobre mi</h2>
       <article className='py-2 px-4'>
-        <p className='text-white/75 prose'>{aboutText.content}</p>
+        {aboutText.content.map((content, index) => (
+          <p className='text-whiteSecondary prose max-w-full text-[18px]' key={index}>{content}</p>
+        ))}
       </article>
     </section>
   )
