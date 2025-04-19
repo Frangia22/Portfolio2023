@@ -3,15 +3,15 @@ import projects from '../mocks/projects.json'
 export default function Projects({ id }) {
     return (
         <section id={id} className="w-full md:w-3/4 lg:w-3/5 mx-auto py-[40px]">
-            <h2 className="text-white font-onest font-bold text-[24px] my-[20px]">Proyectos</h2>
+            <h2 className="dark:text-white text-black font-onest font-bold text-[24px] my-[20px]">Proyectos</h2>
             <div className='flex flex-col gap-[25px]'>
                 {
                     projects.map((project) => (
                         <div key={project.id} className='flex justify-evenly items-center my-4 mx-8 gap-12 w-full'>
                             <img className='rounded-2xl w-72 h-48 aspect-auto object-cover' src={project.image} alt="" />
                             <article className="p-2 rounded-lg flex flex-col justify-between w-full">
-                                <h3 className="text-white text-xl font-semibold my-[12px]">{project.title}</h3>
-                                <p className="text-whiteSecondary my-[20px]">{project.description}</p>
+                                <h3 className="dark:text-white text-black text-xl font-semibold my-[12px]">{project.title}</h3>
+                                <p className="dark:text-whiteSecondary text-blackSecondary my-[20px]">{project.description}</p>
                                 <div className="flex gap-4 my-[24px]">
                                     <Button variant='border'>
                                         <a href={project.github} className="flex justify-between items-center gap-2 ">

@@ -3,14 +3,14 @@ import resume from '../mocks/resume.json'
 import { Button } from '../components/Buttons/Button'
 export default function Resume({ id }) {
     return (
-        <header id={id} className='w-full md:w-3/4 lg:w-3/5 mx-auto py-8'>
+        <header id={id} className='w-full md:w-3/4 lg:w-3/5 mx-auto pt-[60px] pb-[30px]'>
             {resume.map((section, index) => (
                 <div className='flex justify-around items-center' key={index}>
                     <img className='size-52 drop-shadow-2xl' src={section.image} alt="" />
                     <article className='flex flex-col gap-[10px]'>
-                        <h2 className='dark:text-[#F8FAFC] text-[#0F172A] text-4xl text-balance'>{section.gretting}</h2>
-                        <p className='dark:text-dark-yellow text-[#F59E0B]  text-2xl'>{section.workstation}</p>
-                        <p className='dark:text-[#CBD5E1] text-[#475569] text-base'>{section.specialty}</p>
+                        <h2 className='dark:text-dark-white text-black text-4xl text-balance'>{section.gretting}</h2>
+                        <p className='dark:text-dark-yellow text-primary  text-2xl'>{section.workstation}</p>
+                        <p className='dark:text-dark-whiteSecondary text-blackSecondary text-base'>{section.specialty}</p>
                         <div className='flex gap-4 my-4'>
                             <Button>
                                 <Link className='flex items-center justify-between gap-2' to={`mailto:${section.email}`}>

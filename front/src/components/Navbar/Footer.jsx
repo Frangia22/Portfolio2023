@@ -5,7 +5,7 @@ export function Footer({ id }) {
   return (
     <footer id={id} className='w-full md:w-3/4 lg:w-3/5 mx-auto py-4 flex justify-around items-center'>
       <img className="size-12 drop-shadow-xl" src="https://raw.githubusercontent.com/Frangia22/Portfolio/5be067ff404d04846a7bac7f9a3f6d8af12e76f2/static/img/fg-dev.svg" alt="Logo devfg" />
-      <p className="text-white">Derechos reservados 2024</p>
+      <p className="dark:text-white text-black">Derechos reservados 2024</p>
       <div className="flex gap-2 items-center">
         <Button>
           <Link to={`mailto:hola`} >
