@@ -3,7 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 
 export function Navbar() {
     return (
-        <nav className='dark:bg-[#253645] bg-[#abacaf] w-full mb-5 md:w-3/4 lg:w-3/5 top-5 md:top-3 mx-auto sticky rounded-full shadow-lg md:px-4 z-10'>
+        <nav className='dark:bg-[#253645] bg-[#abacaf] mb-5 lg:w-4/5 xl:w-3/5 top-5 md:top-3 mx-[10px] md:mx-[25px] lg:mx-auto sticky rounded-full shadow-lg md:px-4 z-10'>
             <ul className="flex justify-evenly items-center w-full">
                 <ScrollLink smooth={true} offset={-50} duration={500} to='#experience' className='inline-block p-2 md:p-4 dark:text-dark-whiteSecondary text-blackSecondary dark:hover:text-dark-white hover:text-black font-onest font-semibold hover:font-bold hover:scale-105'>Experiencia</ScrollLink>
                 <ScrollLink smooth={true} offset={-50} duration={500} to='#projects' className='inline-block p-2 md:p-4 dark:text-dark-whiteSecondary text-blackSecondary dark:hover:text-dark-white hover:text-black font-onest font-semibold hover:font-bold hover:scale-105'>Proyectos</ScrollLink>
