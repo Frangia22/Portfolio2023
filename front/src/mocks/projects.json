@@ -1,20 +1,53 @@
 [
     {
         "id": 1,
-        "title": "Herreria SG",
-        "description": "Web corporativa estática, exposición de trabajos realizados y información de contacto",
-        "image": "https://devfg.com.ar/images/hsg.png",
-        "technologies": ["React", "Node", "Express"],
-        "url": "https://www.google.com",
-        "github": "https://github.com"
+        "title": "Car Service",
+        "description": "Web para la gestión de un taller mecánico, con registro de clientes, vehículos y servicios prestados",
+        "image": "https://devfg.com.ar/images/carservice.png",
+        "technologies": ["React", "DaisyUI", "Tailwind Css", "Node", "Express", "Mysql"],
+        "github": "https://github.com/Frangia22/CarService/tree/dev"
     },
     {
         "id": 2,
+        "title": "Control de gastos",
+        "description": "Aplicación web para el control de gastos personales, con registro de ingresos y egresos, y generación grafico anual",
+        "image": "https://devfg.com.ar/images/controlgastos.png",
+        "technologies": ["React", "Tailwind Css", "Node", "Express", "Mysql", "Chart.js", "JWT", "Docker"],
+        "url": "https://controlgastos.proyectolandia.com.ar",
+        "github": "https://github.com/Frangia22/Control-de-gastos"
+    },
+    {
+        "id": 3,
         "title": "Laimpresioneta3d",
         "description": "Web para exponer proyectos realizados con impresión 3d y grabado laser como también los servicios prestados",
         "image": "https://devfg.com.ar/images/laimpresioneta.avif",
-        "technologies": ["React", "Node", "Express"],
+        "technologies": ["Html", "Css", "Node", "Express", "Docker", "Mysql"],
         "url": "https://www.google.com",
-        "github": "https://github.com"
+        "github": "https://github.com/Frangia22/laimpresioneta3d/tree/main"
+    },
+    {
+        "id": 4,
+        "title": "Luz y Fuerza LBYE",
+        "description": "Sistema de gestión de turnos de complejo polideportivo, balance de ingresos y egresos ",
+        "image": "https://devfg.com.ar/images/lyf.avif",
+        "technologies": ["Python", "Django", "Bootstrap", "Postgresql", "Html", "Css", "Javascript"],
+        "github": "https://github.com/Frangia22/Web-Luz-y-Fuerza"
+    },
+    {
+        "id": 5,
+        "title": "Herreria SG",
+        "description": "Web corporativa estática, exposición de trabajos realizados y información de contacto",
+        "image": "https://devfg.com.ar/images/hsg.png",
+        "technologies": ["Html", "Css", "Javascript", "Bootstrap"],
+        "github": "https://github.com/Frangia22/HerreriaSGlbye.github.io"
+    },
+    {
+        "id": 6,
+        "title": "Web Clima",
+        "description": "Aplicación web para la consulta del clima, con registro de ciudades y pronóstico extendido",
+        "image": "https://devfg.com.ar/images/webclima.png",
+        "technologies": ["Html", "Css", "Javascript", "API rest"],
+        "url": "https://webclima.proyectolandia.com.ar/",
+        "github": "https://github.com/Frangia22/webClima"
     }
 ]

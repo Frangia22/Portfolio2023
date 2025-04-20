@@ -6,7 +6,7 @@ export default function Resume({ id }) {
         <header id={id} className='mx-[10px] md:mx-[25px] lg:w-4/5 xl:w-3/5 lg:mx-auto pt-[60px] pb-[30px]'>
             {resume.map((section, index) => (
                 <div className='grid gap-[30px] md:grid-cols-2 place-content-around place-items-center' key={index}>
-                    <img className='size-52 drop-shadow-2xl' src={section.image} alt="" />
+                    <img className='size-52 rounded-[20px] drop-shadow-2xl' src={section.image} alt="" />
                     <article className='flex flex-col gap-[10px]'>
                         <h2 className='dark:text-dark-white text-black text-4xl text-balance'>{section.gretting}</h2>
                         <p className='dark:text-dark-yellow text-primary  text-2xl'>{section.workstation}</p>
