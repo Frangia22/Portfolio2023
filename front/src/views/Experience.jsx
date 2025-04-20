@@ -1,7 +1,7 @@
 import experiences from '../mocks/experience.json'
 export function Experience({ id }) {
   return (
-    <section id={id} className='mx-[10px] md:mx-[25px] lg:w-4/5 xl:w-3/5 lg:mx-auto py-[40px]'>
+    <section id={id} className='mx-[10px] md:mx-[25px] lg:w-4/5 xl:w-3/5 lg:mx-auto py-[20px] md:py-[40px]'>
       <h2 className="dark:text-white text-black font-onest font-bold text-[24px] pb-[24px] my-[24px]">Experiencia</h2>
       {experiences.toReversed().map((experience) => (
         <article key={experience.id} className='border-l-2 border-solid dark:border-l-white border-l-black px-4 pt-[16px] pb-[40px] mx-4 relative group'>
