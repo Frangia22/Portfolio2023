@@ -2,13 +2,13 @@ import { Button } from '../components/Buttons/Button'
 import projects from '../mocks/projects.json'
 export default function Projects({ id }) {
     return (
-        <section id={id} className="mx-[10px] md:mx-[25px] lg:w-4/5 xl:w-3/5 lg:mx-auto py-[40px]">
+        <section id={id} className="mx-[10px] sm:mx-[25px] lg:w-4/5 xl:w-3/5 lg:mx-auto py-[40px]">
             <h2 className="dark:text-white text-black font-onest font-bold text-[24px] my-[20px]">Proyectos</h2>
             <div className='flex flex-col gap-[25px]'>
                 {
                     projects.map((project) => (
                         <div key={project.id} className='flex flex-col md:grid md:grid-cols-2 md:place-content-evenly md:place-items-center gap-[20px] lg:my-4 lg:mx-8 lg:gap-12 w-full'>
-                            <div className='relative group rounded-2xl w-full md:w-[320px] h-48'>
+                            <div className='relative group rounded-2xl w-full md:w-[320px] h-48 sm:h-64 md:h-48'>
                                 <img className='rounded-2xl group-hover:transition-all group-hover:duration-300 group-hover:ease-in-out group-hover:scale-95 scale-105 w-full h-full aspect-auto object-cover border-2 border-solid dark:border-foreground border-secondaryBlue' src={project.image} alt={project.title} />
                                 {project.url && <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 scale-105 group-hover:scale-95">
                                     <div className="flex justify-center items-center h-full text-white">
