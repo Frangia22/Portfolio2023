@@ -3,7 +3,7 @@ import { Button } from "../Buttons/Button";
 
 export function Footer({ id }) {
   return (
-    <footer id={id} className='mx-[10px] md:mx-[25px] lg:w-4/5 xl:w-3/5 lg:mx-auto py-4 flex flex-wrap justify-around items-center'>
+    <footer id={id} className='mx-[10px] mb-[50px] md:mb-0 md:mx-[25px] lg:w-4/5 xl:w-3/5 lg:mx-auto py-4 flex flex-wrap justify-around items-center'>
       <img className="size-12 drop-shadow-xl" src="https://raw.githubusercontent.com/Frangia22/Portfolio/5be067ff404d04846a7bac7f9a3f6d8af12e76f2/static/img/fg-dev.svg" alt="Logo devfg" />
       <p className="dark:text-white text-black grow order-3 md:order-none text-center py-[20px] md:py-0">Derechos reservados 2024</p>
       <div className="flex gap-2 items-center">
