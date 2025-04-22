@@ -9,7 +9,7 @@ export default function Projects({ id }) {
                     projects.map((project) => (
                         <div key={project.id} className='flex flex-col md:grid md:grid-cols-2 md:place-content-evenly md:place-items-center gap-[20px] lg:my-4 lg:mx-8 lg:gap-12 w-full'>
                             <div className='relative group rounded-2xl w-full md:w-[320px] h-48 sm:h-64 md:h-48'>
-                                <img className='rounded-2xl group-hover:transition-all group-hover:duration-300 group-hover:ease-in-out group-hover:scale-95 scale-105 w-full h-full aspect-auto object-cover border-2 border-solid dark:border-foreground border-secondaryBlue' src={project.image} alt={project.title} />
+                                <img loading='lazy' className='rounded-2xl group-hover:transition-all group-hover:duration-300 group-hover:ease-in-out group-hover:scale-95 scale-105 w-full h-full aspect-auto object-cover border-2 border-solid dark:border-foreground border-secondaryBlue' src={project.image} alt={project.title} />
                                 {project.url && <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 scale-105 group-hover:scale-95">
                                     <div className="flex justify-center items-center h-full text-white">
                                         <Button variant='border' className="!outline-none !shadow-none !text-white">
@@ -26,7 +26,7 @@ export default function Projects({ id }) {
                                 <p className="dark:text-whiteSecondary text-blackSecondary my-[20px]">{project.description}</p>
                                 <div className='flex flex-wrap gap-[5px]'>
                                     {project.technologies.map((technology, index) => (
-                                        <span key={index} class="rounded-full shadow-md odd:dark:bg-foreground/40 even:dark:bg-foreground/80 odd:bg-secondaryBlue/40 even:bg-secondaryBlue/80 px-2.5 py-0.5 text-sm whitespace-nowrap dark:text-white text-black">
+                                        <span key={index} className="rounded-full shadow-md odd:dark:bg-foreground/40 even:dark:bg-foreground/80 odd:bg-secondaryBlue/40 even:bg-secondaryBlue/80 px-2.5 py-0.5 text-sm whitespace-nowrap dark:text-white text-black">
                                             {technology}
                                         </span>
                                     ))}

@@ -54,7 +54,7 @@ export function Navbar() {
     }, []);
     return (
         <nav className='dark:bg-[#253645] bg-[#abacaf] md:mb-5 w-full md:w-auto lg:w-4/5 xl:w-3/5 md:top-3 md:mx-[25px] lg:mx-auto fixed bottom-0 md:sticky rounded-t-[20px] md:rounded-full shadow-lg py-[16px] md:py-0 md:px-4 z-10'>
-            <ul className="flex justify-evenly items-center w-full">
+            <div className="flex justify-evenly items-center w-full">
                 {LINKS.map((link, index) => (
                     <ScrollLink key={index} smooth={true} offset={-50} duration={500} to={link.to} className={`md:inline-block md:p-4 ${activeSection === `${link.to}` ? 'text-black dark:text-dark-white dark:fill-white fill-black transition-opacity duration-500' : 'dark:text-dark-whiteSecondary text-blackSecondary'} dark:hover:text-dark-white hover:text-black font-onest font-semibold hover:font-bold hover:scale-105 text-[12px] md:text-[16px] flex flex-col gap-[5px] items-center`}>
                         {activeSection === `${link.to}` ? link.iconActive : link.icon}
@@ -62,7 +62,7 @@ export function Navbar() {
                     </ScrollLink>
                 ))}
                 <Link className='hidden md:inline-block p-2 md:p-4 dark:text-dark-whiteSecondary text-blackSecondary dark:hover:text-dark-white hover:text-black font-onest font-semibold hover:font-bold hover:scale-105'>Contacto</Link>
-            </ul>
+            </div>
         </nav>
     )
 }
