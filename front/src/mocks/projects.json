@@ -5,6 +5,7 @@
         "description": "Web para la gestión de un taller mecánico, con registro de clientes, vehículos y servicios prestados",
         "image": "https://devfg.com.ar/images/carservice.png",
         "technologies": ["React", "DaisyUI", "Tailwind Css", "Node", "Express", "Mysql"],
+        "url": "https://carservi.proyectolandia.com.ar",
         "github": "https://github.com/Frangia22/CarService/tree/dev"
     },
     {
