@@ -8,9 +8,9 @@ export default function Projects({ id }) {
                 {
                     projects.map((project) => (
                         <div key={project.id} className='flex flex-col md:grid md:grid-cols-2 md:place-content-evenly md:place-items-center gap-[20px] lg:my-4 lg:mx-8 lg:gap-12 w-full'>
-                            <div className='relative group rounded-2xl w-full md:w-[320px] h-48 sm:h-64 md:h-48'>
-                                <img loading='lazy' className='rounded-2xl group-hover:transition-all group-hover:duration-300 group-hover:ease-in-out group-hover:scale-95 scale-105 w-full h-full aspect-auto object-cover border-2 border-solid dark:border-foreground border-secondaryBlue' src={project.image} alt={project.title} />
-                                {project.url && <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 scale-105 group-hover:scale-95">
+                            <div className='relative group rounded-2xl w-full md:w-[320px] h-48 sm:h-64 md:h-48 transition duration-500 ease-in-out transform shadow-xl overflow-clip md:group-hover:shadow-2xl group-hover:scale-110'>
+                                <img loading='lazy' className='rounded-2xl w-full h-full aspect-auto object-cover object-top transition duration-500 md:scale-110 md:group-hover:scale-105 border-2 border-solid dark:border-foreground border-secondaryBlue' src={project.image} alt={project.title} />
+                                {project.url && <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 scale-105 group-hover:scale-110">
                                     <div className="flex justify-center items-center h-full text-white">
                                         <Button variant='border' className="!outline-none !shadow-none !text-white">
                                             <a href={project.url} className="flex justify-between items-center gap-2">
