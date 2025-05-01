@@ -1,5 +1,7 @@
 import { Button } from '../components/Buttons/Button'
 import projects from '../mocks/projects.json'
+import Astropos from 'atropos/react'
+import 'atropos/css'
 export default function Projects({ id }) {
     return (
         <section id={id} className="mx-[10px] sm:mx-[25px] lg:w-4/5 xl:w-3/5 lg:mx-auto py-[40px]">
@@ -8,7 +10,7 @@ export default function Projects({ id }) {
                 {
                     projects.map((project) => (
                         <div key={project.id} className='flex flex-col md:grid md:grid-cols-2 md:place-content-evenly md:place-items-center gap-[20px] lg:my-4 lg:mx-8 lg:gap-12 w-full'>
-                            <div className='relative group rounded-2xl w-full md:w-[320px] h-48 sm:h-64 md:h-48 transition duration-500 ease-in-out transform shadow-xl overflow-clip md:group-hover:shadow-2xl group-hover:scale-110'>
+                            <Astropos highlight={false} rotateYMax={8} className='relative group rounded-2xl w-full md:w-[320px] h-48 sm:h-64 md:h-48 transition duration-500 ease-in-out transform shadow-xl overflow-clip md:group-hover:shadow-2xl group-hover:scale-110'>
                                 <img loading='lazy' className='rounded-2xl w-full h-full aspect-auto object-cover object-top transition duration-500 md:scale-110 md:group-hover:scale-105 border-2 border-solid dark:border-foreground border-secondaryBlue' src={project.image} alt={project.title} />
                                 {project.url && <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 scale-105 group-hover:scale-110">
                                     <div className="flex justify-center items-center h-full text-white">
@@ -20,15 +22,18 @@ export default function Projects({ id }) {
                                         </Button>
                                     </div>
                                 </div>}
-                            </div>
+                            </Astropos>
                             <article className="p-2 rounded-lg flex flex-col justify-between w-full">
                                 <h3 className="dark:text-white text-black text-xl font-semibold my-[12px]">{project.title}</h3>
                                 <p className="dark:text-whiteSecondary text-blackSecondary my-[20px]">{project.description}</p>
                                 <div className='flex flex-wrap gap-[5px]'>
                                     {project.technologies.map((technology, index) => (
-                                        <span key={index} className="rounded-full shadow-md odd:dark:bg-foreground/40 even:dark:bg-foreground/80 odd:bg-secondaryBlue/40 even:bg-secondaryBlue/80 px-2.5 py-0.5 text-sm whitespace-nowrap dark:text-white text-black">
+                                        <Astropos key={index}
+                                            className="rounded-full odd:dark:bg-foreground/40 even:dark:bg-foreground/80 odd:bg-secondaryBlue/40 even:bg-secondaryBlue/80"
+                                            innerClassName="rounded-full shadow-md px-2.5 py-0.5 text-sm whitespace-nowrap dark:text-white text-black"
+                                            data-atropos-opacity="0.1;0.5">
                                             {technology}
-                                        </span>
+                                        </Astropos>
                                     ))}
                                 </div>
                                 <div className="flex flex-col min-[390px]:flex-row gap-4 my-[24px]">
