@@ -18,4 +18,5 @@
 
 body {
     font-family: 'Space Grotesk Variable', sans-serif;
+    background-color: var(--color-background);
 }
