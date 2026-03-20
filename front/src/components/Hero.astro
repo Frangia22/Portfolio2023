@@ -1,0 +1,167 @@
+---
+import { HeroTerminal } from "./HeroTerminal";
+---
+
+<section
+  class="min-h-screen flex items-center bg-background justify-center relative overflow-hidden pl-20 pr-10 pt-16"
+>
+  {/* grid bg */}
+  <div
+    style={{
+      position: "absolute",
+      inset: 0,
+      backgroundImage:
+        "linear-gradient(rgba(0,229,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.04) 1px,transparent 1px)",
+      backgroundSize: "32px 32px",
+      pointerEvents: "none",
+    }}
+  >
+  </div>
+  {/* glow */}
+  <div
+    style={{
+      position: "absolute",
+      right: "10%",
+      top: "30%",
+      width: 600,
+      height: 600,
+      borderRadius: "50%",
+      background:
+        "radial-gradient(circle,rgba(0,229,255,0.08) 0%,transparent 70%)",
+      pointerEvents: "none",
+    }}
+  >
+  </div>
+
+  <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
+    {/* left */}
+    <div class="flex flex-col gap-6">
+      <div
+        id="pre-headline-badge"
+        class="transform-y-20 transition-all duration-500 ease-out 100ms"
+      >
+        <span
+          class="font-jetbrains-mono text-sm text-primary bg-quinary border border-tertiary rounded-md px-3 py-1.5 inline-flex items-center gap-1.5"
+        >
+          [ Senior Full-Stack Developer ]<span class="animate-blink">_</span>
+        </span>
+      </div>
+      <div
+        id="main-headline"
+        class="transition-all duration-500 ease-out 200ms"
+      >
+        <h1
+          class="font-space-grotesk font-bold text-6xl text-white leading-none tracking-[-2px]"
+        >
+          Construyo productos<br /><span class="text-primary">que escalan.</span
+          >
+        </h1>
+      </div>
+      <div id="subheadline" class="transition-all duration-500 ease-out 350ms">
+        <p
+          class="font-space-grotesk text-sm text-secondary leading-relaxed max-w-96"
+        >
+          Frontend + Backend + AI. Ayudo a empresas y startups a lanzar software
+          real, no demos.
+        </p>
+      </div>
+      <div
+        id="cta-row"
+        class="transform-y-20 transition-all duration-500 ease-out 480ms flex gap-3 flex-wrap"
+      >
+        <button
+          id="primary-cta"
+          class="bg-primary text-black font-space-grotesk font-medium text-sm rounded-md px-4 py-2 cursor-pointer transition-all duration-300 hover:bg-[#00B8CC] hover:shadow-md hover:shadow-primary/40 hover:scale-105"
+          >Ver proyectos</button
+        >
+        <button
+          id="secondary-cta"
+          class="border border-primary text-primary bg-transparent font-space-grotesk font-medium text-sm rounded-md
+          px-4 py-2 cursor-pointer transition-all duration-300 hover:bg-primary/8"
+          >Hablemos</button
+        >
+      </div>
+      <div
+        id="social-links-row"
+        class="transform-y-20 transition-all duration-500 ease-out 600ms flex gap-5"
+      >
+        {
+          ["GitHub", "LinkedIn", "X / Twitter"].map((s) => (
+            <span class="font-space-grotesk text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150">
+              {s}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+    {/* right */}
+    <div
+      id="hero-terminal"
+      class="transform-y-20 transition-all duration-500 ease-out 600ms"
+    >
+      <HeroTerminal client:load />
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const preHeadlineBadge = document.getElementById("pre-headline-badge");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      preHeadlineBadge.style.transform = "translateY(0)";
+    } else {
+      preHeadlineBadge.style.transform = "translateY(20px)";
+    }
+  });
+  const ctaRow = document.getElementById("cta-row");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      ctaRow.style.transform = "translateY(0)";
+    } else {
+      ctaRow.style.transform = "translateY(20px)";
+    }
+  });
+  const heroTerminal = document.getElementById("hero-terminal");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      heroTerminal.style.transform = "translateY(0)";
+    } else {
+      heroTerminal.style.transform = "translateY(20px)";
+    }
+  });
+  const socialLinksRow = document.getElementById("social-links-row");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      socialLinksRow.style.transform = "translateY(0)";
+    } else {
+      socialLinksRow.style.transform = "translateY(20px)";
+    }
+  });
+  const primaryCta = document.getElementById("primary-cta");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      primaryCta.style.transform = "translateY(0)";
+    } else {
+      primaryCta.style.transform = "translateY(20px)";
+    }
+  });
+  const secondaryCta = document.getElementById("secondary-cta");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      secondaryCta.style.transform = "translateY(0)";
+    } else {
+      secondaryCta.style.transform = "translateY(20px)";
+    }
+  });
+</script>

@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@import "@fontsource-variable/space-grotesk";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+    --font-space-grotesk: 'Space Grotesk Variable', sans-serif;
+    --font-jetbrains-mono: 'JetBrains Mono', monospace;
+    --font-clash-display: 'Clash Display', sans-serif;
+    --color-background: #0A0A0F;
+    --color-primary: #00E5FF;
+    --color-secondary: #00B8CC;
+    --color-secondary: #94A3B8;
+    --color-tertiary: #334155;
+    --color-quaternary: #1E293B;
+    --color-quinary: #18181F;
+    --color-senary: #111118;
+}
+
+body {
+    font-family: 'Space Grotesk Variable', sans-serif;
+}

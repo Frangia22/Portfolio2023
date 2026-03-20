@@ -1,0 +1,53 @@
+---
+const navLinks = ["Proyectos", "Stack", "Sobre mí", "Servicios", "Contacto"];
+const scrolled = false;
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-10 h-16 transition-all duration-300 flex items-center justify-evenly p-4"
+>
+  <div class="flex items-center gap-2">
+    <span class="font-space-grotesk font-bold text-2xl text-white"
+      >FG<span class="text-primary dot-primary">·</span></span
+    >
+    <span class="font-space-grotesk text-sm text-secondary">devfg</span>
+  </div>
+  <div class="flex items-center gap-6">
+    {
+      navLinks.map((l) => (
+        <span class="font-space-grotesk font-medium text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150">
+          {l}
+        </span>
+      ))
+    }
+
+    <button
+      id="cta-button"
+      class="font-space-grotesk font-medium text-sm text-primary border border-primary rounded-md px-4 py-2 cursor-pointer transition-all duration-300"
+    >
+      Hablemos
+    </button>
+  </div>
+</nav>
+
+<script>
+  const ctaButton = document.getElementById("cta-button");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      ctaButton.style.display = "block";
+    } else {
+      ctaButton.style.display = "none";
+    }
+  });
+  const navbar = document.getElementById("navbar");
+  const classesNavbar =
+    "bg-background backdrop-blur-md border-b border-tertiary";
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      classesNavbar.split(" ").forEach((c) => navbar.classList.add(c));
+    } else {
+      classesNavbar.split(" ").forEach((c) => navbar.classList.remove(c));
+    }
+  });
+</script>
