@@ -1,9 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ContactForm } from "../components/ContactForm";
+import { socialLinks } from "../data/links";
 ---
 
-<Layout title="Contacto | devfg" description="Contactá a Francisco Giachero para tu próximo proyecto.">
+<Layout
+  title="Contacto | devfg"
+  description="Contactá a Francisco Giachero para tu próximo proyecto."
+>
   <section
     id="contact"
     class="bg-background py-25 px-10 relative"
@@ -27,16 +31,21 @@ import { ContactForm } from "../components/ContactForm";
         ¿Tenés un proyecto<br /><span class="text-primary">en mente?</span>
       </h2>
       <p class="text-secondary text-base leading-relaxed mb-8">
-        Respondo en menos de 24 horas. Sin formularios eternos — solo contame qué
-        necesitás.
+        Respondo en menos de 24 horas. Sin formularios eternos — solo contame
+        qué necesitás.
       </p>
       <ContactForm client:load />
       <div class="flex justify-center gap-7 mt-7">
         {
-          ["LinkedIn", "Email", "GitHub"].map((s) => (
-            <span class="font-space-grotesk text-secondary text-sm cursor-pointer transition-colors duration-150 hover:text-white">
-              {s}
-            </span>
+          socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target={link.target}
+              class="font-space-grotesk text-secondary text-sm cursor-pointer transition-colors duration-150 hover:text-white"
+              rel="noopener noreferrer"
+            >
+              {link.name}
+            </a>
           ))
         }
       </div>

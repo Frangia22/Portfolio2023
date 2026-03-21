@@ -2,42 +2,61 @@ import { useRef, useState } from "react";
 import { useInView } from "../hooks/useInView";
 import { SectionLabel } from "../components/SectionLabel";
 
-const SERVICES = [
-  {
-    icon: "🌐",
-    title: "Desarrollo Web a medida",
-    desc: "Sitios y aplicaciones web con React, Next.js o Astro. Desde landing pages hasta plataformas SaaS completas.",
-    tags: ["React", "Next.js", "TypeScript"],
-  },
+/*
   {
     icon: "📱",
     title: "Desarrollo Mobile",
     desc: "Apps iOS y Android con React Native y Expo. Arquitectura offline-first y experiencia nativa.",
     tags: ["React Native", "Expo", "WatermelonDB"],
   },
-  {
-    icon: "⚙️",
-    title: "Backend & APIs",
-    desc: "APIs REST robustas con FastAPI o Node.js. Diseño de base de datos, autenticación y escalabilidad.",
-    tags: ["FastAPI", "PostgreSQL", "Docker"],
-  },
-  {
+{
     icon: "🤖",
     title: "Integraciones de IA",
     desc: "Chatbots, RAG sobre documentos, automatizaciones con n8n y flujos LLM para tu negocio.",
     tags: ["LangChain", "OpenAI", "n8n"],
   },
+*/
+
+const SERVICES = [
+  {
+    icon: "🌐",
+    title: "Desarrollo Web a medida",
+    desc: "Sitios y aplicaciones web con React, Next.js o Astro. Desde landing pages hasta plataformas SaaS completas.",
+    tags: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "Astro.js",
+    ],
+  },
+  {
+    icon: "⚙️",
+    title: "Backend & APIs",
+    desc: "APIs REST robustas con Express o Node.js. Diseño de base de datos, autenticación y escalabilidad.",
+    tags: ["Node.js", "Express", "PostgreSQL", "Sequelize", "Python"],
+  },
   {
     icon: "☁️",
     title: "DevOps & Deploy",
-    desc: "Configuración de infraestructura, CI/CD, Docker, AWS y deployments confiables.",
-    tags: ["AWS", "Docker", "GitHub Actions"],
+    desc: "Configuración de infraestructura, monitoreo, CI/CD, Docker, AWS y deployments confiables.",
+    tags: ["AWS", "Docker", "Dokploy", "GitHub Actions", "Grafana", "Tianji"],
   },
   {
     icon: "🔍",
     title: "Consultoría Técnica",
     desc: "Revisión de arquitectura, code reviews, definición de stack y acompañamiento en decisiones técnicas.",
-    tags: ["Arquitectura", "Code Review"],
+    tags: [
+      "Arquitectura",
+      "Code Review",
+      "SEO",
+      "Performance",
+      "Accessibility",
+      "Security",
+    ],
   },
 ];
 
@@ -103,7 +122,7 @@ export function Services() {
             Trabajo con empresas y startups que necesitan más que código.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 gap-5">
           {SERVICES.map((s, i) => (
             <ServiceCard key={s.title} s={s} delay={i * 80} visible={svcVis} />
           ))}
@@ -111,9 +130,12 @@ export function Services() {
         <div
           className={`text-center mt-10 opacity-${svcVis ? 1 : 0} transition-opacity duration-500`}
         >
-          <span className="font-space-grotesk text-primary cursor-pointer">
+          <a
+            href="#contact"
+            className="font-space-grotesk text-primary cursor-pointer"
+          >
             ¿No sabés cuál te conviene? Hablemos →
-          </span>
+          </a>
         </div>
       </div>
     </section>

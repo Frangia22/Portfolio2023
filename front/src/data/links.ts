@@ -34,12 +34,12 @@ export const navLinks: linksProps[] = [
 export const socialLinks: linksProps[] = [
   {
     name: "GitHub",
-    href: "https://github.com/frangia22",
+    href: "https://github.com/Frangia22",
     target: "_blank",
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/frangia22/",
+    href: "https://www.linkedin.com/in/frangiacherodeveloperweb/",
     target: "_blank",
   },
 ];

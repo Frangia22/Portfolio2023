@@ -7,6 +7,7 @@ import { About } from "./AboutMe";
 import { Services } from "./Services";
 import { ContactForm } from "../components/ContactForm";
 import experience from "../data/experience.json";
+import { socialLinks } from "../data/links";
 ---
 
 <Layout title="Francisco Giachero — Desarrollador Frontend Senior">
@@ -26,11 +27,16 @@ import experience from "../data/experience.json";
           "linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px)",
         backgroundSize: "32px 32px",
       }}
-    ></div>
+    >
+    </div>
     <div class="max-w-220 mx-auto">
-      <div class="text-center mb-16 transform text-primary transition-all duration-500 ease-out">
+      <div
+        class="text-center mb-16 transform text-primary transition-all duration-500 ease-out"
+      >
         // 05. experiencia
-        <h2 class="font-space-grotesk font-bold text-3xl text-white mb-1 tracking-tight">
+        <h2
+          class="font-space-grotesk font-bold text-3xl text-white mb-1 tracking-tight"
+        >
           Dónde estuve construyendo
         </h2>
         <p class="text-secondary text-base">
@@ -38,7 +44,10 @@ import experience from "../data/experience.json";
         </p>
       </div>
       <div class="relative">
-        <div class="absolute left-4.75 top-0 bottom-0 w-0.5 bg-linear-to-b from-transparent via-tertiary to-transparent pointer-events-none"></div>
+        <div
+          class="absolute left-4.75 top-0 bottom-0 w-0.5 bg-linear-to-b from-transparent via-tertiary to-transparent pointer-events-none"
+        >
+        </div>
         <div class="flex flex-col gap-0 mb-10">
           {
             experience.toReversed().map((e) => (
@@ -49,19 +58,34 @@ import experience from "../data/experience.json";
                 <div class="flex-1 bg-quinary border border-tertiary rounded-xl px-6 py-7 hover:border-primary hover:shadow-[0px_4px_32px_rgba(0,229,255,0.07)] transition-all duration-200 ease-out">
                   <div class="flex justify-between items-start flex-wrap gap-2 mb-1.5">
                     <div>
-                      <div class="font-space-grotesk font-semibold text-lg text-white">{e.position}</div>
-                      <div class="font-space-grotesk text-primary text-sm mt-2">{e.company}</div>
+                      <div class="font-space-grotesk font-semibold text-lg text-white">
+                        {e.position}
+                      </div>
+                      <div class="font-space-grotesk text-primary text-sm mt-2">
+                        {e.company}
+                      </div>
                     </div>
                     <div class="flex flex-col items-end gap-1.5">
-                      <span class="font-jetbrains-mono text-secondary text-sm">{e.startDate} - {e.endDate}</span>
-                      <span class="font-jetbrains-mono text-tertiary text-xs bg-quinary border border-tertiary rounded-md px-2 py-1">{e.mode}</span>
+                      <span class="font-jetbrains-mono text-secondary text-sm">
+                        {e.startDate} - {e.endDate}
+                      </span>
+                      <span class="font-jetbrains-mono text-tertiary text-xs bg-quinary border border-tertiary rounded-md px-2 py-1">
+                        {e.mode}
+                      </span>
                     </div>
                   </div>
-                  <p class="font-space-grotesk text-secondary text-base leading-relaxed mt-4 mb-6">{e.description}</p>
+                  <p class="font-space-grotesk text-secondary text-base leading-relaxed mt-4 mb-6">
+                    {e.description}
+                  </p>
                   <div class="flex flex-wrap gap-2">
-                    {e.tasks?.join(", ").split(",").map((t) => (
-                      <span class="font-jetbrains-mono text-primary text-xs bg-quinary border border-tertiary rounded-md px-2 py-1">{t}</span>
-                    ))}
+                    {e.tasks
+                      ?.join(", ")
+                      .split(",")
+                      .map((t) => (
+                        <span class="font-jetbrains-mono text-primary text-xs bg-quinary border border-tertiary rounded-md px-2 py-1">
+                          {t}
+                        </span>
+                      ))}
                   </div>
                 </div>
               </div>
@@ -81,21 +105,39 @@ import experience from "../data/experience.json";
   >
     <div
       class="absolute inset-0 pointer-events-none"
-      style={{ background: "radial-gradient(ellipse at center, rgba(0,229,255,0.10) 0%, transparent 60%)" }}
-    ></div>
-    <div class="max-w-140 mx-auto text-center text-primary transform transition-all duration-500 ease-out">
+      style={{
+        background:
+          "radial-gradient(ellipse at center, rgba(0,229,255,0.10) 0%, transparent 60%)",
+      }}
+    >
+    </div>
+    <div
+      class="max-w-140 mx-auto text-center text-primary transform transition-all duration-500 ease-out"
+    >
       {"// 06. contacto"}
-      <h2 class="font-space-grotesk font-bold text-5xl text-white mb-4 tracking-tight leading-1.15">
+      <h2
+        class="font-space-grotesk font-bold text-5xl text-white mb-4 tracking-tight leading-1.15"
+      >
         ¿Tenés un proyecto<br /><span class="text-primary">en mente?</span>
       </h2>
       <p class="text-secondary text-base leading-relaxed mb-8">
-        Respondo en menos de 24 horas. Sin formularios eternos — solo contame qué necesitás.
+        Respondo en menos de 24 horas. Sin formularios eternos — solo contame
+        qué necesitás.
       </p>
       <ContactForm client:load />
       <div class="flex justify-center gap-7 mt-7">
-        {["LinkedIn", "Email", "GitHub"].map((s) => (
-          <span class="font-space-grotesk text-secondary text-sm cursor-pointer transition-colors duration-150 hover:text-white">{s}</span>
-        ))}
+        {
+          socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target={link.target}
+              class="font-space-grotesk text-secondary text-sm cursor-pointer transition-colors duration-150 hover:text-white"
+              rel="noopener noreferrer"
+            >
+              {link.name}
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>

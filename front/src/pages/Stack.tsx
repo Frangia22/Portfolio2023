@@ -5,19 +5,38 @@ import { SectionLabel } from "../components/SectionLabel";
 const STACK = [
   {
     cat: "Frontend",
-    items: ["React", "Next.js", "Astro.js", "TypeScript", "Tailwind CSS"],
+    items: [
+      "React",
+      "Next.js",
+      "Astro.js",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS",
+    ],
   },
   {
-    cat: "Mobile",
-    items: ["React Native", "Expo", "WatermelonDB", "Gluestack UI"],
+    cat: "Design",
+    items: ["Figma", "Pencil", "DaisyUI", "Penpot", "Tailwind CSS"],
   },
   {
     cat: "Backend",
-    items: ["Python", "FastAPI", "Node.js", "Prisma", "PostgreSQL", "Redis"],
+    items: ["Node.js", "Express", "PostgreSQL", "Sequelize", "Python"],
   },
   {
     cat: "AI / LLM",
-    items: ["LangChain", "RAG", "OpenAI", "Replicate", "n8n"],
+    items: [
+      "LangChain",
+      "RAG",
+      "OpenAI",
+      "Claude",
+      "n8n",
+      "v0",
+      "Lovable",
+      "Stitch",
+      "Bolt",
+      "Nano Banana",
+    ],
   },
   {
     cat: "DevOps / Infra",
@@ -28,30 +47,7 @@ const STACK = [
 function Chip({ label, delay = 0, visible }) {
   return (
     <span
-      style={{
-        display: "inline-block",
-        background: "#18181F",
-        border: "1px solid #334155",
-        borderRadius: 8,
-        padding: "7px 14px",
-        fontSize: 13,
-        fontFamily: "'Space Grotesk',sans-serif",
-        fontWeight: 500,
-        color: "#E2E8F0",
-        margin: "4px",
-        cursor: "default",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(10px)",
-        transition: `opacity 0.4s ease ${delay}ms, transform 0.4s ease ${delay}ms`,
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = "rgba(0,229,255,0.6)";
-        e.currentTarget.style.background = "rgba(0,229,255,0.04)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "#334155";
-        e.currentTarget.style.background = "#18181F";
-      }}
+      className={`inline-block bg-quinary border border-tertiary rounded-lg px-3.5 py-[7px] m-1 font-space-grotesk font-medium text-[#E2E8F0] text-sm cursor-default transform ${visible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"} transition-all duration-[${delay}ms] ease-out hover:border-primary/60 hover:bg-primary/40`}
     >
       {label}
     </span>
@@ -63,24 +59,15 @@ export function Stack() {
   const stackVis = useInView(stackRef);
 
   return (
-    <section
-      ref={stackRef}
-      style={{
-        background: "#0A0A0F",
-        padding: "100px 40px",
-        position: "relative",
-      }}
-    >
+    <section ref={stackRef} className="bg-background py-25 px-10 relative">
       <div
+        className="absolute inset-0 pointer-events-none"
         style={{
-          position: "absolute",
-          inset: 0,
           background:
             "radial-gradient(ellipse at center, rgba(0,229,255,0.05) 0%, transparent 65%)",
-          pointerEvents: "none",
         }}
       />
-      <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
         <div
           style={{
             textAlign: "center",
@@ -91,35 +78,17 @@ export function Stack() {
           }}
         >
           <SectionLabel label="// 03. stack" />
-          <h2
-            style={{
-              fontFamily: "'Space Grotesk',sans-serif",
-              fontWeight: 700,
-              fontSize: 38,
-              color: "#fff",
-              marginBottom: 12,
-              letterSpacing: -1,
-            }}
-          >
+          <h2 className="font-space-grotesk font-bold text-[38px] text-white mb-6 tracking-[-1px] leading-1.15">
             Las herramientas del oficio
           </h2>
-          <p style={{ color: "#94A3B8", fontSize: 17 }}>
+          <p className="text-secondary text-[17px]">
             El stack que uso en producción, no en tutoriales.
           </p>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+        <div className="flex flex-col gap-7">
           {STACK.map((cat, ci) => (
             <div key={cat.cat}>
-              <div
-                style={{
-                  fontFamily: "'JetBrains Mono',monospace",
-                  fontSize: 11,
-                  color: "#334155",
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  marginBottom: 10,
-                }}
-              >
+              <div className="font-jetbrains-mono text-xs text-tertiary tracking-widest mb-2.5">
                 {cat.cat}
               </div>
               <div style={{ display: "flex", flexWrap: "wrap" }}>

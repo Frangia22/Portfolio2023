@@ -1,4 +1,5 @@
 ---
+import { socialLinks } from "../data/links";
 import { HeroTerminal } from "./HeroTerminal";
 ---
 
@@ -43,7 +44,7 @@ import { HeroTerminal } from "./HeroTerminal";
         <span
           class="font-jetbrains-mono text-sm text-primary bg-quinary border border-tertiary rounded-md px-3 py-1.5 inline-flex items-center gap-1.5"
         >
-          [ Senior Full-Stack Developer ]<span class="animate-blink">_</span>
+          [ Senior Frontend Developer ]<span class="animate-blink">_</span>
         </span>
       </div>
       <div
@@ -61,7 +62,7 @@ import { HeroTerminal } from "./HeroTerminal";
         <p
           class="font-space-grotesk text-sm text-secondary leading-relaxed max-w-96"
         >
-          Frontend + Backend + AI. Ayudo a empresas y startups a lanzar software
+          Frontend + DevOps + AI. Ayudo a empresas y startups a lanzar software
           real, no demos.
         </p>
       </div>
@@ -86,10 +87,15 @@ import { HeroTerminal } from "./HeroTerminal";
         class="transform-y-20 transition-all duration-500 ease-out 600ms flex gap-5"
       >
         {
-          ["GitHub", "LinkedIn", "X / Twitter"].map((s) => (
-            <span class="font-space-grotesk text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150">
-              {s}
-            </span>
+          socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target={link.target}
+              class="font-space-grotesk text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150"
+              rel="noopener noreferrer"
+            >
+              {link.name}
+            </a>
           ))
         }
       </div>
