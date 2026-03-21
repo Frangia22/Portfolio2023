@@ -2,9 +2,19 @@
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import { Projects } from "./Projects";
+import { Stack } from "./Stack";
+import { About } from "./AboutMe";
+import Experience from "./Experience.astro";
+import { Services } from "./Services";
+import Contact from "./Contact.astro";
 ---
 
 <Layout title="Home">
   <Hero />
   <Projects client:load />
+  <Stack client:load />
+  <About client:load />
+  <Experience />
+  <Services client:load />
+  <Contact />
 </Layout>

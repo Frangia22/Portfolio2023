@@ -1,20 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import projects from "../data/projects.json";
-
-function useInView(ref, threshold = 0.15) {
-  const [vis, setVis] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) setVis(true);
-      },
-      { threshold },
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  return vis;
-}
+import { useInView } from "../hooks/useInView";
+import { SectionLabel } from "../components/SectionLabel";
 
 function ProjectCard({
   p,
@@ -131,19 +118,6 @@ function ProjectCard({
 export function Projects() {
   const projRef = useRef(null);
   const projVis = useInView(projRef);
-  const sec = (label) => (
-    <span
-      style={{
-        fontFamily: "'JetBrains Mono',monospace",
-        fontSize: 13,
-        color: "#00E5FF",
-        display: "block",
-        marginBottom: 12,
-      }}
-    >
-      {label}
-    </span>
-  );
   return (
     <section
       ref={projRef}
@@ -175,7 +149,7 @@ export function Projects() {
             transition: "all 500ms ease-out",
           }}
         >
-          {sec("// 02. proyectos")}
+          <SectionLabel label="// 02. proyectos" />
           <h2
             style={{
               fontFamily: "'Space Grotesk',sans-serif",
