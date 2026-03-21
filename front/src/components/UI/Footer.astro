@@ -1,25 +1,40 @@
+---
+import { Image } from "astro:assets";
+import { navLinks } from "../../data/links";
+
+const pathname = Astro.url.pathname;
+const isHome = pathname === "/";
+import logoWhite from "../../assets/FG-dev-horizontal-white.webp";
+---
+
 <footer class="bg-background border-t border-tertiary p-10">
   <div class="max-w-7xl mx-auto">
     <div class="flex justify-between items-center mb-5">
-      <div class="flex items-center gap-2">
-        <span class="font-space-grotesk font-bold text-2xl text-white"
-          >FG<span class="text-primary dot-primary">·</span></span
-        >
-        <span class="text-sm text-secondary">devfg</span>
-      </div>
+      <a href="/" class="w-25 h-6">
+        <Image
+          src={logoWhite}
+          alt="FG Dev"
+          class="w-full h-full object-contain"
+          width={1000}
+          height={1000}
+        />
+      </a>
       <div class="flex gap-6">
         {
-          ["Proyectos", "Stack", "Servicios", "Contacto"].map((l) => (
-            <span class="text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150">
-              {l}
-            </span>
+          navLinks.map((link) => (
+            <a
+              href={isHome ? `/#${link.href.slice(1)}` : link.href}
+              class="text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150 no-underline"
+            >
+              {link.name}
+            </a>
           ))
         }
       </div>
     </div>
     <div class="flex justify-between border-t border-quaternary pt-5">
       <span class="text-sm text-tertiary"
-        >© 2025 Frangia González — Sinergy Stack</span
+        >© 2026 Derechos reservados | FG Dev</span
       >
       <span class="text-sm text-tertiary"
         >Diseñado y desarrollado por mí, con orgullo. 🇦🇷</span

@@ -12,7 +12,10 @@ interface FieldWrapperProps {
 export function FieldWrapper({ label, error, children }: FieldWrapperProps) {
   return (
     <div className="mb-4">
-      <label className="font-space-grotesk text-secondary text-sm mb-2 block">
+      <label
+        htmlFor={label}
+        className="font-space-grotesk text-secondary text-sm mb-2 block"
+      >
         {label}
       </label>
       {children}

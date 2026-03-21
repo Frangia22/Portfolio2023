@@ -1,6 +1,7 @@
 ---
 import { socialLinks } from "../data/links";
 import { HeroTerminal } from "./HeroTerminal";
+const WHATSAPP_NUMBER = "1234567890";
 ---
 
 <section
@@ -70,16 +71,20 @@ import { HeroTerminal } from "./HeroTerminal";
         id="cta-row"
         class="transform-y-20 transition-all duration-500 ease-out 480ms flex gap-3 flex-wrap"
       >
-        <button
+        <a
+          href="#projects"
           id="primary-cta"
           class="bg-primary text-black font-space-grotesk font-medium text-sm rounded-md px-4 py-2 cursor-pointer transition-all duration-300 hover:bg-[#00B8CC] hover:shadow-md hover:shadow-primary/40 hover:scale-105"
-          >Ver proyectos</button
+          >Ver proyectos</a
         >
-        <button
+        <a
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola, me interesa tu trabajo.`}
+          target="_blank"
+          rel="noopener noreferrer"
           id="secondary-cta"
           class="border border-primary text-primary bg-transparent font-space-grotesk font-medium text-sm rounded-md
           px-4 py-2 cursor-pointer transition-all duration-300 hover:bg-primary/8"
-          >Hablemos</button
+          >Hablemos</a
         >
       </div>
       <div
