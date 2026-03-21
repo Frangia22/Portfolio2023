@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "company": "Freelance",
+      "mode": "Remoto",
+      "position": "Developer Full Stack", 
+      "startDate": "2020",
+      "endDate": "Actual",
+      "description": "Desarrollo de aplicaciones web como desarrollador freelance con especialización en frontend, construyendo interfaces modernas y escalables con React.js y Angular. Enfoque en performance, mantenibilidad y experiencia de usuario mediante buenas prácticas de UI y UX. Participación en todo el ciclo de desarrollo, incluyendo resolución de incidencias, testing funcional y optimización continua. Configuración de entornos de desarrollo y soporte a la integración frontend. Desarrollo de APIs REST con Node.js y Express, implementando lógica de negocio, operaciones CRUD y autenticación basada en roles.",
+      "tasks": ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript", "HTML", "CSS", "Angular", "Bootstrap", "Dokploy", "Tianji", "DaisyUI", "PrimeNG", "Node.js", "Express", "Docker", "Sequelize", "PostgreSQL"]
+    },
+    {
+        "id": 2,
+        "company": "Latin Cloud",
+        "mode": "Remoto",
+        "position": "Operaciones N1", 
+        "startDate": "2021",
+        "endDate": "2026",
+        "description": "Gestión y resolución de incidencias técnicas en entornos productivos, asegurando la continuidad operativa de los servicios. Administración, mantenimiento y soporte de servidores Linux y Windows, incluyendo tareas de configuración, actualización y diagnóstico de fallas. Monitoreo proactivo de servicios y sistemas para la detección temprana de problemas y aplicación de soluciones correctivas. Administración de paneles de hosting como cPanel y DirectAdmin, gestionando dominios, cuentas, bases de datos y recursos asociados. Soporte operativo de nivel uno y colaboración con equipos técnicos para la escalación y resolución de incidencias de mayor complejidad.",
+        "tasks": ["Linux", "Windows", "Network", "Support", "Problem Solving","Monitoring", "Direct Admin", "Grafana", "Cpanel"]
+    },
+    {
+        "id": 3,
+        "company": "Dewedd",
+        "mode": "Remoto",
+        "position": "Developer Frontend",
+        "startDate": "2024",
+        "endDate": "Actual",
+        "description": "Desarrollo de aplicaciones frontend utilizando React.js y Next.js, participando en la implementación de interfaces modernas y escalables. Maquetación de interfaces responsive aplicando buenas prácticas de UI y UX para mejorar la experiencia de usuario en distintos dispositivos. Resolución de bugs y optimización del rendimiento de aplicaciones web mediante análisis de código y mejoras continuas. Testing funcional de nuevas funcionalidades previo a su despliegue para garantizar estabilidad y correcto funcionamiento. Configuración y administración de infraestructura para entornos de desarrollo frontend, facilitando flujos de trabajo eficientes y entornos consistentes.",
+        "tasks": ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript", "HTML", "CSS", "AWS", "Github Actions", "I18N", "Ant Design", "UI/UX Design"]
+    }
+  ]
