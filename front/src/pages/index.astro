@@ -1,21 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import { Projects } from "./Projects";
-import { Stack } from "./Stack";
+import Projects from "../components/Projects.astro";
 import { About } from "./AboutMe";
-import { Services } from "./Services";
+import ServicesComponent from "../components/Services.astro";
 import { ContactForm } from "../components/ContactForm";
 import experience from "../data/experience.json";
 import { socialLinks } from "../data/links";
+import Stack from "../components/Stack.astro";
 ---
 
 <Layout title="Francisco Giachero — Desarrollador Frontend Senior">
   <Hero />
 
-  <section id="projects"><Projects client:load /></section>
+  <Projects />
 
-  <section id="stack"><Stack client:load /></section>
+  <section id="stack"><Stack /></section>
 
   <section id="about"><About client:load /></section>
 
@@ -96,7 +96,7 @@ import { socialLinks } from "../data/links";
     </div>
   </section>
 
-  <section id="services"><Services client:load /></section>
+  <section id="services"><ServicesComponent /></section>
 
   <section
     id="contact"

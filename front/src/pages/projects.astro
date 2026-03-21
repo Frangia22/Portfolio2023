@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Projects } from "./Projects";
+import ProjectsComponent from "../components/Projects.astro";
 ---
 
-<Layout title="Proyectos | devfg" description="Proyectos reales construidos por Francisco Giachero.">
-  <Projects client:load />
+<Layout
+  title="Proyectos | devfg"
+  description="Proyectos reales construidos por Francisco Giachero."
+>
+  <ProjectsComponent />
 </Layout>

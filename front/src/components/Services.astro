@@ -1,0 +1,144 @@
+---
+import SectionLabel from "./SectionLabel.astro";
+
+const SERVICES = [
+  {
+    icon: "🌐",
+    title: "Desarrollo Web a medida",
+    desc: "Sitios y aplicaciones web con React, Next.js o Astro. Desde landing pages hasta plataformas SaaS completas.",
+    tags: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "Astro.js",
+    ],
+  },
+  {
+    icon: "⚙️",
+    title: "Backend & APIs",
+    desc: "APIs REST robustas con Express o Node.js. Diseño de base de datos, autenticación y escalabilidad.",
+    tags: ["Node.js", "Express", "PostgreSQL", "Sequelize", "Python"],
+  },
+  {
+    icon: "☁️",
+    title: "DevOps & Deploy",
+    desc: "Configuración de infraestructura, monitoreo, CI/CD, Docker, AWS y deployments confiables.",
+    tags: ["AWS", "Docker", "Dokploy", "GitHub Actions", "Grafana", "Tianji"],
+  },
+  {
+    icon: "🔍",
+    title: "Consultoría Técnica",
+    desc: "Revisión de arquitectura, code reviews, definición de stack y acompañamiento en decisiones técnicas.",
+    tags: [
+      "Arquitectura",
+      "Code Review",
+      "SEO",
+      "Performance",
+      "Accessibility",
+      "Security",
+    ],
+  },
+];
+---
+
+<section id="services-section" class="bg-senary py-25 px-10">
+  <div class="max-w-7xl mx-auto">
+    <div
+      id="services-header"
+      class="text-center mb-14 opacity-0 translate-y-5 transition-all duration-500 ease-out"
+    >
+      <SectionLabel label="// 05. servicios" />
+      <h2
+        class="font-space-grotesk font-bold text-5xl text-white mb-4 tracking-tight leading-[1.15]"
+      >
+        ¿En qué puedo ayudarte?
+      </h2>
+      <p class="text-secondary text-lg">
+        Trabajo con empresas y startups que necesitan más que código.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-5">
+      {
+        SERVICES.map((s, i) => (
+          <div
+            class="service-card rounded-xl px-8 py-7 opacity-0 bg-quinary border border-tertiary"
+            style={`transition-delay: ${i * 80}ms;`}
+          >
+            <div class="text-[28px] mb-3.5">{s.icon}</div>
+            <div class="font-space-grotesk font-semibold text-white mb-2.5">
+              {s.title}
+            </div>
+            <div class="font-space-grotesk text-secondary text-sm mb-3.5 leading-relaxed">
+              {s.desc}
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              {s.tags.map((t) => (
+                <span class="font-jetbrains-mono text-secondary text-xs bg-background border border-tertiary rounded-md px-2 py-1">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      id="services-footer"
+      class="text-center mt-10 opacity-0 transition-opacity duration-500"
+    >
+      <a href="#contact" class="font-space-grotesk text-primary cursor-pointer">
+        ¿No sabés cuál te conviene? Hablemos →
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-card {
+    border-left: 1px solid #334155;
+    transition:
+      background 200ms ease-out,
+      border-color 200ms ease-out,
+      border-left-width 200ms ease-out,
+      transform 200ms ease-out,
+      box-shadow 200ms ease-out,
+      opacity 300ms ease-out;
+  }
+
+  .service-card:hover {
+    background: rgba(0, 229, 255, 0.02);
+    border-color: rgba(0, 229, 255, 0.5);
+    border-left: 2px solid #00e5ff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 229, 255, 0.08);
+  }
+</style>
+
+<script>
+  const section = document.getElementById("services-section");
+  const header = document.getElementById("services-header");
+  const footer = document.getElementById("services-footer");
+  const cards = document.querySelectorAll(".service-card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          header?.classList.remove("opacity-0", "translate-y-5");
+          footer?.classList.remove("opacity-0");
+          cards.forEach((card) => card.classList.remove("opacity-0"));
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  if (section) observer.observe(section);
+</script>

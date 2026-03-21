@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Services } from "./Services";
+import ServicesComponent from "../components/Services.astro";
 ---
 
-<Layout title="Servicios | devfg" description="Servicios de desarrollo frontend ofrecidos por Francisco Giachero.">
-  <Services client:load />
+<Layout
+  title="Servicios | devfg"
+  description="Servicios de desarrollo frontend ofrecidos por Francisco Giachero."
+>
+  <ServicesComponent />
 </Layout>

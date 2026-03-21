@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Stack } from "./Stack";
+import StackComponent from "../components/Stack.astro";
 ---
 
-<Layout title="Stack | devfg" description="Tecnologías y herramientas que usa Francisco Giachero.">
-  <Stack client:load />
+<Layout
+  title="Stack | devfg"
+  description="Tecnologías y herramientas que usa Francisco Giachero."
+>
+  <StackComponent />
 </Layout>
