@@ -15,13 +15,21 @@
   "packageManager": "pnpm@10.11.0",
   "dependencies": {
     "@astrojs/react": "^5.0.1",
+    "@astrojs/ts-plugin": "^1.10.7",
     "@fontsource-variable/space-grotesk": "^5.2.10",
+    "@hookform/resolvers": "^5.2.2",
     "@tailwindcss/vite": "^4.2.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.0.7",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tailwindcss": "^4.2.2"
+    "react-hook-form": "^7.71.2",
+    "tailwindcss": "^4.2.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "prettier": "3.8.1",
+    "prettier-plugin-astro": "0.14.1"
   }
 }

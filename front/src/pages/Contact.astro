@@ -1,0 +1,42 @@
+---
+import { ContactForm } from "../components/ContactForm";
+---
+
+<section
+  id="contact"
+  class="bg-background px-25 py-10 relative"
+  style={{ clipPath: "polygon(0 4%, 100% 0, 100% 100%, 0 100%)" }}
+>
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style={{
+      background:
+        "radial-gradient(ellipse at center, rgba(0,229,255,0.10) 0%, transparent 60%)",
+    }}
+  >
+  </div>
+  <div
+    class="max-w-140 mx-auto text-center text-primary transform transition-all duration-500 ease-out"
+  >
+    {"// 06. contacto"}
+    <h2
+      class="font-space-grotesk font-bold text-5xl text-white mb-4 tracking-tight leading-1.15"
+    >
+      ¿Tenés un proyecto<br /><span class="text-primary">en mente?</span>
+    </h2>
+    <p class="text-secondary text-base leading-relaxed mb-8">
+      Respondo en menos de 24 horas. Sin formularios eternos — solo contame qué
+      necesitás.
+    </p>
+    <ContactForm client:load />
+    <div class="flex justify-center gap-7 mt-7">
+      {
+        ["LinkedIn", "Email", "GitHub"].map((s) => (
+          <span class="font-space-grotesk text-secondary text-sm cursor-pointer transition-colors duration-150 hover:text-white">
+            {s}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</section>
