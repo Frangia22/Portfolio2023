@@ -20,3 +20,7 @@ body {
     font-family: 'Space Grotesk Variable', sans-serif;
     background-color: var(--color-background);
 }
+
+section {
+    scroll-margin-top: 4rem;
+}
