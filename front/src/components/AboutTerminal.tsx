@@ -27,7 +27,7 @@ export function AboutTerminal({ visible }) {
           about.frandev.ts
         </span>
       </div>
-      <div className="py-5 px-4">
+      <div className="py-5 px-4 overflow-x-auto">
         {lines.map((line, i) => (
           <div key={i} className="flex leading-[1.75]">
             <span className="min-w-5.5 text-tertiary user-select-none mr-3">

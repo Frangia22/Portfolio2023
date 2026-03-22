@@ -7,29 +7,33 @@ const isHome = pathname === "/";
 
 <nav
   id="navbar"
-  class="fixed top-0 left-0 right-0 z-10 h-16 transition-all duration-300 flex items-center justify-evenly p-4"
+  class="fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 flex items-center justify-between px-6"
 >
+  <!-- Logo -->
   <a href="/" class="flex items-center gap-2 no-underline">
     <span class="font-space-grotesk font-bold text-2xl text-white"
-      >FG<span class="text-primary dot-primary">·</span></span
+      >FG<span class="text-primary">·</span></span
     >
     <span class="font-space-grotesk text-sm text-secondary">devfg</span>
   </a>
-  <div class="flex items-center gap-6">
+
+  <!-- Desktop nav -->
+  <div class="hidden md:flex items-center gap-6">
     {
       navLinks.map((l) => (
         <a
           href={isHome ? `/#${l.href.slice(1)}` : l.href}
           class:list={[
             "font-space-grotesk font-medium text-sm transition-colors duration-150 no-underline",
-            pathname === l.href ? "text-white" : "text-secondary hover:text-white",
+            pathname === l.href
+              ? "text-white"
+              : "text-secondary hover:text-white",
           ]}
         >
           {l.name}
         </a>
       ))
     }
-
     <a
       id="cta-button"
       href={isHome ? "/#contact" : "/contact"}
@@ -38,16 +42,99 @@ const isHome = pathname === "/";
       Hablemos
     </a>
   </div>
+
+  <!-- Hamburger button (mobile only) -->
+  <button
+    id="menu-toggle"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-md text-secondary hover:text-white transition-colors"
+  >
+    <span class="hamburger-line block w-5 h-px bg-current transition-all duration-300"></span>
+    <span class="hamburger-line block w-5 h-px bg-current transition-all duration-300"></span>
+    <span class="hamburger-line block w-5 h-px bg-current transition-all duration-300"></span>
+  </button>
 </nav>
 
+<!-- Mobile menu panel -->
+<div
+  id="mobile-menu"
+  class="fixed top-16 left-0 right-0 z-40 bg-background border-b border-tertiary flex flex-col px-6 py-6 gap-5 md:hidden translate-y-[-110%] opacity-0 transition-all duration-300 ease-out"
+  aria-hidden="true"
+>
+  {
+    navLinks.map((l) => (
+      <a
+        href={isHome ? `/#${l.href.slice(1)}` : l.href}
+        class:list={[
+          "mobile-nav-link font-space-grotesk font-medium text-base no-underline transition-colors duration-150 py-1",
+          pathname === l.href ? "text-white" : "text-secondary",
+        ]}
+      >
+        {l.name}
+      </a>
+    ))
+  }
+  <a
+    href={isHome ? "/#contact" : "/contact"}
+    class="mobile-nav-link mt-2 font-space-grotesk font-medium text-sm text-primary border border-primary rounded-md px-4 py-2.5 text-center transition-all duration-300 hover:bg-primary hover:text-background no-underline"
+  >
+    Hablemos
+  </a>
+</div>
+
+<!-- Backdrop -->
+<div
+  id="menu-backdrop"
+  class="fixed inset-0 z-30 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+></div>
+
 <script>
-  const ctaButton = document.getElementById("cta-button");
   const navbar = document.getElementById("navbar");
+  const ctaButton = document.getElementById("cta-button");
+  const toggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const backdrop = document.getElementById("menu-backdrop");
+  const lines = document.querySelectorAll(".hamburger-line");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
   const scrollClasses = ["bg-background", "backdrop-blur-md", "border-b", "border-tertiary"];
 
+  // Scroll behavior
   window.addEventListener("scroll", () => {
     const past = window.scrollY > 100;
-    ctaButton.classList.toggle("hidden", !past);
-    scrollClasses.forEach((c) => navbar.classList.toggle(c, past));
+    ctaButton?.classList.toggle("hidden", !past);
+    scrollClasses.forEach((c) => navbar?.classList.toggle(c, past));
   });
+
+  // Toggle menu open/close
+  let isOpen = false;
+
+  function openMenu() {
+    isOpen = true;
+    mobileMenu?.classList.remove("translate-y-[-110%]", "opacity-0");
+    mobileMenu?.setAttribute("aria-hidden", "false");
+    backdrop?.classList.remove("opacity-0", "pointer-events-none");
+    toggle?.setAttribute("aria-expanded", "true");
+    // Animate to X
+    lines[0]?.classList.add("rotate-45", "translate-y-[7px]");
+    lines[1]?.classList.add("opacity-0", "scale-x-0");
+    lines[2]?.classList.add("-rotate-45", "-translate-y-[7px]");
+  }
+
+  function closeMenu() {
+    isOpen = false;
+    mobileMenu?.classList.add("translate-y-[-110%]", "opacity-0");
+    mobileMenu?.setAttribute("aria-hidden", "true");
+    backdrop?.classList.add("opacity-0", "pointer-events-none");
+    toggle?.setAttribute("aria-expanded", "false");
+    // Restore hamburger
+    lines[0]?.classList.remove("rotate-45", "translate-y-[7px]");
+    lines[1]?.classList.remove("opacity-0", "scale-x-0");
+    lines[2]?.classList.remove("-rotate-45", "-translate-y-[7px]");
+  }
+
+  toggle?.addEventListener("click", () => (isOpen ? closeMenu() : openMenu()));
+  backdrop?.addEventListener("click", closeMenu);
+  mobileLinks.forEach((link) => link.addEventListener("click", closeMenu));
 </script>

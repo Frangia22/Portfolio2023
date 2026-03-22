@@ -45,7 +45,7 @@ const SERVICES = [
 ];
 ---
 
-<section id="services-section" class="bg-senary py-25 px-10">
+<section id="services-section" class="bg-senary py-25 px-5 md:px-10">
   <div class="max-w-7xl mx-auto">
     <div
       id="services-header"
@@ -53,7 +53,7 @@ const SERVICES = [
     >
       <SectionLabel label="// 05. servicios" />
       <h2
-        class="font-space-grotesk font-bold text-5xl text-white mb-4 tracking-tight leading-[1.15]"
+        class="font-space-grotesk font-bold text-2xl md:text-4xl text-white mb-4 tracking-tight leading-[1.15]"
       >
         ¿En qué puedo ayudarte?
       </h2>
@@ -62,7 +62,7 @@ const SERVICES = [
       </p>
     </div>
 
-    <div class="grid grid-cols-2 gap-5">
+    <div class="grid md:grid-cols-2 gap-5">
       {
         SERVICES.map((s, i) => (
           <div

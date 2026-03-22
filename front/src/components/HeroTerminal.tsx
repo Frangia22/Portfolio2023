@@ -49,9 +49,9 @@ export function HeroTerminal() {
           devfg/index.ts
         </span>
       </div>
-      <div className="px-4 py-5 min-h-55">
+      <div className="px-4 py-5 min-h-55 overflow-x-auto">
         {lines.map((line, i) => (
-          <div key={i} className="flex leading-[1.7]">
+          <div key={i} className="flex leading-[1.7] w-full">
             <span className="min-w-6 text-right text-tertiary user-select-none mr-3">
               {i + 1}
             </span>

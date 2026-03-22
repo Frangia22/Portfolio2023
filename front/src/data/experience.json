@@ -3,7 +3,7 @@
       "id": 1,
       "company": "Freelance",
       "mode": "Remoto",
-      "position": "Developer Full Stack", 
+      "position": "Developer FullStack", 
       "startDate": "2020",
       "endDate": "Actual",
       "description": "Desarrollo de aplicaciones web como desarrollador freelance con especialización en frontend, construyendo interfaces modernas y escalables con React.js y Angular. Enfoque en performance, mantenibilidad y experiencia de usuario mediante buenas prácticas de UI y UX. Participación en todo el ciclo de desarrollo, incluyendo resolución de incidencias, testing funcional y optimización continua. Configuración de entornos de desarrollo y soporte a la integración frontend. Desarrollo de APIs REST con Node.js y Express, implementando lógica de negocio, operaciones CRUD y autenticación basada en roles.",

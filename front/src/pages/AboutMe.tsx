@@ -9,22 +9,12 @@ export function About() {
   return (
     <section
       ref={aboutRef}
+      className="bg-senary py-25 px-5 md:px-10"
       style={{
-        background: "#111118",
-        padding: "100px 40px",
         clipPath: "polygon(0 0, 100% 3%, 100% 100%, 0 97%)",
       }}
     >
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 64,
-          alignItems: "center",
-        }}
-      >
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 items-center">
         <div
           style={{
             opacity: aboutVis ? 1 : 0,
@@ -33,7 +23,7 @@ export function About() {
           }}
         >
           <SectionLabel label="// 04. sobre mí" />
-          <h2 className="font-space-grotesk font-bold text-[38px] text-white mb-6 tracking-[-1px] leading-1.15">
+          <h2 className="font-space-grotesk font-bold text-2xl md:text-4xl text-white mb-6 tracking-[-1px] leading-1.15">
             Del código
             <br />
             al producto.
@@ -50,13 +40,7 @@ export function About() {
             aplicando los principios SOLID. Mi meta es proporcionar software
             claro, eficiente y fácil de mantener a lo largo del tiempo.
           </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3,1fr)",
-              gap: 14,
-            }}
-          >
+          <div className="flex flex-wrap md:grid md:grid-cols-3 gap-3.5">
             {[
               ["4+", "años de experiencia"],
               ["20+", "proyectos entregados"],
@@ -96,6 +80,7 @@ export function About() {
           </div>
         </div>
         <div
+          className="w-full overflow-x-auto"
           style={{
             opacity: aboutVis ? 1 : 0,
             transition: "opacity 500ms 200ms",
