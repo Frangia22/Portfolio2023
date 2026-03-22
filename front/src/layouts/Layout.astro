@@ -7,11 +7,19 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  keywords?: string;
+  image?: string;
+  canonical?: string;
 }
+
+const SITE_URL = "https://devfg.com.ar";
 
 const {
   title,
-  description = "Portfolio de Francisco Giachero — Desarrollador Frontend Senior",
+  description = "Portfolio de Francisco Giachero — Desarrollador Frontend Senior especializado en React, Next.js y Astro. Desarrollo web a medida, APIs y consultoría técnica.",
+  keywords = "desarrollador frontend, desarrollador web, React, Next.js, Astro, TypeScript, JavaScript, Node.js, freelance, Argentina, Cordoba, Francisco Giachero",
+  image = `${SITE_URL}/og-image.png`,
+  canonical = `${SITE_URL}${Astro.url.pathname}`,
 } = Astro.props;
 ---
 
@@ -19,7 +27,72 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Primary meta -->
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Francisco Giachero" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Francisco Giachero — Dev" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- JSON-LD: Person -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Francisco Giachero",
+        "url": "https://devfg.com.ar",
+        "jobTitle": "Desarrollador Frontend Senior",
+        "description": "Desarrollador web especializado en React, Next.js y Astro. Construyo sitios y aplicaciones con foco en performance, UX y código mantenible.",
+        "sameAs": [
+          "https://github.com/Frangia22",
+          "https://linkedin.com/in/frangiacherodeveloperweb/"
+        ],
+        "knowsAbout": [
+          "React",
+          "Next.js",
+          "Astro",
+          "TypeScript",
+          "Node.js",
+          "PostgreSQL",
+          "AWS",
+          "Docker"
+        ]
+      }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-K679KZK6");
+    </script>
+    <!-- End Google Tag Manager -->
+
     <link
       rel="icon"
       href="/FGBlack.png"
@@ -36,6 +109,15 @@ const {
     <ClientRouter />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-K679KZK6"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <Navbar />
     <article>
       <slot />
