@@ -11,9 +11,9 @@
             "Node",
             "Express",
             "PostgreSQL",
-            "Sequelize"
-        ],
-        "url": "https://carservi.proyectolandia.com.ar"
+            "Sequelize",
+            "PWA"
+        ]
     },
     {
         "id": 2,
@@ -29,7 +29,8 @@
             "Mysql",
             "Chart.js",
             "JWT",
-            "Docker"
+            "Docker",
+            "PWA"
         ],
         "url": "https://financetraking.proyectolandia.com.ar"
     },
