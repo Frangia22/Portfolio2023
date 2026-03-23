@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormData } from "../lib/contactSchema";
 
 // Reemplazá con tu número en formato internacional sin "+" ni espacios
-const WHATSAPP_NUMBER = "1234567890";
+const WHATSAPP_NUMBER = "5493385401988";
 
 function buildWhatsAppUrl(data: ContactFormData): string {
   const text = [
