@@ -1,42 +1,69 @@
 [
     {
         "id": 1,
-        "title": "Car Service",
-        "description": "Web para la gestión de un taller mecánico, con registro de clientes, vehículos y servicios prestados",
-        "image": "./flyers/carservi.webp",
+        "title": "Carssnet",
+        "description": "Plataforma web que centraliza servicios, presupuestos y caja en una sola plataforma para talleres mecanicos. Prueba gratis y digitaliza tu gestion.",
+        "image": "./flyers/carssnet.webp",
         "technologies": [
             "React",
             "DaisyUI",
             "Tailwind Css",
             "Node",
             "Express",
-            "Mysql"
+            "PostgreSQL",
+            "Sequelize"
         ],
-        "url": "https://carservi.proyectolandia.com.ar",
-        "github": "https://github.com/Frangia22/CarService/tree/dev"
+        "url": "https://carservi.proyectolandia.com.ar"
     },
     {
         "id": 2,
-        "title": "Control de gastos",
-        "description": "Aplicación web para el control de gastos personales, con registro de ingresos y egresos, y generación grafico anual",
-        "image": "./flyers/controlgastos.webp",
+        "title": "Finance Traking",
+        "description": "App para la gestión de finanzas personales, con registro de ingresos y egresos y visualización de métricas mediante dashboards anuales interactivos.",
+        "image": "./flyers/financetracking.webp",
         "technologies": [
             "React",
             "Tailwind Css",
-            "Node",
+            "Node.js",
             "Express",
+            "Sequelize",
             "Mysql",
             "Chart.js",
             "JWT",
             "Docker"
         ],
-        "url": "https://controlgastos.proyectolandia.com.ar",
-        "github": "https://github.com/Frangia22/Control-de-gastos"
+        "url": "https://financetraking.proyectolandia.com.ar"
     },
     {
         "id": 3,
+        "title": "Herreria SG",
+        "description": "Landing corporativa para la presentación de servicios de herrería, con galería de trabajos realizados y canales de contacto directo.",
+        "image": "./flyers/herreriasglbye.webp",
+        "technologies": [
+            "Html",
+            "Css",
+            "Javascript",
+            "Bootstrap"
+        ],
+        "github": "https://github.com/Frangia22/HerreriaSGlbye.github.io",
+        "url": "https://herreriasglbye.com.ar/"
+    },
+    {
+        "id": 4,
+        "title": "Punto Frio",
+        "description": "Catálogo digital de productos para negocio de alimentos congelados, diseñado para facilitar la visualización de productos y mejorar la experiencia de consulta del cliente.",
+        "image": "./flyers/puntofrio.webp",
+        "technologies": [
+            "Tailwind Css",
+            "Next.js",
+            "Javascript",
+            "API rest"
+        ],
+        "url": "https://puntofrio.com.ar/"
+    },
+    {
+        "id": 5,
         "title": "Laimpresioneta3d",
-        "description": "Web para exponer proyectos realizados con impresión 3d y grabado laser como también los servicios prestados",
+        "description": "Sitio web orientado a la exhibición de proyectos de impresión 3D y grabado láser, incluyendo catálogo de trabajos y presentación de servicios personalizados.",
         "image": "./flyers/laimpresioneta.webp",
         "technologies": [
             "Html",
@@ -45,14 +72,12 @@
             "Express",
             "Docker",
             "Mysql"
-        ],
-        "url": "https://laimpresioneta3d-com-ar.onrender.com/",
-        "github": "https://github.com/Frangia22/laimpresioneta3d/tree/main"
+        ]
     },
     {
-        "id": 4,
+        "id": 6,
         "title": "Luz y Fuerza LBYE",
-        "description": "Sistema de gestión de turnos de complejo polideportivo, balance de ingresos y egresos ",
+        "description": "Sistema de gestión para complejo polideportivo, enfocado en la administración de turnos y control de ingresos/egresos para una mejor organización operativa.",
         "image": "./flyers/lyf.webp",
         "technologies": [
             "Python",
@@ -64,32 +89,5 @@
             "Javascript"
         ],
         "github": "https://github.com/Frangia22/Web-Luz-y-Fuerza"
-    },
-    {
-        "id": 5,
-        "title": "Herreria SG",
-        "description": "Web corporativa estática, exposición de trabajos realizados y información de contacto",
-        "image": "./flyers/hsg.webp",
-        "technologies": [
-            "Html",
-            "Css",
-            "Javascript",
-            "Bootstrap"
-        ],
-        "github": "https://github.com/Frangia22/HerreriaSGlbye.github.io"
-    },
-    {
-        "id": 6,
-        "title": "Web Clima",
-        "description": "Aplicación web para la consulta del clima, con registro de ciudades y pronóstico extendido",
-        "image": "./flyers/webclima.webp",
-        "technologies": [
-            "Html",
-            "Css",
-            "Javascript",
-            "API rest"
-        ],
-        "url": "https://webclima.proyectolandia.com.ar/",
-        "github": "https://github.com/Frangia22/webClima"
     }
 ]
