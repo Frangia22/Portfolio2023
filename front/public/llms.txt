@@ -1,0 +1,39 @@
+# Francisco Giachero
+
+> Desarrollador Frontend Senior especializado en React, Next.js y Astro. Ayudo a empresas y startups a construir software real, no demos — con foco en performance, UX y código mantenible. Basado en Córdoba, Argentina. Disponible para proyectos freelance y trabajo remoto.
+
+Francisco Giachero (alias devfg) es un desarrollador web con más de 4 años de experiencia. Trabaja principalmente con React, Next.js, TypeScript y Tailwind CSS en el frontend, y Node.js / Express en el backend. También maneja infraestructura con Docker, AWS y CI/CD.
+
+## Páginas principales
+
+- [Inicio](https://devfg.com.ar/): Presentación general y propuesta de valor
+- [Proyectos](https://devfg.com.ar/#projects): Portfolio de trabajos desarrollados
+- [Stack](https://devfg.com.ar/#stack): Tecnologías y herramientas que utiliza
+- [Experiencia](https://devfg.com.ar/#experience): Trayectoria profesional
+- [Servicios](https://devfg.com.ar/#services): Qué tipo de proyectos toma
+- [Contacto](https://devfg.com.ar/#contact): Cómo contratar o consultar
+
+## Proyectos destacados
+
+- **Carssnet**: Plataforma SaaS para talleres mecánicos (React, Node.js, PostgreSQL, PWA)
+- **Finance Tracking**: App de finanzas personales con dashboards interactivos (React, Chart.js, Docker)
+- **Punto Frio**: Catálogo digital para negocio de alimentos congelados (Next.js, Tailwind CSS)
+- **Herreria SG**: Landing corporativa con galería de trabajos (HTML, CSS, Bootstrap)
+- **Luz y Fuerza LBYE**: Sistema de gestión de turnos para complejo polideportivo (Python, Django, PostgreSQL)
+
+## Experiencia
+
+- **Freelance** (2020 – actualidad): Desarrollo FullStack de aplicaciones web para clientes de Argentina y región
+- **Dewedd** (2024 – actualidad): Developer Frontend — React, Next.js, TypeScript, AWS, Github Actions
+- **Latin Cloud** (2021 – 2026): Operaciones N1 — administración de servidores Linux/Windows, monitoreo, soporte
+
+## Stack principal
+
+React · Next.js · Astro · TypeScript · JavaScript · Tailwind CSS · Node.js · Express · PostgreSQL · Docker · AWS · Angular · Python · Django · AI · LLM · RAG · LangChain
+
+## Contacto
+
+- Web: https://devfg.com.ar
+- GitHub: https://github.com/Frangia22
+- LinkedIn: https://linkedin.com/in/frangiacherodeveloperweb/
+- WhatsApp: https://wa.me/5493385401988
