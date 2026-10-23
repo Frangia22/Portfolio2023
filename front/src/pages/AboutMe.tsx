@@ -29,22 +29,19 @@ export function About() {
             al producto.
           </h2>
           <p className="text-[#E2E8F0] line-height-[1.85] mb-8">
-            Soy Francisco Giachero, Desarrollador Frontend Senior con más de 4
-            años de experiencia creando interfaces de usuario, escalables, bien
-            diseñadas, responsivas y con una excelente UI/UX. Mi enfoque está en
-            transformar requerimientos en sistemas utilizables, sostenibles y
-            listos para crecer, manteniendo lo simple sin complicar lo esencial.
+          Soy Francisco Giachero, Software Engineer con más de 5 años de experiencia construyendo y evolucionando aplicaciones web y sistemas de software. Mi experiencia combina frontend, backend, APIs, infraestructura y herramientas de desarrollo, permitiéndome abordar un producto más allá de una única capa tecnológica. 
           </p>
           <p className="text-[#E2E8F0] line-height-[1.85] mb-8">
-            Prototipo interfaces de usuario sólidas y las conecto con API Rest,
-            aplicando los principios SOLID. Mi meta es proporcionar software
-            claro, eficiente y fácil de mantener a lo largo del tiempo.
+          Me enfoco en transformar requerimientos y problemas de negocio en soluciones simples, mantenibles y escalables. Trabajo con React, Next.js, TypeScript, Node.js y Python, diseñando interfaces, servicios e integraciones y aplicando principios como SOLID, testing y buenas prácticas de arquitectura.
+          </p>
+          <p className="text-[#E2E8F0] line-height-[1.85] mb-8">
+          Utilizo herramientas de desarrollo asistido por IA como Claude Code y Cursor para acelerar el ciclo de desarrollo, integrándolas dentro de procesos estructurados como TDD y SDD. Mi objetivo es aprovechar la IA para desarrollar mejor y más rápido, sin sacrificar la calidad, mantenibilidad ni evolución del software.
           </p>
           <div className="flex flex-wrap md:grid md:grid-cols-3 gap-3.5">
             {[
-              ["4+", "años de experiencia"],
+              ["5+", "años de experiencia"],
               ["20+", "proyectos entregados"],
-              ["Frontend", "full-stack → infra"],
+              ["Fullstack", "→ infra"],
             ].map(([n, l]) => (
               <div
                 key={n}

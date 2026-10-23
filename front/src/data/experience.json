@@ -25,8 +25,18 @@
         "mode": "Remoto",
         "position": "Developer Frontend",
         "startDate": "2024",
-        "endDate": "Actual",
+        "endDate": "2026",
         "description": "Desarrollo de aplicaciones frontend utilizando React.js y Next.js, participando en la implementación de interfaces modernas y escalables. Maquetación de interfaces responsive aplicando buenas prácticas de UI y UX para mejorar la experiencia de usuario en distintos dispositivos. Resolución de bugs y optimización del rendimiento de aplicaciones web mediante análisis de código y mejoras continuas. Testing funcional de nuevas funcionalidades previo a su despliegue para garantizar estabilidad y correcto funcionamiento. Configuración y administración de infraestructura para entornos de desarrollo frontend, facilitando flujos de trabajo eficientes y entornos consistentes.",
         "tasks": ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript", "HTML", "CSS", "AWS", "Github Actions", "I18N", "Ant Design", "UI/UX Design"]
-    }
+    },
+    {
+      "id": 4,
+      "company": "Vysto AI",
+      "mode": "Remoto",
+      "position": "Senior Software Engineer",
+      "startDate": "2026",
+      "endDate": "Actual",
+      "description": "Desarrollo e implementación de nuevas funcionalidades en servicios backend, aplicaciones web, pipelines de contenido y herramientas internas, priorizando la mantenibilidad, escalabilidad y calidad del código. Uso de herramientas de desarrollo asistido por IA como Claude Code y Cursor integradas dentro de un flujo de trabajo basado en TDD, SDD, testing y planificación estructurada. Resolución de bugs mediante análisis de código, debugging e identificación de causas raíz, junto con optimización del rendimiento de aplicaciones web y mejora continua. Testing funcional de nuevas funcionalidades previo a su despliegue para garantizar estabilidad y correcto funcionamiento. Diagnóstico y resolución de problemas en sitios WordPress, incluyendo análisis de incidencias en producción y aplicación de soluciones y mitigaciones.",
+      "tasks": ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript", "HTML", "CSS", "AWS", "Github Actions", "WordPress", "AI-Assisted Development", "UI/UX Design", "FastAPI", "Python", "PostgreSQL"]
+  }
   ]

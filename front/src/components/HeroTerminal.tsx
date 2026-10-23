@@ -6,7 +6,7 @@ export function HeroTerminal() {
   export function buildProduct(idea: string) {
     return new FGDevTools({
       frontend: "React + Next.js",
-      backend: "Express + PostgreSQL",
+      backend: "FastAPI + PostgreSQL",
       ai: { model: "Sonnet o Opus", rag: true },
       deploy: { provider: "AWS", region: "us-east-1" },
     }).ship(); // → usuarios reales

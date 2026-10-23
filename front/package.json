@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
   "packageManager": "pnpm@10.11.0",
   "dependencies": {
     "@astrojs/react": "^5.0.1",
+    "@astrojs/sitemap": "^3.7.4",
     "@astrojs/ts-plugin": "^1.10.7",
     "@fontsource-variable/space-grotesk": "^5.2.10",
     "@hookform/resolvers": "^5.2.2",
@@ -30,7 +32,9 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "prettier": "3.8.1",
-    "prettier-plugin-astro": "0.14.1"
+    "prettier-plugin-astro": "0.14.1",
+    "typescript": "^5.9.3"
   }
 }
