@@ -1,8 +1,8 @@
-# Example: Permitir a todos los bots de búsqueda escanear e indexar el sitio web.
-# Full syntax: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
 User-agent: *
 Allow: /
 
 # LLMs.txt — context for AI language models
 # https://llmstxt.org
 LLMs: /llms.txt
+
+Sitemap: https://devfg.com.ar/sitemap-index.xml

@@ -1,26 +1,109 @@
 @import "tailwindcss";
 @import "@fontsource-variable/space-grotesk";
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @theme {
-    --font-space-grotesk: 'Space Grotesk Variable', sans-serif;
-    --font-jetbrains-mono: 'JetBrains Mono', monospace;
-    --font-clash-display: 'Clash Display', sans-serif;
-    --color-background: #0A0A0F;
-    --color-primary: #00E5FF;
-    --color-secondary: #00B8CC;
-    --color-secondary: #94A3B8;
-    --color-tertiary: #334155;
-    --color-quaternary: #1E293B;
-    --color-quinary: #18181F;
-    --color-senary: #111118;
+  --font-space-grotesk: "Space Grotesk Variable", sans-serif;
+  --font-jetbrains-mono: "JetBrains Mono", monospace;
+  --color-background: #0a0a0f;
+  --color-primary: #00e5ff;
+  --color-primary-hover: #00b8cc;
+  --color-secondary: #94a3b8;
+  --color-tertiary: #334155;
+  --color-border-strong: #64748b;
+  --color-quaternary: #1e293b;
+  --color-quinary: #18181f;
+  --color-senary: #111118;
 }
 
 body {
-    font-family: 'Space Grotesk Variable', sans-serif;
-    background-color: var(--color-background);
+  font-family: "Space Grotesk Variable", sans-serif;
+  background-color: var(--color-background);
 }
 
 section {
-    scroll-margin-top: 4rem;
+  scroll-margin-top: 4rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background: var(--color-primary);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+html.js .reveal-pending {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+html.js .reveal-pending.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html.js .reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
 }

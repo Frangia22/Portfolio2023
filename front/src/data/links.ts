@@ -1,45 +1,9 @@
-interface linksProps extends React.HTMLAttributes<HTMLAnchorElement> {
-  name: string;
-  href: string;
-  target?: string;
-}
+/** @deprecated Prefer getContent(locale).nav / .social — kept for gradual migration. */
+import { getContent } from "./site";
 
-export const navLinks: linksProps[] = [
-  {
-    name: "Proyectos",
-    href: "/projects",
-  },
-  {
-    name: "Stack",
-    href: "/stack",
-  },
-  {
-    name: "Sobre mí",
-    href: "/about",
-  },
-  {
-    name: "Experiencia",
-    href: "/experience",
-  },
-  {
-    name: "Servicios",
-    href: "/services",
-  },
-  {
-    name: "Contacto",
-    href: "/contact",
-  },
-];
+export const navLinks = getContent("en").nav.map((l) => ({
+  name: l.name,
+  href: l.href.replace(/^\/es/, "") || "/",
+}));
 
-export const socialLinks: linksProps[] = [
-  {
-    name: "GitHub",
-    href: "https://github.com/Frangia22",
-    target: "_blank",
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/frangiacherodeveloperweb/",
-    target: "_blank",
-  },
-];
+export const socialLinks = getContent("en").social;

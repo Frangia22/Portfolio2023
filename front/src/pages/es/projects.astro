@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Projects from "../../components/Projects.astro";
+import { getContent } from "../../data/site";
+
+const c = getContent("es");
+---
+
+<Layout
+  locale="es"
+  title={`Proyectos | ${c.seo.siteName}`}
+  description={c.projects.subtitle}
+>
+  <Projects locale="es" />
+</Layout>

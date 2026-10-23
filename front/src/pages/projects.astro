@@ -1,11 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ProjectsComponent from "../components/Projects.astro";
+import Projects from "../components/Projects.astro";
+import { getContent } from "../data/site";
+
+const c = getContent("en");
 ---
 
 <Layout
-  title="Proyectos | devfg"
-  description="Proyectos reales construidos por Francisco Giachero."
+  locale="en"
+  title={`Projects | ${c.seo.siteName}`}
+  description={c.projects.subtitle}
 >
-  <ProjectsComponent />
+  <Projects locale="en" />
 </Layout>

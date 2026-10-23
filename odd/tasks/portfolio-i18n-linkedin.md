@@ -20,15 +20,18 @@ Test runner: `pnpm check` + `pnpm build` in `front/` (no unit runner; parity via
 
 | ID | Specs | Route | Status | Evidence |
 |----|-------|-------|--------|----------|
-| T0 | S2, S8 | inline | in_progress | Phase 0 setup |
-| T1 | S1, S3, S5, S6 | inline | pending | Content model |
-| T2 | S1, S2, S8 | inline | pending | i18n routing + SEO |
-| T3 | S1, S5, S6 | inline | pending | Section wiring |
-| T4 | S4, S7 | inline | pending | Accessibility |
-| T5 | S4 | inline | pending | Mobbin UI |
-| T6 | S1–S8 | inline | pending | Verification |
+| T0 | S2, S8 | inline | done | ec3d64e |
+| T1 | S1, S3, S5, S6 | inline | done | SiteContent en/es |
+| T2 | S1, S2, S8 | inline | done | Layout + /es pages |
+| T3 | S1, S5, S6 | inline | done | Sections wired |
+| T4 | S4, S7 | inline | done | A11y tokens + forms |
+| T5 | S4 | inline | done | Palette UI patterns |
+| T6 | S1–S8 | inline | done | check+build; browser EN/ES; verifier |
 
 ## Log
 
 - L1: User asked for LinkedIn/portfolio alignment (ES+EN), Mobbin UI/UX/A11y ideas keeping palette, then implement plan with Grok 4.7; English primary chosen.
 - L2: Phase 0 started — branch `feat/i18n-linkedin-alignment`, feature doc, deps, astro i18n+sitemap.
+- L3: Phases 1–5 implemented inline (content model, i18n/SEO, sections, a11y, Mobbin UI). `pnpm check` and `pnpm build` green. Delivery: feature-branch-chain.
+- L4: Audits: 14/14 pages with hreflang; no placeholders in dist; no cross-locale UI leaks on home pages.
+- L5: Independent verifier: S1/S2/S5–S8 PASS; S3/S4 PARTIAL (metric echo in pillars fixed; Copy email waits on profile.email). Browser EN+ES hero verified.

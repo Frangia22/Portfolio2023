@@ -1,33 +1,89 @@
 import { useEffect, useState } from "react";
 
-export function AboutTerminal({ visible }) {
-  const FULL_ABOUT = `const frandev = {\n  name: "Francisco Giachero",\n  role: "Senior Frontend Developer",\n  company: "Sinergy Stack",\n  location: "Argentina 🇦🇷",\n  available: true,\n  stack: {\n    frontend: ["React", "Next.js", "TypeScript"],\n    backend: ["Express", "Node.js", "PostgreSQL"],\n    mobile: ["React Native", "Expo"],\n    automation: ["N8N"],\n    ai: ["LangChain", "RAG", "OpenAI", "Claude"],\n    devops: ["Docker", "Dokploy", "GitHub Actions"],\n    },\n  openTo: ["freelance", "full-time", "consulting"],\n};`;
+interface Tab {
+  id: string;
+  label: string;
+  code: string;
+}
+
+interface Props {
+  tabs: Tab[];
+  visible?: boolean;
+}
+
+export function AboutTerminal({ tabs, visible = true }: Props) {
+  const [active, setActive] = useState(tabs[0]?.id ?? "about");
+  const current = tabs.find((t) => t.id === active) ?? tabs[0];
   const [displayed, setDisplayed] = useState("");
   const [started, setStarted] = useState(false);
+
+  const reduceMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   useEffect(() => {
-    if (visible && !started) {
+    if (!visible || !current) return;
+    setStarted(false);
+    setDisplayed("");
+  }, [active, visible, current?.code]);
+
+  useEffect(() => {
+    if (!visible || !current) return;
+    if (reduceMotion) {
+      setDisplayed(current.code);
       setStarted(true);
-      let i = 0;
-      const id = setInterval(() => {
-        i++;
-        setDisplayed(FULL_ABOUT.slice(0, i));
-        if (i >= FULL_ABOUT.length) clearInterval(id);
-      }, 22);
-      return () => clearInterval(id);
+      return;
     }
-  }, [visible]);
+    if (started) return;
+    setStarted(true);
+    let i = 0;
+    const id = setInterval(() => {
+      i++;
+      setDisplayed(current.code.slice(0, i));
+      if (i >= current.code.length) clearInterval(id);
+    }, 18);
+    return () => clearInterval(id);
+  }, [visible, current, started, reduceMotion]);
+
+  if (!current) return null;
+
   const lines = displayed.split("\n");
+
   return (
     <div className="font-jetbrains-mono bg-senary rounded-xl text-[12.5px] overflow-hidden border border-tertiary">
-      <div className="bg-quinary py-2.5 px-4 flex items-center gap-2 border-b border-tertiary">
-        <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />
-        <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block" />
-        <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
-        <span className="ml-2 font-space-grotesk text-sm text-secondary">
-          about.frandev.ts
-        </span>
+      <div
+        role="tablist"
+        aria-label="About terminal tabs"
+        className="bg-quinary py-2 px-2 flex items-center gap-1 border-b border-tertiary overflow-x-auto"
+      >
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            role="tab"
+            id={`tab-${tab.id}`}
+            aria-selected={tab.id === active}
+            aria-controls={`panel-${tab.id}`}
+            tabIndex={tab.id === active ? 0 : -1}
+            onClick={() => setActive(tab.id)}
+            className={`font-space-grotesk text-xs px-3 py-1.5 rounded-md border-0 cursor-pointer transition-colors ${
+              tab.id === active
+                ? "bg-background text-primary"
+                : "bg-transparent text-secondary hover:text-white"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
-      <div className="py-5 px-4 overflow-x-auto">
+      <pre className="sr-only">{current.code}</pre>
+      <div
+        role="tabpanel"
+        id={`panel-${current.id}`}
+        aria-labelledby={`tab-${current.id}`}
+        aria-hidden="true"
+        className="py-5 px-4 overflow-x-auto min-h-55"
+      >
         {lines.map((line, i) => (
           <div key={i} className="flex leading-[1.75]">
             <span className="min-w-5.5 text-tertiary user-select-none mr-3">
@@ -57,12 +113,10 @@ export function AboutTerminal({ visible }) {
             </span>
           </div>
         ))}
-        {displayed.length < FULL_ABOUT.length && (
+        {displayed.length < current.code.length && (
           <span
             className="text-primary"
-            style={{
-              animation: "blink 1s step-end infinite",
-            }}
+            style={{ animation: "blink 1s step-end infinite" }}
           >
             ▋
           </span>

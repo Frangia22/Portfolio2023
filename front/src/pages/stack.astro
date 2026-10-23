@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import StackComponent from "../components/Stack.astro";
+import Stack from "../components/Stack.astro";
+import { getContent } from "../data/site";
+
+const c = getContent("en");
 ---
 
-<Layout
-  title="Stack | devfg"
-  description="Tecnologías y herramientas que usa Francisco Giachero."
->
-  <StackComponent />
+<Layout locale="en" title={`Stack | ${c.seo.siteName}`} description={c.stack.subtitle}>
+  <Stack locale="en" />
 </Layout>

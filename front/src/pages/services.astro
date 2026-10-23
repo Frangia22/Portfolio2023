@@ -1,11 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ServicesComponent from "../components/Services.astro";
+import Services from "../components/Services.astro";
+import { getContent } from "../data/site";
+
+const c = getContent("en");
 ---
 
 <Layout
-  title="Servicios | devfg"
-  description="Servicios de desarrollo frontend ofrecidos por Francisco Giachero."
+  locale="en"
+  title={`${c.pillars.title} | ${c.seo.siteName}`}
+  description={c.pillars.subtitle}
 >
-  <ServicesComponent />
+  <Services locale="en" />
 </Layout>

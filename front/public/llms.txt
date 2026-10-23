@@ -1,37 +1,44 @@
 # Francisco Giachero
 
-> Desarrollador Frontend Senior especializado en React, Next.js y Astro. Ayudo a empresas y startups a construir software real, no demos — con foco en performance, UX y código mantenible. Basado en Córdoba, Argentina. Disponible para proyectos freelance y trabajo remoto.
+> Senior Software Engineer / AI-native full-stack. I ship products end-to-end: interface, API, database, deployment and the AI layer. Remote for VystoAI (US). Based in Córdoba, Argentina. Open to remote Senior Software Engineer, AI Engineer and Full-Stack roles — and freelance projects.
 
-Francisco Giachero (alias devfg) es un desarrollador web con más de 4 años de experiencia. Trabaja principalmente con React, Next.js, TypeScript y Tailwind CSS en el frontend, y Node.js / Express en el backend. También maneja infraestructura con Docker, AWS y CI/CD.
+Francisco Giachero (devfg) has been building for the web since 2020. Frontend (React / Next.js / TypeScript) remains a strong pillar; today he works across the whole stack with LLMs, RAG, agents, n8n, Node.js, Python/Django, PostgreSQL/MySQL, AWS and Docker. Daily practice: Spec Driven Development (SDD), TDD and AI-assisted engineering with Cursor.
 
-## Páginas principales
+## Main pages
 
-- [Inicio](https://devfg.com.ar/): Presentación general y propuesta de valor
-- [Proyectos](https://devfg.com.ar/#projects): Portfolio de trabajos desarrollados
-- [Stack](https://devfg.com.ar/#stack): Tecnologías y herramientas que utiliza
-- [Experiencia](https://devfg.com.ar/#experience): Trayectoria profesional
-- [Servicios](https://devfg.com.ar/#services): Qué tipo de proyectos toma
-- [Contacto](https://devfg.com.ar/#contact): Cómo contratar o consultar
+- [Home (EN)](https://devfg.com.ar/): Value proposition and full profile
+- [Home (ES)](https://devfg.com.ar/es/): Same content in Spanish
+- [Projects](https://devfg.com.ar/#projects): Featured work including RAG + n8n chatbot, Carssnet, Finance Tracking
+- [Stack](https://devfg.com.ar/#stack): Production technologies
+- [Experience](https://devfg.com.ar/#experience): VystoAI, Freelance, Dewedd, LatinCloud
+- [What I bring](https://devfg.com.ar/#services): AI in production, full-stack, frontend performance, infra/ops
+- [Contact](https://devfg.com.ar/#contact): Hiring and project inquiries
 
-## Proyectos destacados
+## Featured work
 
-- **Carssnet**: Plataforma SaaS para talleres mecánicos (React, Node.js, PostgreSQL, PWA)
-- **Finance Tracking**: App de finanzas personales con dashboards interactivos (React, Chart.js, Docker)
-- **Punto Frio**: Catálogo digital para negocio de alimentos congelados (Next.js, Tailwind CSS)
-- **Herreria SG**: Landing corporativa con galería de trabajos (HTML, CSS, Bootstrap)
-- **Luz y Fuerza LBYE**: Sistema de gestión de turnos para complejo polideportivo (Python, Django, PostgreSQL)
+- **RAG + n8n AI chatbot**: LLM + retrieval + n8n automation; 85% answer accuracy gain
+- **Carssnet**: SaaS for auto repair shops (React, Node.js, PostgreSQL, PWA)
+- **Finance Tracking**: Personal finance app with interactive dashboards
+- **Client websites**: Herreria SG, Punto Frio, Laimpresioneta3d, Luz y Fuerza LBYE
 
-## Experiencia
+## Experience
 
-- **Freelance** (2020 – actualidad): Desarrollo FullStack de aplicaciones web para clientes de Argentina y región
-- **Dewedd** (2024 – actualidad): Developer Frontend — React, Next.js, TypeScript, AWS, Github Actions
-- **Latin Cloud** (2021 – 2026): Operaciones N1 — administración de servidores Linux/Windows, monitoreo, soporte
+- **VystoAI** (May 2026 – Present · Texas, US · Remote): Senior Software Engineer — backend services, content pipelines, AI integration, site tooling
+- **Freelance Full-Stack** (2020 – Present · Remote): End-to-end web apps for clients
+- **Dewedd** (Jun 2024 – Jul 2026): Frontend Developer — React, Next.js, TypeScript
+- **LatinCloud** (Oct 2021 – Feb 2026): Infrastructure Operations / Web hosting support — 99.9% uptime via monitoring
 
-## Stack principal
+## Verified metrics
 
-React · Next.js · Astro · TypeScript · JavaScript · Tailwind CSS · Node.js · Express · PostgreSQL · Docker · AWS · Angular · Python · Django · AI · LLM · RAG · LangChain
+- 60% faster load times (asset optimization & lazy loading) — About
+- 85% chatbot answer accuracy gain (RAG + n8n) — About
+- 99.9% uptime — LatinCloud experience (also summarized in About metrics)
 
-## Contacto
+## Stack
+
+AI: LLMs (OpenAI), RAG, LangChain, AI agents, n8n · Backend: Node.js, Express, Python, Django, REST APIs · Frontend: React, Next.js, Astro, TypeScript, JavaScript, Tailwind CSS · Data: PostgreSQL, MySQL · Cloud & DevOps: AWS (EC2, S3, RDS), Docker, GitHub Actions, Nginx, Linux, Grafana · Practices: SDD, TDD, DDD, Cursor
+
+## Contact
 
 - Web: https://devfg.com.ar
 - GitHub: https://github.com/Frangia22

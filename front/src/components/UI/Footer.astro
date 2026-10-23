@@ -1,10 +1,25 @@
 ---
 import { Image } from "astro:assets";
-import { navLinks } from "../../data/links";
-
-const pathname = Astro.url.pathname;
-const isHome = pathname === "/";
+import { getContent, type Locale } from "../../data/site";
 import logoWhite from "../../assets/FG-dev-horizontal-white.webp";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale ?? "en";
+const c = getContent(locale);
+const pathname = Astro.url.pathname;
+const isHome = pathname === "/" || pathname === "/es" || pathname === "/es/";
+const homePrefix = locale === "es" ? "/es" : "";
+
+function navHref(href: string) {
+  if (isHome) {
+    const slug = href.replace(/^\/es/, "").replace(/^\//, "");
+    return `${homePrefix}/#${slug}`;
+  }
+  return href;
+}
 ---
 
 <footer class="bg-background border-t border-tertiary px-5 md:px-10 py-10">
@@ -12,7 +27,7 @@ import logoWhite from "../../assets/FG-dev-horizontal-white.webp";
     <div
       class="flex flex-col md:flex-row justify-between md:items-center mb-5 gap-5"
     >
-      <a href="/" class="w-25 h-6">
+      <a href={homePrefix || "/"} class="w-25 h-6">
         <Image
           src={logoWhite}
           alt="FG Dev"
@@ -23,9 +38,9 @@ import logoWhite from "../../assets/FG-dev-horizontal-white.webp";
       </a>
       <div class="flex flex-col md:flex-row gap-6">
         {
-          navLinks.map((link) => (
+          c.nav.map((link) => (
             <a
-              href={isHome ? `/#${link.href.slice(1)}` : link.href}
+              href={navHref(link.href)}
               class="text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150 no-underline"
             >
               {link.name}
@@ -37,11 +52,15 @@ import logoWhite from "../../assets/FG-dev-horizontal-white.webp";
     <div
       class="flex flex-col md:flex-row justify-between md:items-center border-t border-quaternary pt-5 gap-5"
     >
-      <span class="text-sm text-tertiary"
-        >© 2026 Derechos reservados | FG Dev</span
+      <span class="text-sm text-secondary"
+        >© 2026 {locale === "es" ? "Derechos reservados" : "All rights reserved"} | FG Dev</span
       >
-      <span class="text-sm text-tertiary"
-        >Diseñado y desarrollado por mí, con orgullo. 🇦🇷</span
+      <span class="text-sm text-secondary"
+        >{
+          locale === "es"
+            ? "Diseñado y desarrollado por mí, con orgullo. 🇦🇷"
+            : "Designed and built by me, proudly. 🇦🇷"
+        }</span
       >
     </div>
   </div>

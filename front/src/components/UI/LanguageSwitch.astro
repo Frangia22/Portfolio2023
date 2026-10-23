@@ -1,0 +1,45 @@
+---
+import { getAlternatePath, type Locale } from "../../data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const pathname = Astro.url.pathname;
+const enHref = getAlternatePath(pathname, "en");
+const esHref = getAlternatePath(pathname, "es");
+---
+
+<div
+  class="inline-flex rounded-md border border-tertiary overflow-hidden"
+  role="group"
+  aria-label="Language"
+>
+  <a
+    href={enHref}
+    hreflang="en"
+    aria-current={locale === "en" ? "page" : undefined}
+    class:list={[
+      "font-jetbrains-mono text-xs px-2.5 py-1.5 no-underline transition-colors",
+      locale === "en"
+        ? "bg-primary text-background"
+        : "bg-transparent text-secondary hover:text-white",
+    ]}
+  >
+    EN
+  </a>
+  <a
+    href={esHref}
+    hreflang="es"
+    aria-current={locale === "es" ? "page" : undefined}
+    class:list={[
+      "font-jetbrains-mono text-xs px-2.5 py-1.5 no-underline transition-colors border-l border-tertiary",
+      locale === "es"
+        ? "bg-primary text-background"
+        : "bg-transparent text-secondary hover:text-white",
+    ]}
+  >
+    ES
+  </a>
+</div>

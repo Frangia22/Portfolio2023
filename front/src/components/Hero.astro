@@ -1,178 +1,144 @@
 ---
-import { socialLinks } from "../data/links";
 import { HeroTerminal } from "./HeroTerminal";
-const WHATSAPP_NUMBER = "5493385401988";
+import { getContent, type Locale } from "../data/site";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale ?? "en";
+const c = getContent(locale);
+const { hero, social, ui, profile, terminal } = c;
+const homeHash = locale === "es" ? "/es/" : "/";
 ---
 
 <section
   class="min-h-screen flex items-center bg-background justify-center relative overflow-hidden px-5 md:pl-20 md:pr-10 pt-16"
 >
-  {/* grid bg */}
   <div
-    style={{
-      position: "absolute",
-      inset: 0,
-      backgroundImage:
-        "linear-gradient(rgba(0,229,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.04) 1px,transparent 1px)",
-      backgroundSize: "32px 32px",
-      pointerEvents: "none",
-    }}
+    class="absolute inset-0 pointer-events-none"
+    style="background-image:linear-gradient(rgba(0,229,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.04) 1px,transparent 1px);background-size:32px 32px;"
   >
   </div>
-  {/* glow */}
   <div
-    style={{
-      position: "absolute",
-      right: "10%",
-      top: "30%",
-      width: 600,
-      height: 600,
-      borderRadius: "50%",
-      background:
-        "radial-gradient(circle,rgba(0,229,255,0.08) 0%,transparent 70%)",
-      pointerEvents: "none",
-    }}
+    class="absolute pointer-events-none"
+    style="right:10%;top:30%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,0.08) 0%,transparent 70%);"
   >
   </div>
 
   <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
-    {/* left */}
-    <div class="flex flex-col gap-6">
-      <div
-        id="pre-headline-badge"
-        class="transform-y-20 transition-all duration-500 ease-out 100ms"
-      >
+    <div class="flex flex-col gap-6 hero-enter">
+      <div>
         <span
           class="font-jetbrains-mono text-sm text-primary bg-quinary border border-tertiary rounded-md px-3 py-1.5 inline-flex items-center gap-1.5"
         >
-          [ Senior Software Engineer ]<span class="animate-blink">_</span>
+          {hero.badge}<span class="animate-blink" aria-hidden="true">_</span>
         </span>
       </div>
+
       <div
-        id="main-headline"
-        class="transition-all duration-500 ease-out 200ms"
+        class="inline-flex items-center gap-2 font-jetbrains-mono text-xs text-secondary"
       >
-        <h1
-          class="font-space-grotesk font-bold text-6xl text-white leading-none tracking-[-2px]"
-        >
-          Construyo productos<br /><span class="text-primary">que escalan.</span
-          >
-        </h1>
+        <span
+          class="w-2 h-2 rounded-full bg-primary animate-pulse"
+          aria-hidden="true"></span>
+        <span>{hero.status}</span>
       </div>
-      <div id="subheadline" class="transition-all duration-500 ease-out 350ms">
-        <p
-          class="font-space-grotesk text-sm text-secondary leading-relaxed max-w-96"
-        >
-          Fullstack + DevOps + AI. Ayudo a empresas y startups a lanzar software
-          real, no demos.
-        </p>
-      </div>
-      <div
-        id="cta-row"
-        class="transform-y-20 transition-all duration-500 ease-out 480ms flex gap-3 flex-wrap"
+
+      <h1
+        class="font-space-grotesk font-bold text-4xl sm:text-5xl lg:text-6xl text-white leading-none tracking-[-2px]"
       >
+        {hero.headline}
+        <br />
+        <span class="text-primary">{hero.headlineAccent}</span>
+      </h1>
+
+      <p
+        class="font-space-grotesk text-base md:text-lg text-secondary leading-relaxed max-w-96"
+      >
+        {hero.subheadline}
+      </p>
+
+      <div class="flex gap-3 flex-wrap">
         <a
-          href="#projects"
-          id="primary-cta"
-          class="bg-primary text-black font-space-grotesk font-medium text-sm rounded-md px-4 py-2 cursor-pointer transition-all duration-300 hover:bg-[#00B8CC] hover:shadow-md hover:shadow-primary/40 hover:scale-105"
-          >Ver proyectos</a
+          href={`${homeHash}#projects`}
+          class="bg-primary text-black font-space-grotesk font-medium text-sm rounded-md px-4 py-2 cursor-pointer transition-all duration-300 hover:bg-primary-hover hover:shadow-md hover:shadow-primary/40 hover:scale-105"
+          >{hero.primaryCta}</a
         >
+        {
+          profile.cvUrl && (
+            <a
+              href={profile.cvUrl}
+              download
+              data-track="cv_download"
+              class="border border-tertiary text-secondary bg-transparent font-space-grotesk font-medium text-sm rounded-md px-4 py-2 cursor-pointer transition-all duration-300 hover:border-primary hover:text-primary"
+            >
+              {ui.downloadCv}
+            </a>
+          )
+        }
         <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola, me interesa tu trabajo.`}
+          href={`https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(locale === "es" ? "Hola, me interesa tu trabajo." : "Hi, I'm interested in your work.")}`}
           target="_blank"
           rel="noopener noreferrer"
-          id="secondary-cta"
-          class="border border-primary text-primary bg-transparent font-space-grotesk font-medium text-sm rounded-md
-          px-4 py-2 cursor-pointer transition-all duration-300 hover:bg-primary/8"
-          >Hablemos</a
+          data-track="whatsapp_click"
+          class="border border-primary text-primary bg-transparent font-space-grotesk font-medium text-sm rounded-md px-4 py-2 cursor-pointer transition-all duration-300 hover:bg-primary/8"
         >
+          {hero.secondaryCta}
+          <span class="sr-only">{ui.opensInNewTab}</span>
+        </a>
       </div>
-      <div
-        id="social-links-row"
-        class="transform-y-20 transition-all duration-500 ease-out 600ms flex gap-5"
-      >
+
+      <div class="flex gap-5">
         {
-          socialLinks.map((link) => (
+          social.map((link) => (
             <a
               href={link.href}
               target={link.target}
-              class="font-space-grotesk text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150"
               rel="noopener noreferrer"
+              class="font-space-grotesk text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150"
             >
               {link.name}
+              {link.target === "_blank" && (
+                <span class="sr-only">{ui.opensInNewTab}</span>
+              )}
             </a>
           ))
         }
       </div>
     </div>
-    {/* right */}
-    <div
-      id="hero-terminal"
-      class="transform-y-20 transition-all duration-500 ease-out 600ms w-full overflow-x-auto"
-    >
-      <HeroTerminal client:load />
+
+    <div class="w-full overflow-x-auto hero-enter" style="animation-delay:120ms;">
+      <HeroTerminal
+        client:load
+        filename={terminal.heroFilename}
+        profile={{
+          company: profile.company,
+          jobTitle: profile.jobTitle,
+          location: profile.location,
+        }}
+      />
     </div>
   </div>
 </section>
 
 <style>
-  .animate-blink {
-    animation: blink 1s step-end infinite;
+  .hero-enter {
+    animation: hero-in 500ms ease-out both;
   }
-  @keyframes blink {
-    50% {
+  @keyframes hero-in {
+    from {
       opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-enter {
+      animation: none;
     }
   }
 </style>
-
-<script>
-  const preHeadlineBadge = document.getElementById("pre-headline-badge");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      preHeadlineBadge.style.transform = "translateY(0)";
-    } else {
-      preHeadlineBadge.style.transform = "translateY(20px)";
-    }
-  });
-  const ctaRow = document.getElementById("cta-row");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      ctaRow.style.transform = "translateY(0)";
-    } else {
-      ctaRow.style.transform = "translateY(20px)";
-    }
-  });
-  const heroTerminal = document.getElementById("hero-terminal");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      heroTerminal.style.transform = "translateY(0)";
-    } else {
-      heroTerminal.style.transform = "translateY(20px)";
-    }
-  });
-  const socialLinksRow = document.getElementById("social-links-row");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      socialLinksRow.style.transform = "translateY(0)";
-    } else {
-      socialLinksRow.style.transform = "translateY(20px)";
-    }
-  });
-  const primaryCta = document.getElementById("primary-cta");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      primaryCta.style.transform = "translateY(0)";
-    } else {
-      primaryCta.style.transform = "translateY(20px)";
-    }
-  });
-  const secondaryCta = document.getElementById("secondary-cta");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      secondaryCta.style.transform = "translateY(0)";
-    } else {
-      secondaryCta.style.transform = "translateY(20px)";
-    }
-  });
-</script>

@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Contact from "../../components/Contact.astro";
+import { getContent } from "../../data/site";
+
+const c = getContent("es");
+---
+
+<Layout
+  locale="es"
+  title={`Contacto | ${c.seo.siteName}`}
+  description={c.contact.subtitle}
+>
+  <Contact locale="es" />
+</Layout>
