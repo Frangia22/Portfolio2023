@@ -29,6 +29,7 @@ ${stack.categories
 };`;
 
 const contactSnippet = `const contact = {
+  email: ${profile.email ? `"${profile.email}"` : "undefined"},
   linkedin: "${profile.linkedin}",
   github: "${profile.github}",
   whatsapp: "wa.me/${profile.whatsapp}",

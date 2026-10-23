@@ -11,43 +11,39 @@ interface Props {
   visible?: boolean;
 }
 
+function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 export function AboutTerminal({ tabs, visible = true }: Props) {
   const [active, setActive] = useState(tabs[0]?.id ?? "about");
   const current = tabs.find((t) => t.id === active) ?? tabs[0];
-  const [displayed, setDisplayed] = useState("");
-  const [started, setStarted] = useState(false);
-
-  const reduceMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const [displayed, setDisplayed] = useState(current?.code ?? "");
 
   useEffect(() => {
     if (!visible || !current) return;
-    setStarted(false);
-    setDisplayed("");
-  }, [active, visible, current?.code]);
 
-  useEffect(() => {
-    if (!visible || !current) return;
-    if (reduceMotion) {
+    if (prefersReducedMotion()) {
       setDisplayed(current.code);
-      setStarted(true);
       return;
     }
-    if (started) return;
-    setStarted(true);
+
+    setDisplayed("");
     let i = 0;
-    const id = setInterval(() => {
-      i++;
+    const id = window.setInterval(() => {
+      i += 1;
       setDisplayed(current.code.slice(0, i));
-      if (i >= current.code.length) clearInterval(id);
+      if (i >= current.code.length) window.clearInterval(id);
     }, 18);
-    return () => clearInterval(id);
-  }, [visible, current, started, reduceMotion]);
+
+    return () => window.clearInterval(id);
+  }, [active, visible, current?.code]);
 
   if (!current) return null;
 
   const lines = displayed.split("\n");
+  const isTyping = displayed.length < current.code.length;
 
   return (
     <div className="font-jetbrains-mono bg-senary rounded-xl text-[12.5px] overflow-hidden border border-tertiary">
@@ -113,7 +109,7 @@ export function AboutTerminal({ tabs, visible = true }: Props) {
             </span>
           </div>
         ))}
-        {displayed.length < current.code.length && (
+        {isTyping && (
           <span
             className="text-primary"
             style={{ animation: "blink 1s step-end infinite" }}

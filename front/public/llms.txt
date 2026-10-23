@@ -28,11 +28,15 @@ Francisco Giachero (devfg) has been building for the web since 2020. Frontend (R
 - **Dewedd** (Jun 2024 – Jul 2026): Frontend Developer — React, Next.js, TypeScript
 - **LatinCloud** (Oct 2021 – Feb 2026): Infrastructure Operations / Web hosting support — 99.9% uptime via monitoring
 
-## Verified metrics
+## Profile signals (About)
 
-- 60% faster load times (asset optimization & lazy loading) — About
-- 85% chatbot answer accuracy gain (RAG + n8n) — About
-- 99.9% uptime — LatinCloud experience (also summarized in About metrics)
+- Building for the web since 2020
+- Full-stack + AI in production
+- Remote with US teams
+
+## Verified metric in experience
+
+- 99.9% uptime — LatinCloud (Infrastructure Operations)
 
 ## Stack
 

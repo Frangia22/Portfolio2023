@@ -8,6 +8,7 @@ export const en = {
     company: "VystoAI",
     location: "Córdoba, Argentina",
     locationCountry: "Argentina",
+    email: "frangiacherodev@gmail.com",
     whatsapp: "5493385401988",
     github: "https://github.com/Frangia22",
     linkedin: "https://www.linkedin.com/in/frangiacherodeveloperweb/",
@@ -84,9 +85,9 @@ export const en = {
       "Spec first, then code. I write clear specs, split the work into verifiable pieces, and use AI tools to move fast while keeping code reviewed, tested and easy to maintain. I'm comfortable owning ambiguous problems, working async with US teams in English, and moving between product, backend, frontend and infra as needed.",
     ],
     metrics: [
-      { value: "60%", label: "faster load times via asset optimization & lazy loading" },
-      { value: "85%", label: "chatbot answer accuracy gain with RAG + n8n" },
-      { value: "99.9%", label: "uptime sustained with proactive monitoring" },
+      { value: "2020→now", label: "building for the web" },
+      { value: "Full-stack", label: "+ AI in production" },
+      { value: "Remote", label: "with US teams" },
     ],
   },
   projects: {
@@ -99,7 +100,7 @@ export const en = {
         title: "RAG + n8n AI chatbot",
         description:
           "AI chatbot with RAG retrieval and n8n automation, wired into real workflows. Featured case: accuracy gains measured in production.",
-        image: "/flyers/financetracking.webp",
+        image: "/flyers/rag-n8n-chatbot.webp",
         imageAlt: "Architecture sketch for a RAG and n8n AI chatbot",
         technologies: ["LLMs", "RAG", "n8n", "OpenAI", "LangChain"],
         featured: true,
@@ -212,7 +213,7 @@ export const en = {
       },
       {
         cat: "Backend",
-        items: ["Node.js", "Express", "Python", "Django", "REST APIs"],
+        items: ["Node.js", "Express", "Python", "FastAPI", "Django", "REST APIs"],
       },
       {
         cat: "Frontend",
@@ -269,6 +270,7 @@ export const en = {
             skills: [
               "Node.js",
               "Python",
+              "FastAPI",
               "TypeScript",
               "React",
               "LLMs",
@@ -422,14 +424,14 @@ export const en = {
       {
         glyph: "◇",
         title: "AI in production",
-        desc: "LLM integrations, RAG pipelines, agents and n8n automations — including a production RAG + n8n chatbot (see About metrics).",
+        desc: "LLM integrations, RAG pipelines, agents and n8n automations — including a production RAG + n8n chatbot.",
         tags: ["LLMs", "RAG", "LangChain", "n8n", "AI agents"],
       },
       {
         glyph: "▣",
         title: "Full-stack delivery",
         desc: "Node.js/Express and Python/Django services, REST APIs, PostgreSQL/MySQL data modeling, third-party integrations and production deployments.",
-        tags: ["Node.js", "Express", "Python", "Django", "PostgreSQL"],
+        tags: ["Node.js", "Express", "Python", "FastAPI", "Django", "PostgreSQL"],
       },
       {
         glyph: "◈",
