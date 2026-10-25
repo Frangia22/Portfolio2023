@@ -1,26 +1,26 @@
 <!--
   Francisco Giachero | GitHub profile README
-  Dark/cyan chrome aligned with devfg.com.ar
+  Aligned with the English LinkedIn profile and devfg.com.ar
 -->
 
-<img src="./header.png" width="100%" alt="FG — Francisco Giachero. I build products that scale." />
+<img src="./header.png" width="100%" alt="FG — Francisco Giachero. I ship products end-to-end." />
 
 <div align="center">
 
 <a href="https://devfg.com.ar">
-  <img src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=600&size=22&duration=2800&pause=1600&color=00E5FF&center=true&vCenter=true&width=640&lines=Senior+Software+Engineer;I+build+products+that+scale;Fullstack+%C2%B7+DevOps+%C2%B7+AI;Based+in+Argentina" alt="Senior Software Engineer. I build products that scale." />
+  <img src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=600&size=22&duration=2800&pause=1600&color=00E5FF&center=true&vCenter=true&width=720&lines=Senior+Software+Engineer+%40+VystoAI;I+ship+AI-powered+products+end-to-end;LLMs+%C2%B7+RAG+%C2%B7+Agents+%C2%B7+n8n;Remote+with+US+teams" alt="Senior Software Engineer at VystoAI. I ship AI-powered products end-to-end." />
 </a>
 
 <br/><br/>
 
-[![Website](https://img.shields.io/badge/Website-devfg.com.ar-00E5FF?style=for-the-badge&labelColor=0A0A0F)](https://devfg.com.ar)
+[![Portfolio](https://img.shields.io/badge/Portfolio-devfg.com.ar-00E5FF?style=for-the-badge&labelColor=0A0A0F)](https://devfg.com.ar)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Francisco_Giachero-00E5FF?style=for-the-badge&logo=linkedin&logoColor=00E5FF&labelColor=0A0A0F)](https://www.linkedin.com/in/frangiacherodeveloperweb/)
 
 <br/>
 
-*Fullstack + DevOps + AI. I help companies and startups ship real software, not demos.*
+*Senior Software Engineer at VystoAI. I ship AI-powered products end-to-end: LLMs, RAG, agents and n8n automation.*
 
-*5+ years building products end to end: interfaces, APIs, infrastructure, and AI-assisted development.*
+*Full-stack TypeScript · React/Next.js · Node.js · Python. Remote with US teams. Based in Córdoba, Argentina.*
 
 </div>
 
@@ -28,35 +28,43 @@
 const frandev = {
   name: "Francisco Giachero",
   role: "Senior Software Engineer",
-  company: "Vysto AI",
-  location: "Argentina 🇦🇷",
+  company: "VystoAI",
+  location: "Córdoba, Argentina",
   available: true,
   stack: {
+    ai: ["LLMs", "RAG", "LangChain", "n8n"],
     frontend: ["React", "Next.js", "TypeScript", "Astro"],
-    backend: ["Node.js", "Express", "FastAPI", "PostgreSQL"],
-    mobile: ["React Native", "Expo"],
-    ai: ["LangChain", "RAG", "OpenAI", "Claude"],
-    devops: ["Docker", "AWS", "Dokploy", "GitHub Actions"],
+    backend: ["Node.js", "Express", "Python", "Django"],
+    data: ["PostgreSQL", "MySQL"],
+    devops: ["AWS", "Docker", "GitHub Actions", "Linux"],
   },
-  openTo: ["freelance", "full-time", "consulting"],
+  openTo: ["Senior Software Engineer", "AI Engineer", "Full-Stack"],
 };
 ```
 
 ---
 
-## From code to product
+## About
 
-I'm **Francisco Giachero**, a software engineer with 5+ years building and evolving web applications and software systems. My experience spans frontend, backend, APIs, infrastructure, and developer tooling, so I can take a product past a single layer of the stack.
+I'm a **Senior Software Engineer** who ships products end-to-end: the interface, the API, the database, the deployment and the AI layer that ties them together. I work remotely for **VystoAI**, a US-based company, contributing across backend services, content pipelines, AI integrations and the tooling that keeps our sites healthy.
 
-I turn business requirements and problems into simple, maintainable, scalable solutions. I work with React, Next.js, TypeScript, Node.js, and Python, designing interfaces, services, and integrations, and applying principles like SOLID, testing, and sound architecture.
+I've been building for the web since 2020. I started on the frontend, and it's still one of my strongest pillars: fast, maintainable React / Next.js / TypeScript interfaces. Today I work across the whole stack. I take a problem, define it in a spec, build the complete solution, and use AI both inside the product and in the way I build it.
 
-I use AI-assisted development tools such as Claude Code and Cursor to speed up the cycle, inside structured processes like TDD and SDD. The goal is to use AI to build better and faster, without giving up quality, maintainability, or how the software evolves.
+**What I bring**
+
+- **AI in production.** LLM integrations, RAG pipelines, agents and n8n automations. I built an AI chatbot with RAG + n8n that improved answer accuracy by 85%.
+- **Full-stack delivery.** Node.js/Express and Python/Django services, REST APIs, PostgreSQL/MySQL data modeling, third-party integrations and production deployments.
+- **Frontend performance.** Cut load times by 60% through asset optimization and lazy loading, and built reusable component systems that speed up delivery.
+- **Infrastructure and operations.** 4+ years at a cloud hosting provider running production Linux/Windows servers, handling incidents and monitoring. I build software knowing how it behaves in production.
+- **AI-assisted engineering.** Cursor and Spec Driven Development (SDD) every day, plus TDD, so moving fast doesn't cost quality.
+
+Spec first, then code. I write clear specs, split the work into verifiable pieces, and use AI tools to move fast while keeping code reviewed, tested and easy to maintain. I'm comfortable owning ambiguous problems, working async with US teams in English, and moving between product, backend, frontend and infra as needed.
 
 <div align="center">
 
-![5+ years](https://img.shields.io/badge/5%2B-years_of_experience-00E5FF?style=for-the-badge&labelColor=18181F)
-![20+ projects](https://img.shields.io/badge/20%2B-projects_shipped-00E5FF?style=for-the-badge&labelColor=18181F)
-![Fullstack](https://img.shields.io/badge/Fullstack-→_infra-00E5FF?style=for-the-badge&labelColor=18181F)
+![Since 2020](https://img.shields.io/badge/2020→now-building_for_the_web-00E5FF?style=for-the-badge&labelColor=18181F)
+![Full-stack + AI](https://img.shields.io/badge/Full--stack-+_AI_in_production-00E5FF?style=for-the-badge&labelColor=18181F)
+![Remote](https://img.shields.io/badge/Remote-with_US_teams-00E5FF?style=for-the-badge&labelColor=18181F)
 
 </div>
 
@@ -64,23 +72,22 @@ I use AI-assisted development tools such as Claude Code and Cursor to speed up t
 
 ## Where I've been building
 
-<div align="center">
+Companies, clients and products that shaped how I ship.
 
 | Company | Title | When |
 |:--|:--|:--|
-| **[Vysto AI](https://vysto.ai/c/)** | Senior Software Engineer | 2026 — Present |
-| **Dewedd** | Frontend Developer | 2024 — 2026 |
-| **[Latin Cloud](https://latincloud.com/)** | L1 Operations | 2021 — 2026 |
-| **[Freelance](https://devfg.com.ar/)** | Full-Stack Developer | 2020 — Present |
-
-</div>
+| **[VystoAI](https://vysto.ai/c/)** | Senior Software Engineer<br><sub>Backend services, content pipelines, AI integration and the tooling that keeps Vysto sites healthy. Remote · Texas, United States.</sub> | May 2026 – Present |
+| **Self-employed** | Freelance Full-Stack Developer<br><sub>End-to-end client apps: requirements, UX/UI, backend, database and production deployment.</sub> | 2020 – Present |
+| **Dewedd** | Frontend Developer<br><sub>Scalable React / Next.js / TypeScript interfaces, reusable components and frontend infrastructure.</sub> | Jun 2024 – Jul 2026 |
+| **[LatinCloud](https://latincloud.com/)** | Infrastructure Operations Engineer, Tier 1 (Operaciones N1)<br><sub>Kept production services at 99.9% uptime through proactive monitoring of Linux and Windows servers (Grafana).</sub> | Feb 2023 – Feb 2026 |
+| **[LatinCloud](https://latincloud.com/)** | Web Technologies & Cloud Hosting Support<br><sub>Customer technical support for hosting panels, email and WordPress sites.</sub> | Oct 2021 – Feb 2023 |
 
 ---
 
 ## What I've built
 
 <div align="center">
-<sub>Real products, with real users. More on <a href="https://devfg.com.ar/#projects">devfg.com.ar</a>.</sub>
+<sub>Real products, real users — and AI in production. More on <a href="https://devfg.com.ar/#projects">devfg.com.ar</a>.</sub>
 </div>
 
 <br/>
@@ -89,68 +96,67 @@ I use AI-assisted development tools such as Claude Code and Cursor to speed up t
 <tr>
 <td width="50%" valign="top">
 
+### RAG + n8n AI chatbot
+![Featured](https://img.shields.io/badge/-Featured-00E5FF?style=flat-square&labelColor=0A0A0F) &nbsp;
+<kbd>AI</kbd> &nbsp; <kbd>RAG</kbd>
+
+AI chatbot with RAG retrieval and n8n automation, wired into real workflows.
+
+`LLMs` `RAG` `n8n` `OpenAI` `LangChain`
+
+</td>
+<td width="50%" valign="top">
+
 ### Carssnet
 ![Product](https://img.shields.io/badge/-Product-00E5FF?style=flat-square&labelColor=0A0A0F) &nbsp;
 <kbd>SaaS</kbd> &nbsp; <kbd>PWA</kbd>
 
-A platform that brings services, quotes, and cash flow into one place for auto repair shops.
+Web platform that centralizes services, quotes and cash flow for auto repair shops.
 
-`React` `Node` `PostgreSQL` `DaisyUI`
+`React` `Node.js` `PostgreSQL` `DaisyUI`
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### Finance Tracking
 ![Live](https://img.shields.io/badge/-Live-00E5FF?style=flat-square&labelColor=0A0A0F) &nbsp;
 <kbd>Fintech</kbd> &nbsp; <kbd>Dashboards</kbd>
 
-Personal finance app for income, expenses, and yearly metrics.
+Personal finance app with income and expense tracking and yearly dashboard metrics.
 
 [Live](https://financetraking.proyectolandia.com.ar)
 
 `React` `Node.js` `MySQL` `Docker`
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
-
 
 ### Punto Frio
 ![Live](https://img.shields.io/badge/-Live-00E5FF?style=flat-square&labelColor=0A0A0F) &nbsp;
 <kbd>Catalog</kbd> &nbsp; <kbd>Next.js</kbd>
 
-Digital catalog for a frozen-food business, built so customers can browse quickly.
+Digital product catalog for a frozen foods business, built to make browsing easier.
 
 [Live](https://puntofrio.com.ar/)
 
-`Next.js` `Tailwind` `API REST`
+`Next.js` `Tailwind CSS` `REST API`
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### Herrería SG
 ![Live](https://img.shields.io/badge/-Live-00E5FF?style=flat-square&labelColor=0A0A0F) &nbsp;
 <kbd>Landing</kbd> &nbsp; <kbd>Corporate</kbd>
 
-Company landing page with a gallery of finished work and a direct contact path.
+Corporate landing for a blacksmithing business, with a work gallery and direct contact.
 
 [Live](https://herreriasglbye.com.ar/) · [Repo](https://github.com/Frangia22/HerreriaSGlbye.github.io)
 
 `HTML` `CSS` `JavaScript`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### Laimpresioneta3d
-![Product](https://img.shields.io/badge/-Product-00E5FF?style=flat-square&labelColor=0A0A0F) &nbsp;
-<kbd>Catalog</kbd> &nbsp; <kbd>Maker</kbd>
-
-Site for showing 3D printing and laser engraving work, plus custom services.
-
-`Node` `Express` `Docker` `MySQL`
 
 </td>
 <td width="50%" valign="top">
@@ -159,7 +165,7 @@ Site for showing 3D printing and laser engraving work, plus custom services.
 ![Repo](https://img.shields.io/badge/-Repo-00E5FF?style=flat-square&labelColor=0A0A0F) &nbsp;
 <kbd>Ops</kbd> &nbsp; <kbd>Django</kbd>
 
-Booking and income/expense tracking for a sports complex.
+Management system for a sports complex: bookings and income/expense control.
 
 [Repo](https://github.com/Frangia22/Web-Luz-y-Fuerza)
 
@@ -168,6 +174,8 @@ Booking and income/expense tracking for a sports complex.
 </td>
 </tr>
 </table>
+
+Laimpresioneta3d is on the portfolio too: a site for 3D printing and laser engraving work. `Node.js` `Express` `Docker` `MySQL`
 
 ---
 
@@ -178,76 +186,47 @@ Booking and income/expense tracking for a sports complex.
 
 <br/><br/>
 
-<img src="https://skillicons.dev/icons?i=react,nextjs,astro,ts,js,html,css,tailwind,nodejs,express,py,postgres,docker,aws,githubactions,figma,linux,wordpress&theme=dark" alt="Stack" />
+<img src="https://skillicons.dev/icons?i=react,nextjs,astro,ts,js,tailwind,nodejs,express,py,django,postgres,mysql,docker,aws,githubactions,linux,nginx,grafana&theme=dark" alt="Stack" />
 
-</div>
-
----
-
-## How I can help
-
-<div align="center">
-<sub>I work with companies and startups that need more than code.</sub>
 </div>
 
 <br/>
 
-<table>
-<tr>
-<td width="50%" valign="top">
+**AI** · LLMs (OpenAI), RAG, LangChain, AI agents, n8n
 
-### 🌐 Custom web development
-<kbd>React</kbd> &nbsp; <kbd>Next.js</kbd> &nbsp; <kbd>Astro</kbd>
+**Backend** · Node.js, Express, Python, Django, REST APIs
 
-Sites and apps built to fit. From landing pages to full SaaS platforms.
+**Frontend** · React, Next.js, Astro, TypeScript, JavaScript, Tailwind CSS
 
-</td>
-<td width="50%" valign="top">
+**Data** · PostgreSQL, MySQL
 
-### ⚙️ Backend & APIs
-<kbd>Node.js</kbd> &nbsp; <kbd>Express</kbd> &nbsp; <kbd>PostgreSQL</kbd>
+**Cloud & DevOps** · AWS (EC2, S3, RDS), Docker, GitHub Actions, Nginx, Linux, Grafana
 
-REST APIs, authentication, data, and scalability.
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### ☁️ DevOps & deploy
-<kbd>AWS</kbd> &nbsp; <kbd>Docker</kbd> &nbsp; <kbd>CI/CD</kbd>
-
-Infrastructure, monitoring, GitHub Actions, and reliable deploys.
-
-</td>
-<td width="50%" valign="top">
-
-### 🔍 Technical consulting
-<kbd>Architecture</kbd> &nbsp; <kbd>Code Review</kbd> &nbsp; <kbd>Performance</kbd>
-
-Stack choices, reviews, and technical decisions.
-
-</td>
-</tr>
-</table>
-
-<div align="center">
-
-[Not sure which one you need? Let's talk →](https://devfg.com.ar/#contact)
-
-</div>
+**Practices** · SDD, TDD, DDD, AI-assisted development (Cursor)
 
 ---
 
-## Have a project in mind?
+## Education
+
+- **UTN FRBA (e-Learning)** — Professional Webmaster · Mar 2021 – Sep 2021
+- **Polotic Misiones** — Junior Full-Stack Web Developer (PHP) · 2020
+- **IPET y M N°257, Laboulaye** — Electronics Technician · 2014 – 2020
+
+Certifications: Junior Full Stack Developer · Programming Essentials in Python
+
+---
+
+## Open to
+
+Remote **Senior Software Engineer**, **AI Engineer** and **Full-Stack** roles. Also freelance projects.
 
 <div align="center">
 
-I reply within 24 hours. No endless forms — just tell me what you need.
+I reply within 24 hours.
 
 <br/>
 
-[![Get in touch](https://img.shields.io/badge/Get_in_touch-00E5FF?style=for-the-badge&labelColor=0A0A0F&color=00E5FF)](https://devfg.com.ar/#contact)
+[![Portfolio](https://img.shields.io/badge/Portfolio-00E5FF?style=for-the-badge&labelColor=0A0A0F&color=00E5FF)](https://devfg.com.ar/#contact)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A0A0F?style=for-the-badge&logo=linkedin&logoColor=00E5FF&labelColor=18181F)](https://www.linkedin.com/in/frangiacherodeveloperweb/)
 
 <br/>
