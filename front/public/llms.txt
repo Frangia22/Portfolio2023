@@ -1,0 +1,50 @@
+# Francisco Giachero
+
+> Senior Software Engineer / AI-native full-stack. I ship products end-to-end: interface, API, database, deployment and the AI layer. Remote for VystoAI (US). Based in Córdoba, Argentina. Open to remote Senior Software Engineer, AI Engineer and Full-Stack roles — and freelance projects.
+
+Francisco Giachero (devfg) has been building for the web since 2020. Frontend (React / Next.js / TypeScript) remains a strong pillar; today he works across the whole stack with LLMs, RAG, agents, n8n, Node.js, Python/Django, PostgreSQL/MySQL, AWS and Docker. Daily practice: Spec Driven Development (SDD), TDD and AI-assisted engineering with Cursor.
+
+## Main pages
+
+- [Home (EN)](https://devfg.com.ar/): Value proposition and full profile
+- [Home (ES)](https://devfg.com.ar/es/): Same content in Spanish
+- [Projects](https://devfg.com.ar/#projects): Featured work including RAG + n8n chatbot, Carssnet, Finance Tracking
+- [Stack](https://devfg.com.ar/#stack): Production technologies
+- [Experience](https://devfg.com.ar/#experience): VystoAI, Freelance, Dewedd, LatinCloud
+- [What I bring](https://devfg.com.ar/#services): AI in production, full-stack, frontend performance, infra/ops
+- [Contact](https://devfg.com.ar/#contact): Hiring and project inquiries
+
+## Featured work
+
+- **RAG + n8n AI chatbot**: LLM + retrieval + n8n automation; 85% answer accuracy gain
+- **Carssnet**: SaaS for auto repair shops (React, Node.js, PostgreSQL, PWA)
+- **Finance Tracking**: Personal finance app with interactive dashboards
+- **Client websites**: Herreria SG, Punto Frio, Laimpresioneta3d, Luz y Fuerza LBYE
+
+## Experience
+
+- **VystoAI** (May 2026 – Present · Texas, US · Remote): Senior Software Engineer — backend services, content pipelines, AI integration, site tooling
+- **Freelance Full-Stack** (2020 – Present · Remote): End-to-end web apps for clients
+- **Dewedd** (Jun 2024 – Jul 2026): Frontend Developer — React, Next.js, TypeScript
+- **LatinCloud** (Oct 2021 – Feb 2026): Infrastructure Operations / Web hosting support — 99.9% uptime via monitoring
+
+## Profile signals (About)
+
+- Building for the web since 2020
+- Full-stack + AI in production
+- Remote with US teams
+
+## Verified metric in experience
+
+- 99.9% uptime — LatinCloud (Infrastructure Operations)
+
+## Stack
+
+AI: LLMs (OpenAI), RAG, LangChain, AI agents, n8n · Backend: Node.js, Express, Python, Django, REST APIs · Frontend: React, Next.js, Astro, TypeScript, JavaScript, Tailwind CSS · Data: PostgreSQL, MySQL · Cloud & DevOps: AWS (EC2, S3, RDS), Docker, GitHub Actions, Nginx, Linux, Grafana · Practices: SDD, TDD, DDD, Cursor
+
+## Contact
+
+- Web: https://devfg.com.ar
+- GitHub: https://github.com/Frangia22
+- LinkedIn: https://linkedin.com/in/frangiacherodeveloperweb/
+- WhatsApp: https://wa.me/5493385401988

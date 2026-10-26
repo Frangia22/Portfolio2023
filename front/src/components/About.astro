@@ -1,0 +1,91 @@
+---
+import { AboutTerminal } from "./AboutTerminal";
+import { getContent, type Locale } from "../data/site";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale ?? "en";
+const c = getContent(locale);
+const { about, profile, terminal, stack } = c;
+
+const aboutSnippet = `const frandev = {
+  name: "${profile.name}",
+  role: "${profile.jobTitle}",
+  company: "${profile.company}",
+  location: "${profile.location} 🇦🇷",
+  available: true,
+  openTo: ${JSON.stringify(profile.openTo)},
+};`;
+
+const stackSnippet = `const stack = {
+${stack.categories
+  .map(
+    (cat) =>
+      `  ${JSON.stringify(cat.cat)}: ${JSON.stringify(cat.items)},`,
+  )
+  .join("\n")}
+};`;
+
+const contactSnippet = `const contact = {
+  email: ${profile.email ? `"${profile.email}"` : "undefined"},
+  linkedin: "${profile.linkedin}",
+  github: "${profile.github}",
+  whatsapp: "wa.me/${profile.whatsapp}",
+  openTo: ${JSON.stringify(profile.openTo)},
+};`;
+---
+
+<section
+  id="about-section"
+  class="bg-senary py-25 px-5 md:px-10"
+  style="clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);"
+>
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 items-center">
+    <div>
+      <span
+        class="font-jetbrains-mono text-sm text-primary block mb-3"
+        aria-hidden="true">{about.sectionLabel}</span
+      >
+      <h2
+        class="font-space-grotesk font-bold text-2xl md:text-4xl text-white mb-6 tracking-[-1px] leading-1.15"
+      >
+        {about.title}
+        <br />
+        {about.titleLine2}
+      </h2>
+      {
+        about.paragraphs.map((p) => (
+          <p class="text-[#E2E8F0] leading-[1.85] mb-6">{p}</p>
+        ))
+      }
+      <div class="flex flex-wrap md:grid md:grid-cols-3 gap-3.5">
+        {
+          about.metrics.map((m) => (
+            <div class="bg-quinary border border-tertiary rounded-lg px-4.5 py-4">
+              <div class="font-space-grotesk font-bold text-[26px] text-primary">
+                {m.value}
+              </div>
+              <div class="text-xs text-secondary mt-1 leading-snug">{m.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="w-full overflow-x-auto">
+      <AboutTerminal
+        client:visible
+        tabs={[
+          { id: "about", label: terminal.aboutFilename, code: aboutSnippet },
+          { id: "stack", label: terminal.stackFilename, code: stackSnippet },
+          {
+            id: "contact",
+            label: terminal.contactFilename,
+            code: contactSnippet,
+          },
+        ]}
+      />
+    </div>
+  </div>
+</section>

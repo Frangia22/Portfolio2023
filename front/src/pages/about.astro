@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Layout.astro";
+import About from "../components/About.astro";
+import { getContent } from "../data/site";
+
+const c = getContent("en");
+---
+
+<Layout locale="en" title={`About | ${c.seo.siteName}`} description={c.about.paragraphs[0]}>
+  <About locale="en" />
+</Layout>

@@ -1,0 +1,207 @@
+---
+import { getAlternatePath, getContent, type Locale } from "../../data/site";
+import LanguageSwitch from "./LanguageSwitch.astro";
+import { CommandPalette } from "../CommandPalette";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale ?? "en";
+const c = getContent(locale);
+const pathname = Astro.url.pathname;
+const isHome =
+  pathname === "/" || pathname === "/es" || pathname === "/es/";
+const homePrefix = locale === "es" ? "/es" : "";
+const contactHref = isHome ? `${homePrefix}/#contact` : `${homePrefix}/contact`;
+const switchLocale: Locale = locale === "en" ? "es" : "en";
+const switchLocaleHref = getAlternatePath(pathname, switchLocale);
+
+const sectionHrefs = [
+  { id: "projects", label: c.nav.find((n) => n.href.includes("projects"))?.name ?? "Projects", href: `${homePrefix}/#projects` },
+  { id: "stack", label: c.nav.find((n) => n.href.includes("stack"))?.name ?? "Stack", href: `${homePrefix}/#stack` },
+  { id: "about", label: c.nav.find((n) => n.href.includes("about"))?.name ?? "About", href: `${homePrefix}/#about` },
+  { id: "experience", label: c.nav.find((n) => n.href.includes("experience"))?.name ?? "Experience", href: `${homePrefix}/#experience` },
+  { id: "services", label: c.nav.find((n) => n.href.includes("services"))?.name ?? "Services", href: `${homePrefix}/#services` },
+  { id: "contact", label: c.nav.find((n) => n.href.includes("contact"))?.name ?? "Contact", href: `${homePrefix}/#contact` },
+];
+
+function navHref(href: string) {
+  if (isHome) {
+    const slug = href.replace(/^\/es/, "").replace(/^\//, "");
+    return `${homePrefix}/#${slug}`;
+  }
+  return href;
+}
+
+function isActive(href: string) {
+  const normalized = href.replace(/\/$/, "");
+  const path = pathname.replace(/\/$/, "") || "/";
+  return path === normalized;
+}
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 flex items-center justify-between md:justify-around px-6"
+>
+  <a href={homePrefix || "/"} class="flex items-center gap-2 no-underline">
+    <span class="font-space-grotesk font-bold text-2xl text-white"
+      >FG<span class="text-primary">·</span></span
+    >
+    <span class="font-space-grotesk text-sm text-secondary">devfg</span>
+  </a>
+
+  <div class="hidden md:flex items-center gap-5">
+    {
+      c.nav.map((l) => (
+        <a
+          href={navHref(l.href)}
+          class:list={[
+            "font-space-grotesk font-medium text-sm transition-colors duration-150 no-underline",
+            isActive(l.href) ? "text-white" : "text-secondary hover:text-white",
+          ]}
+        >
+          {l.name}
+        </a>
+      ))
+    }
+    <LanguageSwitch locale={locale} />
+    <CommandPalette
+      client:idle
+      openLabel={locale === "es" ? "Buscar acciones" : "Search actions"}
+      actions={[]}
+      email={c.profile.email}
+      emailCopiedLabel={c.ui.emailCopied}
+      locale={locale}
+      cvUrl={c.profile.cvUrl}
+      github={c.profile.github}
+      linkedin={c.profile.linkedin}
+      sectionHrefs={sectionHrefs}
+      switchLocaleHref={switchLocaleHref}
+      switchLocaleLabel={locale === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
+    />
+    <a
+      id="cta-button"
+      href={contactHref}
+      class="hidden font-space-grotesk font-medium text-sm text-primary border border-primary rounded-md px-4 py-2 transition-all duration-300 hover:bg-primary hover:text-background no-underline"
+    >
+      {c.ui.talkCta}
+    </a>
+  </div>
+
+  <button
+    id="menu-toggle"
+    aria-label={c.ui.openMenu}
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-md text-secondary hover:text-white transition-colors"
+  >
+    <span class="hamburger-line block w-5 h-px bg-current transition-all duration-300"
+    ></span>
+    <span class="hamburger-line block w-5 h-px bg-current transition-all duration-300"
+    ></span>
+    <span class="hamburger-line block w-5 h-px bg-current transition-all duration-300"
+    ></span>
+  </button>
+</nav>
+
+<div
+  id="mobile-menu"
+  class="fixed top-16 left-0 right-0 z-40 bg-background border-b border-tertiary flex flex-col px-6 py-6 gap-5 md:hidden translate-y-[-110%] opacity-0 transition-all duration-300 ease-out"
+  aria-hidden="true"
+  inert
+>
+  {
+    c.nav.map((l) => (
+      <a
+        href={navHref(l.href)}
+        class:list={[
+          "mobile-nav-link font-space-grotesk font-medium text-base no-underline transition-colors duration-150 py-1",
+          isActive(l.href) ? "text-white" : "text-secondary",
+        ]}
+      >
+        {l.name}
+      </a>
+    ))
+  }
+  <LanguageSwitch locale={locale} />
+  <a
+    href={contactHref}
+    class="mobile-nav-link mt-2 font-space-grotesk font-medium text-sm text-primary border border-primary rounded-md px-4 py-2.5 text-center transition-all duration-300 hover:bg-primary hover:text-background no-underline"
+  >
+    {c.ui.talkCta}
+  </a>
+</div>
+
+<div
+  id="menu-backdrop"
+  class="fixed inset-0 z-30 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+>
+</div>
+
+<script
+  define:vars={{
+    openLabel: c.ui.openMenu,
+    closeLabel: c.ui.closeMenu,
+  }}
+>
+  const navbar = document.getElementById("navbar");
+  const ctaButton = document.getElementById("cta-button");
+  const toggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const backdrop = document.getElementById("menu-backdrop");
+  const lines = document.querySelectorAll(".hamburger-line");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+  const scrollClasses = [
+    "bg-background",
+    "backdrop-blur-md",
+    "border-b",
+    "border-tertiary",
+  ];
+
+  window.addEventListener("scroll", () => {
+    const past = window.scrollY > 100;
+    ctaButton?.classList.toggle("hidden", !past);
+    scrollClasses.forEach((cls) => navbar?.classList.toggle(cls, past));
+  });
+
+  let isOpen = false;
+
+  function openMenu() {
+    isOpen = true;
+    mobileMenu?.classList.remove("translate-y-[-110%]", "opacity-0");
+    mobileMenu?.setAttribute("aria-hidden", "false");
+    mobileMenu?.removeAttribute("inert");
+    backdrop?.classList.remove("opacity-0", "pointer-events-none");
+    toggle?.setAttribute("aria-expanded", "true");
+    toggle?.setAttribute("aria-label", closeLabel);
+    lines[0]?.classList.add("rotate-45", "translate-y-[7px]");
+    lines[1]?.classList.add("opacity-0", "scale-x-0");
+    lines[2]?.classList.add("-rotate-45", "-translate-y-[7px]");
+    const first = mobileMenu?.querySelector("a");
+    first?.focus();
+  }
+
+  function closeMenu() {
+    isOpen = false;
+    mobileMenu?.classList.add("translate-y-[-110%]", "opacity-0");
+    mobileMenu?.setAttribute("aria-hidden", "true");
+    mobileMenu?.setAttribute("inert", "");
+    backdrop?.classList.add("opacity-0", "pointer-events-none");
+    toggle?.setAttribute("aria-expanded", "false");
+    toggle?.setAttribute("aria-label", openLabel);
+    lines[0]?.classList.remove("rotate-45", "translate-y-[7px]");
+    lines[1]?.classList.remove("opacity-0", "scale-x-0");
+    lines[2]?.classList.remove("-rotate-45", "-translate-y-[7px]");
+    toggle?.focus();
+  }
+
+  toggle?.addEventListener("click", () => (isOpen ? closeMenu() : openMenu()));
+  backdrop?.addEventListener("click", closeMenu);
+  mobileLinks.forEach((link) => link.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen) closeMenu();
+  });
+</script>

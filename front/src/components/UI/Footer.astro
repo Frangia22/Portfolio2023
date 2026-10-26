@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import { getContent, type Locale } from "../../data/site";
+import logoWhite from "../../assets/FG-dev-horizontal-white.webp";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale ?? "en";
+const c = getContent(locale);
+const pathname = Astro.url.pathname;
+const isHome = pathname === "/" || pathname === "/es" || pathname === "/es/";
+const homePrefix = locale === "es" ? "/es" : "";
+
+function navHref(href: string) {
+  if (isHome) {
+    const slug = href.replace(/^\/es/, "").replace(/^\//, "");
+    return `${homePrefix}/#${slug}`;
+  }
+  return href;
+}
+---
+
+<footer class="bg-background border-t border-tertiary px-5 md:px-10 py-10">
+  <div class="max-w-7xl mx-auto">
+    <div
+      class="flex flex-col md:flex-row justify-between md:items-center mb-5 gap-5"
+    >
+      <a href={homePrefix || "/"} class="w-25 h-6">
+        <Image
+          src={logoWhite}
+          alt="FG Dev"
+          class="w-full h-full object-contain"
+          width={1000}
+          height={1000}
+        />
+      </a>
+      <div class="flex flex-col md:flex-row gap-6">
+        {
+          c.nav.map((link) => (
+            <a
+              href={navHref(link.href)}
+              class="text-sm text-secondary hover:text-white cursor-pointer transition-colors duration-150 no-underline"
+            >
+              {link.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div
+      class="flex flex-col md:flex-row justify-between md:items-center border-t border-quaternary pt-5 gap-5"
+    >
+      <span class="text-sm text-secondary"
+        >© 2026 {locale === "es" ? "Derechos reservados" : "All rights reserved"} | FG Dev</span
+      >
+      <span class="text-sm text-secondary"
+        >{
+          locale === "es"
+            ? "Diseñado y desarrollado por mí, con orgullo. 🇦🇷"
+            : "Designed and built by me, proudly. 🇦🇷"
+        }</span
+      >
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Experience from "../components/Experience.astro";
+import { getContent } from "../data/site";
+
+const c = getContent("en");
+---
+
+<Layout
+  locale="en"
+  title={`Experience | ${c.seo.siteName}`}
+  description={c.experience.subtitle}
+>
+  <Experience locale="en" />
+</Layout>

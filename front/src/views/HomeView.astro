@@ -1,0 +1,24 @@
+---
+import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
+import Stack from "../components/Stack.astro";
+import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Services from "../components/Services.astro";
+import Contact from "../components/Contact.astro";
+import type { Locale } from "../data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<Hero locale={locale} />
+<section id="projects"><Projects locale={locale} /></section>
+<section id="stack"><Stack locale={locale} /></section>
+<section id="about"><About locale={locale} /></section>
+<section id="experience"><Experience locale={locale} /></section>
+<section id="services"><Services locale={locale} /></section>
+<section id="contact"><Contact locale={locale} /></section>

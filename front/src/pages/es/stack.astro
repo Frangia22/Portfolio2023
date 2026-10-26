@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Stack from "../../components/Stack.astro";
+import { getContent } from "../../data/site";
+
+const c = getContent("es");
+---
+
+<Layout locale="es" title={`Stack | ${c.seo.siteName}`} description={c.stack.subtitle}>
+  <Stack locale="es" />
+</Layout>

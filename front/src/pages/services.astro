@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Services from "../components/Services.astro";
+import { getContent } from "../data/site";
+
+const c = getContent("en");
+---
+
+<Layout
+  locale="en"
+  title={`${c.pillars.title} | ${c.seo.siteName}`}
+  description={c.pillars.subtitle}
+>
+  <Services locale="en" />
+</Layout>

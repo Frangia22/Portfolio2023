@@ -1,0 +1,79 @@
+---
+import { getContent, type Locale } from "../data/site";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale ?? "en";
+const c = getContent(locale);
+const { stack } = c;
+---
+
+<section id="stack-section" class="bg-background py-25 px-5 md:px-10 relative">
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse at center, rgba(0,229,255,0.05) 0%, transparent 65%);"
+  >
+  </div>
+  <div class="max-w-7xl mx-auto flex flex-col items-center">
+    <div id="stack-header" class="text-center mb-14 reveal-pending">
+      <span class="font-jetbrains-mono text-sm text-primary block mb-3" aria-hidden="true"
+        >{stack.sectionLabel}</span
+      >
+      <h2
+        class="font-space-grotesk font-bold text-2xl md:text-4xl text-white mb-6 tracking-[-1px] leading-[1.15]"
+      >
+        {stack.title}
+      </h2>
+      <p class="text-secondary text-[17px]">{stack.subtitle}</p>
+    </div>
+
+    <div class="flex flex-col gap-7 w-full max-w-4xl">
+      {
+        stack.categories.map((cat, ci) => (
+          <div>
+            <div class="font-jetbrains-mono text-xs text-secondary tracking-widest mb-2.5">
+              {cat.cat}
+            </div>
+            <div class="flex flex-wrap">
+              {cat.items.map((item, ii) => (
+                <span
+                  class="chip inline-block bg-quinary border border-tertiary rounded-lg px-3.5 py-[7px] m-1 font-space-grotesk font-medium text-[#E2E8F0] text-sm cursor-default reveal-pending hover:border-primary/60 hover:bg-primary/40"
+                  style={`transition-property: opacity, transform; transition-duration: 300ms; transition-delay: ${ci * 60 + ii * 30}ms;`}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p
+      id="stack-footer"
+      class="text-center text-secondary text-[15px] max-w-[600px] mx-auto mt-12 leading-[1.7] reveal-pending"
+    >
+      {stack.footer}
+    </p>
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById("stack-section");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          section
+            ?.querySelectorAll(".reveal-pending")
+            .forEach((el) => el.classList.add("is-visible"));
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+  if (section) observer.observe(section);
+</script>

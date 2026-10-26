@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# LLMs.txt — context for AI language models
+# https://llmstxt.org
+LLMs: /llms.txt
+
+Sitemap: https://devfg.com.ar/sitemap-index.xml

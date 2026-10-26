@@ -1,0 +1,129 @@
+---
+import { ContactForm } from "./ContactForm";
+import { getContent, type Locale } from "../data/site";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale ?? "en";
+const c = getContent(locale);
+const { contact: ct, social, ui, profile } = c;
+---
+
+<section
+  id="contact-section"
+  class="bg-background py-25 px-5 md:px-10 relative"
+  style="clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);"
+>
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background:radial-gradient(ellipse at center, rgba(0,229,255,0.10) 0%, transparent 60%);"
+  >
+  </div>
+  <div class="max-w-140 mx-auto text-center text-primary">
+    <span class="font-jetbrains-mono text-sm text-primary block mb-3" aria-hidden="true"
+      >{ct.sectionLabel}</span
+    >
+    <h2
+      class="font-space-grotesk font-bold text-2xl md:text-4xl text-white mb-4 tracking-tight leading-1.15"
+    >
+      {ct.title}
+      <br />
+      <span class="text-primary">{ct.titleAccent}</span>
+    </h2>
+    <p class="text-secondary text-base leading-relaxed mb-10">{ct.subtitle}</p>
+
+    <div class="grid md:grid-cols-2 gap-6 text-left mb-10">
+      <div class="bg-quinary border border-tertiary rounded-xl px-5 py-6">
+        <h3 class="font-space-grotesk font-semibold text-white mb-2">
+          {ct.hiringHeading}
+        </h3>
+        <p class="text-secondary text-sm leading-relaxed mb-4">{ct.hiringBody}</p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="linkedin_click"
+            class="font-space-grotesk text-sm text-primary hover:underline"
+          >
+            LinkedIn
+            <span class="sr-only">{ui.opensInNewTab}</span>
+          </a>
+          {
+            profile.email && (
+              <button
+                type="button"
+                id="copy-email-btn"
+                data-email={profile.email}
+                data-copied={ui.emailCopied}
+                data-track="email_copy"
+                class="font-space-grotesk text-sm text-primary hover:underline cursor-pointer bg-transparent border-0 p-0"
+              >
+                {ui.copyEmail}
+              </button>
+            )
+          }
+          {
+            profile.cvUrl && (
+              <a
+                href={profile.cvUrl}
+                download
+                data-track="cv_download"
+                class="font-space-grotesk text-sm text-primary hover:underline"
+              >
+                {ui.downloadCv}
+              </a>
+            )
+          }
+        </div>
+      </div>
+      <div class="bg-quinary border border-tertiary rounded-xl px-5 py-6">
+        <h3 class="font-space-grotesk font-semibold text-white mb-2">
+          {ct.projectHeading}
+        </h3>
+        <p class="text-secondary text-sm leading-relaxed">{ct.projectBody}</p>
+      </div>
+    </div>
+
+    <ContactForm client:load messages={ct.form} whatsapp={profile.whatsapp} />
+
+    <div class="flex justify-center gap-7 mt-7">
+      {
+        social.map((link) => (
+          <a
+            href={link.href}
+            target={link.target}
+            rel="noopener noreferrer"
+            class="font-space-grotesk text-secondary text-sm cursor-pointer transition-colors duration-150 hover:text-white"
+          >
+            {link.name}
+            {link.target === "_blank" && (
+              <span class="sr-only">{ui.opensInNewTab}</span>
+            )}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const btn = document.getElementById("copy-email-btn");
+  btn?.addEventListener("click", async () => {
+    const email = btn.getAttribute("data-email");
+    const msg = btn.getAttribute("data-copied") || "Copied";
+    if (!email) return;
+    try {
+      await navigator.clipboard.writeText(email);
+      window.dispatchEvent(
+        new CustomEvent("fg:toast", { detail: { message: msg } }),
+      );
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "email_copy" });
+    } catch {
+      /* ignore */
+    }
+  });
+</script>
